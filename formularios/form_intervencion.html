@@ -228,105 +228,105 @@
         document.getElementById('informe-form').addEventListener('submit', async function (event) {
             event.preventDefault(); // Evita el envío normal del formulario
 
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            const titulo = document.getElementById('titulo').value;
-            const fechaHora = new Date(document.getElementById('fecha-hora').value).toLocaleString('es-ES', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: false
-            });
-            const horaFin = document.getElementById('hora-fin').value;
-            const ubicacion = document.getElementById('ubicacion').value;
-            const voluntario = document.getElementById('voluntario').value;
-            const vehiculo = document.getElementById('vehiculo').value;
-            const solicitante = document.getElementById('solicitante').value;
-            const cooperacion = document.getElementById('cooperacion').value;
-            const categoria = document.getElementById('categoria').value;
-
-            // Aquí generas el contenido del PDF basado en el formulario
-            doc.text(20, 20, `Título: ${titulo}`);
-            doc.text(20, 30, `Fecha y Hora: ${fechaHora}`);
-            doc.text(20, 40, `Hora de Fin: ${horaFin}`);
-            doc.text(20, 50, `Ubicación: ${ubicacion}`);
-            doc.text(20, 60, `Voluntario: ${voluntario}`);
-            doc.text(20, 70, `Vehículo Utilizado: ${vehiculo}`);
-            doc.text(20, 80, `Solicitante: ${solicitante}`);
-            doc.text(20, 90, `Cooperación con otras entidades: ${cooperacion}`);
-            doc.text(20, 100, `Categoría: ${categoria}`);
-
-            // Añadir campos específicos según la categoría seleccionada
-            if (categoria === 'sanitaria') {
-                const nombrePaciente = document.getElementById('nombre-paciente').value;
-                const motivoIntervencion = document.getElementById('motivo-intervencion').value;
-                const estadoPaciente = document.getElementById('estado-paciente').value;
-                const primerosAuxilios = document.getElementById('primeros-auxilios').value;
-                const traslado = document.getElementById('traslado').value;
-                doc.text(20, 110, `Nombre del Paciente: ${nombrePaciente}`);
-                doc.text(20, 120, `Motivo de la Intervención: ${motivoIntervencion}`);
-                doc.text(20, 130, `Estado del Paciente: ${estadoPaciente}`);
-                doc.text(20, 140, `Primeros Auxilios Aplicados: ${primerosAuxilios}`);
-                doc.text(20, 150, `Traslado: ${traslado}`);
-            } else if (categoria === 'incendio') {
-                const tipoIncendio = document.getElementById('tipo-incendio').value;
-                const intervencionRealizada = document.getElementById('intervencion-realizada').value;
-                const recursosEmpleados = document.getElementById('recursos-empleados').value;
-                const conclusion = document.getElementById('conclusion').value;
-                doc.text(20, 110, `Tipo de Incendio: ${tipoIncendio}`);
-                doc.text(20, 120, `Intervención Realizada: ${intervencionRealizada}`);
-                doc.text(20, 130, `Recursos Empleados: ${recursosEmpleados}`);
-                doc.text(20, 140, `Conclusión: ${conclusion}`);
-            } else if (categoria === 'trafico') {
-                const tipoIntervencionTrafico = document.getElementById('tipo-intervencion-trafico').value;
-                const causaIncidente = document.getElementById('causa-incidente').value;
-                const medidasApoyoTrafico = document.getElementById('medidas-apoyo-trafico').value;
-                doc.text(20, 110, `Tipo de Intervención: ${tipoIntervencionTrafico}`);
-                doc.text(20, 120, `Causa del Incidente: ${causaIncidente}`);
-                doc.text(20, 130, `Medidas de Apoyo Realizadas: ${medidasApoyoTrafico}`);
-            } else if (categoria === 'ayuda_social') {
-                const tipoIntervencionSocial = document.getElementById('tipo-intervencion-social').value;
-                const beneficiarios = document.getElementById('beneficiarios').value;
-                const medidasApoyoSocial = document.getElementById('medidas-apoyo-social').value;
-                const recursosMaterialesSocial = document.getElementById('recursos-materiales-social').value;
-                doc.text(20, 110, `Tipo de Intervención Social: ${tipoIntervencionSocial}`);
-                doc.text(20, 120, `Beneficiario/s: ${beneficiarios}`);
-                doc.text(20, 130, `Medidas de Apoyo Realizadas: ${medidasApoyoSocial}`);
-                doc.text(20, 140, `Recursos y Materiales Utilizados: ${recursosMaterialesSocial}`);
-            } else if (categoria === 'proteccion_animal') {
-                const tipoIntervencionAnimal = document.getElementById('tipo-intervencion-animal').value;
-                const tipoAnimal = document.getElementById('tipo-animal').value;
-                const medidasApoyoAnimal = document.getElementById('medidas-apoyo-animal').value;
-                const recursosMaterialesAnimal = document.getElementById('recursos-materiales-animal').value;
-                const trasladoAnimal = document.getElementById('traslado-animal').value;
-                doc.text(20, 110, `Tipo de Intervención: ${tipoIntervencionAnimal}`);
-                doc.text(20, 120, `Tipo de Animal: ${tipoAnimal}`);
-                doc.text(20, 130, `Medidas de Apoyo Realizadas: ${medidasApoyoAnimal}`);
-                doc.text(20, 140, `Recursos y Materiales Utilizados: ${recursosMaterialesAnimal}`);
-                doc.text(20, 150, `Traslado: ${trasladoAnimal}`);
-            }
-
-            // Generar el PDF como un blob
-            const pdfBlob = doc.output('blob');
-
-            // Crear un FormData para enviar el PDF al servidor
-            const formData = new FormData();
-            formData.append('titulo', titulo.replace(/\s+/g, '-')); // Reemplaza los espacios por guiones
-            formData.append('fecha-hora', fechaHora);
-            formData.append('hora-fin', horaFin);
-            formData.append('ubicacion', ubicacion);
-            formData.append('voluntario', voluntario);
-            formData.append('vehiculo', vehiculo);
-            formData.append('solicitante', solicitante);
-            formData.append('cooperacion', cooperacion);
-            formData.append('categoria', categoria);
-            formData.append('pdf', pdfBlob, 'informe.pdf');
-
-            // Enviar el PDF generado al backend
             try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                const titulo = document.getElementById('titulo').value;
+                const fechaHora = new Date(document.getElementById('fecha-hora').value).toLocaleString('es-ES', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+                const horaFin = document.getElementById('hora-fin').value;
+                const ubicacion = document.getElementById('ubicacion').value;
+                const voluntario = document.getElementById('voluntario').value;
+                const vehiculo = document.getElementById('vehiculo').value;
+                const solicitante = document.getElementById('solicitante').value;
+                const cooperacion = document.getElementById('cooperacion').value;
+                const categoria = document.getElementById('categoria').value;
+
+                // Aquí generas el contenido del PDF basado en el formulario
+                doc.text(20, 20, `Título: ${titulo}`);
+                doc.text(20, 30, `Fecha y Hora: ${fechaHora}`);
+                doc.text(20, 40, `Hora de Fin: ${horaFin}`);
+                doc.text(20, 50, `Ubicación: ${ubicacion}`);
+                doc.text(20, 60, `Voluntario: ${voluntario}`);
+                doc.text(20, 70, `Vehículo Utilizado: ${vehiculo}`);
+                doc.text(20, 80, `Solicitante: ${solicitante}`);
+                doc.text(20, 90, `Cooperación con otras entidades: ${cooperacion}`);
+                doc.text(20, 100, `Categoría: ${categoria}`);
+
+                // Añadir campos específicos según la categoría seleccionada
+                if (categoria === 'sanitaria') {
+                    const nombrePaciente = document.getElementById('nombre-paciente').value;
+                    const motivoIntervencion = document.getElementById('motivo-intervencion').value;
+                    const estadoPaciente = document.getElementById('estado-paciente').value;
+                    const primerosAuxilios = document.getElementById('primeros-auxilios').value;
+                    const traslado = document.getElementById('traslado').value;
+                    doc.text(20, 110, `Nombre del Paciente: ${nombrePaciente}`);
+                    doc.text(20, 120, `Motivo de la Intervención: ${motivoIntervencion}`);
+                    doc.text(20, 130, `Estado del Paciente: ${estadoPaciente}`);
+                    doc.text(20, 140, `Primeros Auxilios Aplicados: ${primerosAuxilios}`);
+                    doc.text(20, 150, `Traslado: ${traslado}`);
+                } else if (categoria === 'incendio') {
+                    const tipoIncendio = document.getElementById('tipo-incendio').value;
+                    const intervencionRealizada = document.getElementById('intervencion-realizada').value;
+                    const recursosEmpleados = document.getElementById('recursos-empleados').value;
+                    const conclusion = document.getElementById('conclusion').value;
+                    doc.text(20, 110, `Tipo de Incendio: ${tipoIncendio}`);
+                    doc.text(20, 120, `Intervención Realizada: ${intervencionRealizada}`);
+                    doc.text(20, 130, `Recursos Empleados: ${recursosEmpleados}`);
+                    doc.text(20, 140, `Conclusión: ${conclusion}`);
+                } else if (categoria === 'trafico') {
+                    const tipoIntervencionTrafico = document.getElementById('tipo-intervencion-trafico').value;
+                    const causaIncidente = document.getElementById('causa-incidente').value;
+                    const medidasApoyoTrafico = document.getElementById('medidas-apoyo-trafico').value;
+                    doc.text(20, 110, `Tipo de Intervención: ${tipoIntervencionTrafico}`);
+                    doc.text(20, 120, `Causa del Incidente: ${causaIncidente}`);
+                    doc.text(20, 130, `Medidas de Apoyo Realizadas: ${medidasApoyoTrafico}`);
+                } else if (categoria === 'ayuda_social') {
+                    const tipoIntervencionSocial = document.getElementById('tipo-intervencion-social').value;
+                    const beneficiarios = document.getElementById('beneficiarios').value;
+                    const medidasApoyoSocial = document.getElementById('medidas-apoyo-social').value;
+                    const recursosMaterialesSocial = document.getElementById('recursos-materiales-social').value;
+                    doc.text(20, 110, `Tipo de Intervención Social: ${tipoIntervencionSocial}`);
+                    doc.text(20, 120, `Beneficiario/s: ${beneficiarios}`);
+                    doc.text(20, 130, `Medidas de Apoyo Realizadas: ${medidasApoyoSocial}`);
+                    doc.text(20, 140, `Recursos y Materiales Utilizados: ${recursosMaterialesSocial}`);
+                } else if (categoria === 'proteccion_animal') {
+                    const tipoIntervencionAnimal = document.getElementById('tipo-intervencion-animal').value;
+                    const tipoAnimal = document.getElementById('tipo-animal').value;
+                    const medidasApoyoAnimal = document.getElementById('medidas-apoyo-animal').value;
+                    const recursosMaterialesAnimal = document.getElementById('recursos-materiales-animal').value;
+                    const trasladoAnimal = document.getElementById('traslado-animal').value;
+                    doc.text(20, 110, `Tipo de Intervención: ${tipoIntervencionAnimal}`);
+                    doc.text(20, 120, `Tipo de Animal: ${tipoAnimal}`);
+                    doc.text(20, 130, `Medidas de Apoyo Realizadas: ${medidasApoyoAnimal}`);
+                    doc.text(20, 140, `Recursos y Materiales Utilizados: ${recursosMaterialesAnimal}`);
+                    doc.text(20, 150, `Traslado: ${trasladoAnimal}`);
+                }
+
+                // Generar el PDF como un blob
+                const pdfBlob = doc.output('blob');
+
+                // Crear un FormData para enviar el PDF al servidor
+                const formData = new FormData();
+                formData.append('titulo', titulo.replace(/\s+/g, '-')); // Reemplaza los espacios por guiones
+                formData.append('fecha-hora', fechaHora);
+                formData.append('hora-fin', horaFin);
+                formData.append('ubicacion', ubicacion);
+                formData.append('voluntario', voluntario);
+                formData.append('vehiculo', vehiculo);
+                formData.append('solicitante', solicitante);
+                formData.append('cooperacion', cooperacion);
+                formData.append('categoria', categoria);
+                formData.append('pdf', pdfBlob, 'informe.pdf');
+
+                // Enviar el PDF generado al backend
                 const response = await fetch('/api/upload', {
                     method: 'POST',
                     body: formData
@@ -340,8 +340,8 @@
                     alert('Error al subir el informe');
                 }
             } catch (error) {
-                console.error('Error en la solicitud:', error);
-                alert('Error al subir el informe');
+                console.error('Error al generar o subir el informe:', error);
+                alert('Error al generar o subir el informe');
             }
         });
     </script>

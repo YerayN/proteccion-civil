@@ -85,6 +85,7 @@
             // Crear un FormData para enviar el PDF al servidor
             const formData = new FormData();
             formData.append('nombre', nombre);
+            formData.append('apellidos', apellidos);
             formData.append('tipo-informe', tipoInforme);
             formData.append('pdf', pdfBlob, 'informe.pdf');
 

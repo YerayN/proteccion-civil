@@ -53,6 +53,42 @@
                     </select>
                 </div>
 
+                <!-- Campos comunes -->
+                <div class="form-group">
+                    <label for="titulo">Título Informe:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+                <div class="form-group">
+                    <label for="voluntario">Voluntario:</label>
+                    <input type="text" id="voluntario" name="voluntario" required>
+                </div>
+                <div class="form-group">
+                    <label for="vehiculo">Vehículo Utilizado:</label>
+                    <select id="vehiculo" name="vehiculo" required>
+                        <option value="vehiculo1">Vehículo 1</option>
+                        <option value="vehiculo2">Vehículo 2</option>
+                        <option value="vehiculo3">Vehículo 3</option>
+                        <option value="vehiculo4">Vehículo 4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fecha-hora">Fecha y Hora:</label>
+                    <input type="datetime-local" id="fecha-hora" name="fecha-hora">
+                </div>
+                <div class="form-group">
+                    <label for="hora-fin">Hora de Fin:</label>
+                    <input type="time" id="hora-fin" name="hora-fin">
+                </div>
+                <div class="form-group">
+                    <label for="solicitante">Solicitante:</label>
+                    <input type="text" id="solicitante" name="solicitante">
+                </div>
+                <div class="form-group">
+                    <label for="cooperacion">Cooperación con otras entidades:</label>
+                    <input type="text" id="cooperacion" name="cooperacion">
+                </div>
+
+                
                 <!-- Formularios específicos por categoría -->
                 <div id="formulario-sanitaria" class="formulario-categoria seccion-oculta">
                     <!-- Campos específicos para Sanitaria -->
@@ -97,43 +133,6 @@
                         <input type="text" id="detalle-proteccion-animal" name="detalle-proteccion-animal">
                     </div>
                 </div>
-
-                <!-- Campos comunes -->
-                <div class="form-group">
-                    <label for="titulo">Título Informe:</label>
-                    <input type="text" id="titulo" name="titulo" required>
-                </div>
-                <div class="form-group">
-                    <label for="voluntario">Voluntario:</label>
-                    <input type="text" id="voluntario" name="voluntario" required>
-                </div>
-                <div class="form-group">
-                    <label for="vehiculo">Vehículo Utilizado:</label>
-                    <select id="vehiculo" name="vehiculo" required>
-                        <option value="vehiculo1">Vehículo 1</option>
-                        <option value="vehiculo2">Vehículo 2</option>
-                        <option value="vehiculo3">Vehículo 3</option>
-                        <option value="vehiculo4">Vehículo 4</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="fecha-hora">Fecha y Hora:</label>
-                    <input type="datetime-local" id="fecha-hora" name="fecha-hora">
-                </div>
-                <div class="form-group">
-                    <label for="hora-fin">Hora de Fin:</label>
-                    <input type="time" id="hora-fin" name="hora-fin">
-                </div>
-                <div class="form-group">
-                    <label for="solicitante">Solicitante:</label>
-                    <input type="text" id="solicitante" name="solicitante">
-                </div>
-                <div class="form-group">
-                    <label for="cooperacion">Cooperación con otras entidades:</label>
-                    <input type="text" id="cooperacion" name="cooperacion">
-                </div>
-
-
 
                 <button type="submit">Generar y Enviar</button>
             </form>

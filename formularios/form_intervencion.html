@@ -186,57 +186,20 @@
 
             // Añadir preguntas específicas según la categoría seleccionada
             if (categoria === 'sanitaria') {
-                const nombrePaciente = document.getElementById('nombre-paciente').value;
-                const motivoIntervencion = document.getElementById('motivo-intervencion').value;
-                const estadoPaciente = document.getElementById('estado-paciente').value;
-                const primerosAuxilios = document.getElementById('primeros-auxilios').value;
-                const traslado = document.getElementById('traslado').value;
-
-                doc.text(20, 100, `Nombre del Paciente: ${nombrePaciente}`);
-                doc.text(20, 110, `Motivo de la Intervención: ${motivoIntervencion}`);
-                doc.text(20, 120, `Estado del Paciente: ${estadoPaciente}`);
-                doc.text(20, 130, `Primeros Auxilios Aplicados: ${primerosAuxilios}`);
-                doc.text(20, 140, `Traslado: ${traslado}`);
+                const detalleSanitaria = document.getElementById('detalle-sanitaria').value;
+                doc.text(20, 100, `Detalle intervención sanitaria: ${detalleSanitaria}`);
             } else if (categoria === 'incendio') {
-                const tipoIncendio = document.getElementById('tipo-incendio').value;
-                const intervencionRealizada = document.getElementById('intervencion-realizada').value;
-                const recursosEmpleados = document.getElementById('recursos-empleados').value;
-                const conclusion = document.getElementById('conclusion').value;
-
-                doc.text(20, 100, `Tipo de Incendio: ${tipoIncendio}`);
-                doc.text(20, 110, `Intervención Realizada: ${intervencionRealizada}`);
-                doc.text(20, 120, `Recursos Empleados: ${recursosEmpleados}`);
-                doc.text(20, 130, `Conclusión: ${conclusion}`);
+                const detalleIncendio = document.getElementById('detalle-incendio').value;
+                doc.text(20, 100, `Detalle del incendio: ${detalleIncendio}`);
             } else if (categoria === 'trafico') {
-                const tipoIntervencionTrafico = document.getElementById('tipo-intervencion-trafico').value;
-                const causaIncidente = document.getElementById('causa-incidente').value;
-                const medidasApoyoTrafico = document.getElementById('medidas-apoyo-trafico').value;
-
-                doc.text(20, 100, `Tipo de Intervención: ${tipoIntervencionTrafico}`);
-                doc.text(20, 110, `Causa del Incidente: ${causaIncidente}`);
-                doc.text(20, 120, `Medidas de Apoyo Realizadas: ${medidasApoyoTrafico}`);
+                const detalleTrafico = document.getElementById('detalle-trafico').value;
+                doc.text(20, 100, `Detalle del incidente de tráfico: ${detalleTrafico}`);
             } else if (categoria === 'ayuda_social') {
-                const tipoIntervencionSocial = document.getElementById('tipo-intervencion-social').value;
-                const beneficiarios = document.getElementById('beneficiarios').value;
-                const medidasApoyoSocial = document.getElementById('medidas-apoyo-social').value;
-                const recursosMaterialesSocial = document.getElementById('recursos-materiales-social').value;
-
-                doc.text(20, 100, `Tipo de Intervención Social: ${tipoIntervencionSocial}`);
-                doc.text(20, 110, `Beneficiario/s: ${beneficiarios}`);
-                doc.text(20, 120, `Medidas de Apoyo Realizadas: ${medidasApoyoSocial}`);
-                doc.text(20, 130, `Recursos y Materiales Utilizados: ${recursosMaterialesSocial}`);
+                const detalleAyudaSocial = document.getElementById('detalle-ayuda-social').value;
+                doc.text(20, 100, `Detalle de la ayuda social: ${detalleAyudaSocial}`);
             } else if (categoria === 'proteccion_animal') {
-                const tipoIntervencionAnimal = document.getElementById('tipo-intervencion-animal').value;
-                const tipoAnimal = document.getElementById('tipo-animal').value;
-                const medidasApoyoAnimal = document.getElementById('medidas-apoyo-animal').value;
-                const recursosMaterialesAnimal = document.getElementById('recursos-materiales-animal').value;
-                const trasladoAnimal = document.getElementById('traslado-animal').value;
-
-                doc.text(20, 100, `Tipo de Intervención: ${tipoIntervencionAnimal}`);
-                doc.text(20, 110, `Tipo de Animal: ${tipoAnimal}`);
-                doc.text(20, 120, `Medidas de Apoyo Realizadas: ${medidasApoyoAnimal}`);
-                doc.text(20, 130, `Recursos y Materiales Utilizados: ${recursosMaterialesAnimal}`);
-                doc.text(20, 140, `Traslado: ${trasladoAnimal}`);
+                const detalleProteccionAnimal = document.getElementById('detalle-proteccion-animal').value;
+                doc.text(20, 100, `Detalle de la protección animal: ${detalleProteccionAnimal}`);
             }
 
             // Generar el PDF como un blob

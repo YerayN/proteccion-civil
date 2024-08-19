@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <title>Inicio - Protección Civil</title>
 </head>
-
 <body onload="checkAuth()">
     <header>
         <input type="checkbox" id="menuToggle" class="menu-checkbox">
@@ -24,10 +22,8 @@
         </nav>
         <div class="logout-container">
             <button onclick="logout()" class="logout-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="24"
-                    height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
                     <path d="M9 12h12l-3 -3" />
                     <path d="M18 15l3 -3" />
@@ -52,7 +48,7 @@
                         <option value="proteccion_animal">Protección Animal</option>
                     </select>
                 </div>
-
+            
                 <!-- Formularios específicos por categoría -->
                 <div id="formulario-sanitaria" class="formulario-categoria seccion-oculta">
                     <div class="form-group">
@@ -60,7 +56,7 @@
                         <input type="text" id="nombre-paciente" name="nombre-paciente" required>
                     </div>
                 </div>
-
+            
                 <div id="formulario-incendio" class="formulario-categoria seccion-oculta">
                     <div class="form-group">
                         <label for="tipo-incendio">Tipo de incendio:</label>
@@ -70,7 +66,7 @@
                         </select>
                     </div>
                 </div>
-
+            
                 <div id="formulario-trafico" class="formulario-categoria seccion-oculta">
                     <!-- Campo genérico para Tráfico -->
                     <div class="form-group">
@@ -78,7 +74,7 @@
                         <input type="number" id="numero-vehiculos" name="numero-vehiculos" required>
                     </div>
                 </div>
-
+            
                 <div id="formulario-ayuda-social" class="formulario-categoria seccion-oculta">
                     <!-- Campo genérico para Ayuda Social -->
                     <div class="form-group">
@@ -86,7 +82,7 @@
                         <input type="text" id="tipo-ayuda" name="tipo-ayuda" required>
                     </div>
                 </div>
-
+            
                 <div id="formulario-proteccion-animal" class="formulario-categoria seccion-oculta">
                     <!-- Campo genérico para Protección Animal -->
                     <div class="form-group">
@@ -94,7 +90,7 @@
                         <input type="text" id="tipo-animal" name="tipo-animal" required>
                     </div>
                 </div>
-
+            
                 <!-- Campos comunes -->
                 <div class="form-group">
                     <label for="titulo">Título Informe:</label>
@@ -127,7 +123,7 @@
         function mostrarFormulario() {
             const categoria = document.getElementById('categoria').value;
             const formularios = document.querySelectorAll('.formulario-categoria');
-
+            
             formularios.forEach(formulario => {
                 formulario.classList.add('seccion-oculta');
             });
@@ -137,7 +133,7 @@
             }
         }
 
-        document.getElementById('informe-form').addEventListener('submit', async function (event) {
+        document.getElementById('informe-form').addEventListener('submit', async function(event) {
             event.preventDefault(); // Evita el envío normal del formulario
 
             const { jsPDF } = window.jspdf;
@@ -156,7 +152,7 @@
             });
             const categoria = document.getElementById('categoria').value;
 
-            // Aquí generas el contenido del PDF basado en el formulario
+            // Genera el contenido del PDF basado en el formulario
             doc.text(20, 20, `Título: ${titulo}`);
             doc.text(20, 30, `Voluntario: ${voluntario}`);
             doc.text(20, 40, `Vehículo Utilizado: ${vehiculo}`);
@@ -214,5 +210,4 @@
         });
     </script>
 </body>
-
 </html>

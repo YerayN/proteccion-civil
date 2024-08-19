@@ -38,56 +38,123 @@
             <h2>Generar Informe</h2>
             <form id="informe-form">
                 <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="apellidos">Apellidos:</label>
-                    <input type="text" id="apellidos" name="apellidos" required>
-                </div>
-                <div class="form-group">
-                    <label for="apellidos">Apellidos:</label>
-                    <input type="text" id="apellidos" name="apellidos" required>
-                </div>
-                <div class="form-group">
-                    <label for="tipo-informe">Tipo de intervención:</label>
-                    <select id="tipo-informe" name="tipo-informe" required>
-                        <option value="tipo1">Sanitaria</option>
-                        <option value="tipo2">Incendio</option>
-                        <option value="tipo3">Tráfico</option>
-                        <option value="tipo4">Ayuda social</option>
-                        <option value="tipo5">Protección animal</option>
+                    <label for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria" required onchange="mostrarFormulario()">
+                        <option value="">Seleccione una categoría</option>
+                        <option value="sanitaria">Sanitaria</option>
+                        <option value="incendio">Incendio</option>
+                        <option value="trafico">Tráfico</option>
+                        <option value="ayuda_social">Ayuda Social</option>
+                        <option value="proteccion_animal">Protección Animal</option>
                     </select>
                 </div>
+            
+                <!-- Formularios específicos por categoría -->
+                <div id="formulario-sanitaria" class="formulario-categoria seccion-oculta">
+                    <div class="form-group">
+                        <label for="nombre-paciente">Paciente:</label>
+                        <input type="text" id="nombre-paciente" name="nombre-paciente" required>
+                    </div>
+                </div>
+            
+                <div id="formulario-incendio" class="formulario-categoria seccion-oculta">
+                    <div class="form-group">
+                        <label for="vehiculo">Tipo de incendio:</label>
+                        <select id="incendio" name="incendio" required>
+                            <option value="incendio-forestal">Forestal</option>
+                            <option value="incendio-urbano">Urbano</option>
+                        </select>
+                    </div>
+                </div>
+            
+                <div id="formulario-trafico" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Tráfico -->
+                    <!-- Aquí añadirías preguntas específicas para esta categoría -->
+                </div>
+            
+                <div id="formulario-ayuda-social" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Ayuda Social -->
+                    <!-- Aquí añadirías preguntas específicas para esta categoría -->
+                </div>
+            
+                <div id="formulario-proteccion-animal" class="formulario-categoria seccion-oculta">
+                    <div class="form-group">
+                        <label for="nombre-animal">Nombre animal:</label>
+                        <input type="text" id="nombre-animal" name="nombre-animal" required>
+                    </div>
+                </div>
+            
+                <!-- Campos comunes -->
+                <div class="form-group">
+                    <label for="titulo">Título Informe:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+                <div class="form-group">
+                    <label for="voluntario">Voluntario:</label>
+                    <input type="text" id="voluntario" name="voluntario" required>
+                </div>
+                <div class="form-group">
+                    <label for="vehiculo">Vehículo Utilizado:</label>
+                    <select id="vehiculo" name="vehiculo" required>
+                        <option value="vehiculo1">Vehículo 1</option>
+                        <option value="vehiculo2">Vehículo 2</option>
+                        <option value="vehiculo3">Vehículo 3</option>
+                        <option value="vehiculo4">Vehículo 4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fecha-hora">Fecha y Hora:</label>
+                    <input type="datetime-local" id="fecha-hora" name="fecha-hora" required>
+                </div>
+
                 <button type="submit">Generar y Enviar</button>
             </form>
         </div>
     </main>
 
     <script>
+        function mostrarFormulario() {
+            const categoria = document.getElementById('categoria').value;
+            const formularios = document.querySelectorAll('.formulario-categoria');
+            
+            formularios.forEach(formulario => {
+                formulario.classList.add('seccion-oculta');
+            });
+
+            if (categoria) {
+                document.getElementById(`formulario-${categoria}`).classList.remove('seccion-oculta');
+            }
+        }
+
         document.getElementById('informe-form').addEventListener('submit', async function(event) {
             event.preventDefault(); // Evita el envío normal del formulario
 
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            const nombre = document.getElementById('nombre').value;
-            const apellidos = document.getElementById('apellidos').value;
-            const tipoInforme = document.getElementById('tipo-informe').value;
+            const titulo = document.getElementById('titulo').value;
+            const voluntario = document.getElementById('voluntario').value;
+            const vehiculo = document.getElementById('vehiculo').value;
+            const fechaHora = document.getElementById('fecha-hora').value;
+            const categoria = document.getElementById('categoria').value;
 
             // Aquí generas el contenido del PDF basado en el formulario
-            doc.text(20, 20, `Nombre: ${nombre}`);
-            doc.text(20,30, `Apellidos: ${apellidos}`);
-            doc.text(20, 40, `Tipo de Intervención: ${tipoInforme}`);
+            doc.text(20, 20, `Título: ${titulo}`);
+            doc.text(20, 30, `Voluntario: ${voluntario}`);
+            doc.text(20, 40, `Vehículo Utilizado: ${vehiculo}`);
+            doc.text(20, 50, `Fecha y Hora: ${fechaHora}`);
+            doc.text(20, 60, `Categoría: ${categoria}`);
             
             // Generar el PDF como un blob
             const pdfBlob = doc.output('blob');
 
             // Crear un FormData para enviar el PDF al servidor
             const formData = new FormData();
-            formData.append('nombre', nombre);
-            formData.append('apellidos', apellidos);
-            formData.append('tipo-informe', tipoInforme);
+            formData.append('titulo', titulo);
+            formData.append('voluntario', voluntario);
+            formData.append('vehiculo', vehiculo);
+            formData.append('fecha-hora', fechaHora);
+            formData.append('categoria', categoria);
             formData.append('pdf', pdfBlob, 'informe.pdf');
 
             // Enviar el PDF generado al backend

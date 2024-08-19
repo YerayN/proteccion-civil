@@ -42,7 +42,7 @@
             <h2>Generar Informe</h2>
             <form id="informe-form">
                 <div class="form-group">
-                    <label for="categoria">Tipo de intervención:</label>
+                    <label for="categoria">Categoría:</label>
                     <select id="categoria" name="categoria" required onchange="mostrarFormulario()">
                         <option value="">Seleccione una categoría</option>
                         <option value="sanitaria">Sanitaria</option>
@@ -53,31 +53,56 @@
                     </select>
                 </div>
 
+                <!-- Formularios específicos por categoría -->
+                <div id="formulario-sanitaria" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Sanitaria -->
+                    <div class="form-group">
+                        <label for="detalle-sanitaria">Detalle intervención sanitaria:</label>
+                        <input type="text" id="detalle-sanitaria" name="detalle-sanitaria">
+                    </div>
+                </div>
+
+                <div id="formulario-incendio" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Incendio -->
+                    <div class="form-group">
+                        <label for="detalle-incendio">Detalle del incendio:</label>
+                        <input type="text" id="detalle-incendio" name="detalle-incendio">
+                    </div>
+                </div>
+
+                <div id="formulario-trafico" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Tráfico -->
+                    <div class="form-group">
+                        <label for="detalle-trafico">Detalle del incidente de tráfico:</label>
+                        <input type="text" id="detalle-trafico" name="detalle-trafico">
+                    </div>
+                </div>
+
+                <div id="formulario-ayuda-social" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Ayuda Social -->
+                    <div class="form-group">
+                        <label for="detalle-ayuda-social">Detalle de la ayuda social:</label>
+                        <input type="text" id="detalle-ayuda-social" name="detalle-ayuda-social">
+                    </div>
+                </div>
+
+                <div id="formulario-proteccion-animal" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Protección Animal -->
+                    <div class="form-group">
+                        <label for="detalle-proteccion-animal">Detalle de la protección animal:</label>
+                        <input type="text" id="detalle-proteccion-animal" name="detalle-proteccion-animal">
+                    </div>
+                </div>
+
+                <!-- Campos comunes -->
                 <div class="form-group">
                     <label for="titulo">Título Informe:</label>
                     <input type="text" id="titulo" name="titulo" required>
                 </div>
-
-                <div class="form-group">
-                    <label for="fecha-hora">Fecha y Hora:</label>
-                    <input type="datetime-local" id="fecha-hora" name="fecha-hora" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="hora-fin">Hora de fin:</label>
-                    <input type="time" id="hora-fin" name="hora-fin" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="ubicacion">Ubicación:</label>
-                    <input type="text" id="ubicacion" name="ubicacion">
-                </div>
-
                 <div class="form-group">
                     <label for="voluntario">Voluntario:</label>
                     <input type="text" id="voluntario" name="voluntario" required>
                 </div>
-
                 <div class="form-group">
                     <label for="vehiculo">Vehículo Utilizado:</label>
                     <select id="vehiculo" name="vehiculo" required>
@@ -87,123 +112,9 @@
                         <option value="vehiculo4">Vehículo 4</option>
                     </select>
                 </div>
-
                 <div class="form-group">
-                    <label for="solicitante">Solicitante:</label>
-                    <input type="text" id="solicitante" name="solicitante">
-                </div>
-
-                <div class="form-group">
-                    <label for="cooperacion">Cooperación con otras entidades:</label>
-                    <input type="text" id="cooperacion" name="cooperacion">
-                </div>
-
-                <!-- Formularios específicos por categoría -->
-                <div id="formulario-sanitaria" class="formulario-categoria seccion-oculta">
-                    <div class="form-group">
-                        <label for="nombre-paciente">Nombre del paciente:</label>
-                        <input type="text" id="nombre-paciente" name="nombre-paciente">
-                    </div>
-                    <div class="form-group">
-                        <label for="motivo-intervencion">Motivo de la intervención:</label>
-                        <input type="text" id="motivo-intervencion" name="motivo-intervencion">
-                    </div>
-                    <div class="form-group">
-                        <label for="estado-paciente">Estado del paciente:</label>
-                        <input type="text" id="estado-paciente" name="estado-paciente">
-                    </div>
-                    <div class="form-group">
-                        <label for="primeros-auxilios">Primeros auxilios aplicados:</label>
-                        <input type="text" id="primeros-auxilios" name="primeros-auxilios">
-                    </div>
-                    <div class="form-group">
-                        <label for="traslado">Traslado:</label>
-                        <input type="text" id="traslado" name="traslado">
-                    </div>
-                </div>
-
-                <div id="formulario-incendio" class="formulario-categoria seccion-oculta">
-                    <div class="form-group">
-                        <label for="tipo-incendio">Tipo de incendio:</label>
-                        <select id="tipo-incendio" name="tipo-incendio" required>
-                            <option value="forestal">Forestal</option>
-                            <option value="urbano">Urbano</option>
-                            <option value="vehiculo">Vehículo</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="intervencion-realizada">Intervención realizada:</label>
-                        <input type="text" id="intervencion-realizada" name="intervencion-realizada">
-                    </div>
-                    <div class="form-group">
-                        <label for="recursos-empleados">Recursos empleados:</label>
-                        <input type="text" id="recursos-empleados" name="recursos-empleados">
-                    </div>
-                    <div class="form-group">
-                        <label for="conclusion">Conclusión:</label>
-                        <input type="text" id="conclusion" name="conclusion">
-                    </div>
-                </div>
-
-                <div id="formulario-trafico" class="formulario-categoria seccion-oculta">
-                    <div class="form-group">
-                        <label for="tipo-intervencion-trafico">Tipo de intervención:</label>
-                        <select id="tipo-intervencion-trafico" name="tipo-intervencion-trafico" required>
-                            <option value="regulacion">Regulación de tráfico</option>
-                            <option value="apoyo-accidente">Apoyo en accidente</option>
-                            <option value="vehiculo-averiado">Vehículo averiado</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="causa-incidente">Causa del incidente:</label>
-                        <input type="text" id="causa-incidente" name="causa-incidente">
-                    </div>
-                    <div class="form-group">
-                        <label for="medidas-apoyo-trafico">Medidas de apoyo realizadas:</label>
-                        <input type="text" id="medidas-apoyo-trafico" name="medidas-apoyo-trafico">
-                    </div>
-                </div>
-
-                <div id="formulario-ayuda-social" class="formulario-categoria seccion-oculta">
-                    <div class="form-group">
-                        <label for="tipo-intervencion-social">Tipo de intervención social:</label>
-                        <input type="text" id="tipo-intervencion-social" name="tipo-intervencion-social" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="beneficiarios">Beneficiario/s:</label>
-                        <input type="text" id="beneficiarios" name="beneficiarios">
-                    </div>
-                    <div class="form-group">
-                        <label for="medidas-apoyo-social">Medidas de apoyo realizadas:</label>
-                        <input type="text" id="medidas-apoyo-social" name="medidas-apoyo-social">
-                    </div>
-                    <div class="form-group">
-                        <label for="recursos-materiales-social">Recursos y materiales utilizados:</label>
-                        <input type="text" id="recursos-materiales-social" name="recursos-materiales-social">
-                    </div>
-                </div>
-
-                <div id="formulario-proteccion-animal" class="formulario-categoria seccion-oculta">
-                    <div class="form-group">
-                        <label for="tipo-intervencion-animal">Tipo de intervención:</label>
-                        <input type="text" id="tipo-intervencion-animal" name="tipo-intervencion-animal" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="tipo-animal">Tipo de animal:</label>
-                        <input type="text" id="tipo-animal" name="tipo-animal" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="medidas-apoyo-animal">Medidas de apoyo realizadas:</label>
-                        <input type="text" id="medidas-apoyo-animal" name="medidas-apoyo-animal" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="recursos-materiales-animal">Recursos y materiales utilizados:</label>
-                        <input type="text" id="recursos-materiales-animal" name="recursos-materiales-animal">
-                    </div>
-                    <div class="form-group">
-                        <label for="traslado-animal">Traslado:</label>
-                        <input type="text" id="traslado-animal" name="traslado-animal">
-                    </div>
+                    <label for="fecha-hora">Fecha y Hora:</label>
+                    <input type="datetime-local" id="fecha-hora" name="fecha-hora" required>
                 </div>
 
                 <button type="submit">Generar y Enviar</button>
@@ -232,89 +143,27 @@
             const doc = new jsPDF();
 
             const titulo = document.getElementById('titulo').value;
-            const fechaHora = document.getElementById('fecha-hora').value;
-            const horaFin = document.getElementById('hora-fin').value;
-            const ubicacion = document.getElementById('ubicacion').value;
             const voluntario = document.getElementById('voluntario').value;
             const vehiculo = document.getElementById('vehiculo').value;
-            const solicitante = document.getElementById('solicitante').value;
-            const cooperacion = document.getElementById('cooperacion').value;
+            const fechaHora = document.getElementById('fecha-hora').value;
             const categoria = document.getElementById('categoria').value;
 
             // Aquí generas el contenido del PDF basado en el formulario
             doc.text(20, 20, `Título: ${titulo}`);
-            doc.text(20, 30, `Fecha y Hora: ${fechaHora}`);
-            doc.text(20, 40, `Hora de Fin: ${horaFin}`);
-            doc.text(20, 50, `Ubicación: ${ubicacion}`);
-            doc.text(20, 60, `Voluntario: ${voluntario}`);
-            doc.text(20, 70, `Vehículo Utilizado: ${vehiculo}`);
-            doc.text(20, 80, `Solicitante: ${solicitante}`);
-            doc.text(20, 90, `Cooperación con otras entidades: ${cooperacion}`);
-            doc.text(20, 100, `Categoría: ${categoria}`);
-
-            // Añadir campos específicos según la categoría seleccionada
-            if (categoria === 'sanitaria') {
-                const nombrePaciente = document.getElementById('nombre-paciente').value;
-                const motivoIntervencion = document.getElementById('motivo-intervencion').value;
-                const estadoPaciente = document.getElementById('estado-paciente').value;
-                const primerosAuxilios = document.getElementById('primeros-auxilios').value;
-                const traslado = document.getElementById('traslado').value;
-                doc.text(20, 110, `Nombre del Paciente: ${nombrePaciente}`);
-                doc.text(20, 120, `Motivo de la Intervención: ${motivoIntervencion}`);
-                doc.text(20, 130, `Estado del Paciente: ${estadoPaciente}`);
-                doc.text(20, 140, `Primeros Auxilios Aplicados: ${primerosAuxilios}`);
-                doc.text(20, 150, `Traslado: ${traslado}`);
-            } else if (categoria === 'incendio') {
-                const tipoIncendio = document.getElementById('tipo-incendio').value;
-                const intervencionRealizada = document.getElementById('intervencion-realizada').value;
-                const recursosEmpleados = document.getElementById('recursos-empleados').value;
-                const conclusion = document.getElementById('conclusion').value;
-                doc.text(20, 110, `Tipo de Incendio: ${tipoIncendio}`);
-                doc.text(20, 120, `Intervención Realizada: ${intervencionRealizada}`);
-                doc.text(20, 130, `Recursos Empleados: ${recursosEmpleados}`);
-                doc.text(20, 140, `Conclusión: ${conclusion}`);
-            } else if (categoria === 'trafico') {
-                const tipoIntervencionTrafico = document.getElementById('tipo-intervencion-trafico').value;
-                const causaIncidente = document.getElementById('causa-incidente').value;
-                const medidasApoyoTrafico = document.getElementById('medidas-apoyo-trafico').value;
-                doc.text(20, 110, `Tipo de Intervención: ${tipoIntervencionTrafico}`);
-                doc.text(20, 120, `Causa del Incidente: ${causaIncidente}`);
-                doc.text(20, 130, `Medidas de Apoyo Realizadas: ${medidasApoyoTrafico}`);
-            } else if (categoria === 'ayuda_social') {
-                const tipoIntervencionSocial = document.getElementById('tipo-intervencion-social').value;
-                const beneficiarios = document.getElementById('beneficiarios').value;
-                const medidasApoyoSocial = document.getElementById('medidas-apoyo-social').value;
-                const recursosMaterialesSocial = document.getElementById('recursos-materiales-social').value;
-                doc.text(20, 110, `Tipo de Intervención Social: ${tipoIntervencionSocial}`);
-                doc.text(20, 120, `Beneficiario/s: ${beneficiarios}`);
-                doc.text(20, 130, `Medidas de Apoyo Realizadas: ${medidasApoyoSocial}`);
-                doc.text(20, 140, `Recursos y Materiales Utilizados: ${recursosMaterialesSocial}`);
-            } else if (categoria === 'proteccion_animal') {
-                const tipoIntervencionAnimal = document.getElementById('tipo-intervencion-animal').value;
-                const tipoAnimal = document.getElementById('tipo-animal').value;
-                const medidasApoyoAnimal = document.getElementById('medidas-apoyo-animal').value;
-                const recursosMaterialesAnimal = document.getElementById('recursos-materiales-animal').value;
-                const trasladoAnimal = document.getElementById('traslado-animal').value;
-                doc.text(20, 110, `Tipo de Intervención: ${tipoIntervencionAnimal}`);
-                doc.text(20, 120, `Tipo de Animal: ${tipoAnimal}`);
-                doc.text(20, 130, `Medidas de Apoyo Realizadas: ${medidasApoyoAnimal}`);
-                doc.text(20, 140, `Recursos y Materiales Utilizados: ${recursosMaterialesAnimal}`);
-                doc.text(20, 150, `Traslado: ${trasladoAnimal}`);
-            }
+            doc.text(20, 30, `Voluntario: ${voluntario}`);
+            doc.text(20, 40, `Vehículo Utilizado: ${vehiculo}`);
+            doc.text(20, 50, `Fecha y Hora: ${fechaHora}`);
+            doc.text(20, 60, `Categoría: ${categoria}`);
 
             // Generar el PDF como un blob
             const pdfBlob = doc.output('blob');
 
             // Crear un FormData para enviar el PDF al servidor
             const formData = new FormData();
-            formData.append('titulo', titulo.replace(/\s+/g, '-')); // Reemplaza los espacios por guiones
-            formData.append('fecha-hora', fechaHora);
-            formData.append('hora-fin', horaFin);
-            formData.append('ubicacion', ubicacion);
+            formData.append('titulo', titulo);
             formData.append('voluntario', voluntario);
             formData.append('vehiculo', vehiculo);
-            formData.append('solicitante', solicitante);
-            formData.append('cooperacion', cooperacion);
+            formData.append('fecha-hora', fechaHora);
             formData.append('categoria', categoria);
             formData.append('pdf', pdfBlob, 'informe.pdf');
 

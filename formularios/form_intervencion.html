@@ -48,49 +48,48 @@
                         <option value="proteccion_animal">Protección Animal</option>
                     </select>
                 </div>
-            
+
                 <!-- Formularios específicos por categoría -->
                 <div id="formulario-sanitaria" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Sanitaria -->
                     <div class="form-group">
-                        <label for="nombre-paciente">Paciente:</label>
-                        <input type="text" id="nombre-paciente" name="nombre-paciente" required>
+                        <label for="detalle-sanitaria">Detalle intervención sanitaria:</label>
+                        <input type="text" id="detalle-sanitaria" name="detalle-sanitaria">
                     </div>
                 </div>
-            
+
                 <div id="formulario-incendio" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Incendio -->
                     <div class="form-group">
-                        <label for="tipo-incendio">Tipo de incendio:</label>
-                        <select id="tipo-incendio" name="tipo-incendio" required>
-                            <option value="incendio-forestal">Forestal</option>
-                            <option value="incendio-urbano">Urbano</option>
-                        </select>
+                        <label for="detalle-incendio">Detalle del incendio:</label>
+                        <input type="text" id="detalle-incendio" name="detalle-incendio">
                     </div>
                 </div>
-            
+
                 <div id="formulario-trafico" class="formulario-categoria seccion-oculta">
-                    <!-- Campo genérico para Tráfico -->
+                    <!-- Campos específicos para Tráfico -->
                     <div class="form-group">
-                        <label for="numero-vehiculos">Número de vehículos involucrados:</label>
-                        <input type="number" id="numero-vehiculos" name="numero-vehiculos" required>
+                        <label for="detalle-trafico">Detalle del incidente de tráfico:</label>
+                        <input type="text" id="detalle-trafico" name="detalle-trafico">
                     </div>
                 </div>
-            
+
                 <div id="formulario-ayuda-social" class="formulario-categoria seccion-oculta">
-                    <!-- Campo genérico para Ayuda Social -->
+                    <!-- Campos específicos para Ayuda Social -->
                     <div class="form-group">
-                        <label for="tipo-ayuda">Tipo de ayuda proporcionada:</label>
-                        <input type="text" id="tipo-ayuda" name="tipo-ayuda" required>
+                        <label for="detalle-ayuda-social">Detalle de la ayuda social:</label>
+                        <input type="text" id="detalle-ayuda-social" name="detalle-ayuda-social">
                     </div>
                 </div>
-            
+
                 <div id="formulario-proteccion-animal" class="formulario-categoria seccion-oculta">
-                    <!-- Campo genérico para Protección Animal -->
+                    <!-- Campos específicos para Protección Animal -->
                     <div class="form-group">
-                        <label for="tipo-animal">Tipo de animal rescatado:</label>
-                        <input type="text" id="tipo-animal" name="tipo-animal" required>
+                        <label for="detalle-proteccion-animal">Detalle de la protección animal:</label>
+                        <input type="text" id="detalle-proteccion-animal" name="detalle-proteccion-animal">
                     </div>
                 </div>
-            
+
                 <!-- Campos comunes -->
                 <div class="form-group">
                     <label for="titulo">Título Informe:</label>
@@ -136,61 +135,36 @@
         document.getElementById('informe-form').addEventListener('submit', async function(event) {
             event.preventDefault(); // Evita el envío normal del formulario
 
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const titulo = document.getElementById('titulo').value;
+            const voluntario = document.getElementById('voluntario').value;
+            const vehiculo = document.getElementById('vehiculo').value;
+            const fechaHora = document.getElementById('fecha-hora').value;
+            const categoria = document.getElementById('categoria').value;
+
+            // Aquí generas el contenido del PDF basado en el formulario
+            doc.text(20, 20, `Título: ${titulo}`);
+            doc.text(20, 30, `Voluntario: ${voluntario}`);
+            doc.text(20, 40, `Vehículo Utilizado: ${vehiculo}`);
+            doc.text(20, 50, `Fecha y Hora: ${fechaHora}`);
+            doc.text(20, 60, `Categoría: ${categoria}`);
+            
+            // Generar el PDF como un blob
+            const pdfBlob = doc.output('blob');
+
+            // Crear un FormData para enviar el PDF al servidor
+            const formData = new FormData();
+            formData.append('titulo', titulo);
+            formData.append('voluntario', voluntario);
+            formData.append('vehiculo', vehiculo);
+            formData.append('fecha-hora', fechaHora);
+            formData.append('categoria', categoria);
+            formData.append('pdf', pdfBlob, 'informe.pdf');
+
+            // Enviar el PDF generado al backend
             try {
-                const { jsPDF } = window.jspdf;
-                const doc = new jsPDF();
-
-                const titulo = document.getElementById('titulo').value;
-                const voluntario = document.getElementById('voluntario').value;
-                const vehiculo = document.getElementById('vehiculo').value;
-                const fechaHora = new Date(document.getElementById('fecha-hora').value).toLocaleString('es-ES', {
-                    day: '2-digit',
-                    month: '2-digit',
-                    year: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: false
-                });
-                const categoria = document.getElementById('categoria').value;
-
-                // Genera el contenido del PDF basado en el formulario
-                doc.text(20, 20, `Título: ${titulo}`);
-                doc.text(20, 30, `Voluntario: ${voluntario}`);
-                doc.text(20, 40, `Vehículo Utilizado: ${vehiculo}`);
-                doc.text(20, 50, `Fecha y Hora: ${fechaHora}`);
-                doc.text(20, 60, `Categoría: ${categoria}`);
-
-                // Añadir campos específicos según la categoría seleccionada
-                if (categoria === 'sanitaria') {
-                    const paciente = document.getElementById('nombre-paciente').value;
-                    doc.text(20, 70, `Paciente: ${paciente}`);
-                } else if (categoria === 'incendio') {
-                    const tipoIncendio = document.getElementById('tipo-incendio').value;
-                    doc.text(20, 70, `Tipo de Incendio: ${tipoIncendio}`);
-                } else if (categoria === 'trafico') {
-                    const numeroVehiculos = document.getElementById('numero-vehiculos').value;
-                    doc.text(20, 70, `Número de vehículos involucrados: ${numeroVehiculos}`);
-                } else if (categoria === 'ayuda_social') {
-                    const tipoAyuda = document.getElementById('tipo-ayuda').value;
-                    doc.text(20, 70, `Tipo de ayuda proporcionada: ${tipoAyuda}`);
-                } else if (categoria === 'proteccion_animal') {
-                    const tipoAnimal = document.getElementById('tipo-animal').value;
-                    doc.text(20, 70, `Tipo de animal rescatado: ${tipoAnimal}`);
-                }
-
-                // Generar el PDF como un blob
-                const pdfBlob = doc.output('blob');
-
-                // Crear un FormData para enviar el PDF al servidor
-                const formData = new FormData();
-                formData.append('titulo', titulo.replace(/\s+/g, '-')); // Reemplaza los espacios por guiones
-                formData.append('voluntario', voluntario);
-                formData.append('vehiculo', vehiculo);
-                formData.append('fecha-hora', fechaHora);
-                formData.append('categoria', categoria);
-                formData.append('pdf', pdfBlob, 'informe.pdf');
-
-                // Enviar el PDF generado al backend
                 const response = await fetch('/api/upload', {
                     method: 'POST',
                     body: formData
@@ -204,8 +178,8 @@
                     alert('Error al subir el informe');
                 }
             } catch (error) {
-                console.error('Error al generar o subir el informe:', error);
-                alert('Error al generar o subir el informe');
+                console.error('Error en la solicitud:', error);
+                alert('Error al subir el informe');
             }
         });
     </script>

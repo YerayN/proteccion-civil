@@ -197,6 +197,7 @@
             doc.text(20, 70, `Solicitante: ${solicitante}`);
             doc.text(20, 80, `Cooperación con otras entidades: ${cooperacion}`);
             doc.text(20, 90, `Categoría: ${categoria}`);
+            doc.line(20, 95, 190, 95); // Dibuja una línea horizontal desde (20, 95) hasta (190, 95)
 
             // Añadir preguntas específicas según la categoría seleccionada
             if (categoria === 'sanitaria') {

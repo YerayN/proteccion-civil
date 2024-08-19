@@ -55,109 +55,42 @@
 
                 <!-- Formularios específicos por categoría -->
                 <div id="formulario-sanitaria" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Sanitaria -->
                     <div class="form-group">
-                        <label for="nombre-paciente">Nombre del paciente:</label>
-                        <input type="text" id="nombre-paciente" name="nombre-paciente">
-                    </div>
-                    <div class="form-group">
-                        <label for="motivo-intervencion">Motivo de la intervención:</label>
-                        <input type="text" id="motivo-intervencion" name="motivo-intervencion">
-                    </div>
-                    <div class="form-group">
-                        <label for="estado-paciente">Estado del paciente:</label>
-                        <input type="text" id="estado-paciente" name="estado-paciente">
-                    </div>
-                    <div class="form-group">
-                        <label for="primeros-auxilios">Primeros auxilios aplicados:</label>
-                        <input type="text" id="primeros-auxilios" name="primeros-auxilios">
-                    </div>
-                    <div class="form-group">
-                        <label for="traslado">Traslado:</label>
-                        <input type="text" id="traslado" name="traslado">
+                        <label for="detalle-sanitaria">Detalle intervención sanitaria:</label>
+                        <input type="text" id="detalle-sanitaria" name="detalle-sanitaria">
                     </div>
                 </div>
 
                 <div id="formulario-incendio" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Incendio -->
                     <div class="form-group">
-                        <label for="tipo-incendio">Tipo de incendio:</label>
-                        <select id="tipo-incendio" name="tipo-incendio" required>
-                            <option value="forestal">Forestal</option>
-                            <option value="urbano">Urbano</option>
-                            <option value="vehiculo">Vehículo</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="intervencion-realizada">Intervención realizada:</label>
-                        <input type="text" id="intervencion-realizada" name="intervencion-realizada">
-                    </div>
-                    <div class="form-group">
-                        <label for="recursos-empleados">Recursos empleados:</label>
-                        <input type="text" id="recursos-empleados" name="recursos-empleados">
-                    </div>
-                    <div class="form-group">
-                        <label for="conclusion">Conclusión:</label>
-                        <input type="text" id="conclusion" name="conclusion">
+                        <label for="detalle-incendio">Detalle del incendio:</label>
+                        <input type="text" id="detalle-incendio" name="detalle-incendio">
                     </div>
                 </div>
 
                 <div id="formulario-trafico" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Tráfico -->
                     <div class="form-group">
-                        <label for="tipo-intervencion-trafico">Tipo de intervención:</label>
-                        <select id="tipo-intervencion-trafico" name="tipo-intervencion-trafico" required>
-                            <option value="regulacion">Regulación de tráfico</option>
-                            <option value="apoyo-accidente">Apoyo en accidente</option>
-                            <option value="vehiculo-averiado">Vehículo averiado</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="causa-incidente">Causa del incidente:</label>
-                        <input type="text" id="causa-incidente" name="causa-incidente">
-                    </div>
-                    <div class="form-group">
-                        <label for="medidas-apoyo-trafico">Medidas de apoyo realizadas:</label>
-                        <input type="text" id="medidas-apoyo-trafico" name="medidas-apoyo-trafico">
+                        <label for="detalle-trafico">Detalle del incidente de tráfico:</label>
+                        <input type="text" id="detalle-trafico" name="detalle-trafico">
                     </div>
                 </div>
 
                 <div id="formulario-ayuda-social" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Ayuda Social -->
                     <div class="form-group">
-                        <label for="tipo-intervencion-social">Tipo de intervención social:</label>
-                        <input type="text" id="tipo-intervencion-social" name="tipo-intervencion-social" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="beneficiarios">Beneficiario/s:</label>
-                        <input type="text" id="beneficiarios" name="beneficiarios">
-                    </div>
-                    <div class="form-group">
-                        <label for="medidas-apoyo-social">Medidas de apoyo realizadas:</label>
-                        <input type="text" id="medidas-apoyo-social" name="medidas-apoyo-social">
-                    </div>
-                    <div class="form-group">
-                        <label for="recursos-materiales-social">Recursos y materiales utilizados:</label>
-                        <input type="text" id="recursos-materiales-social" name="recursos-materiales-social">
+                        <label for="detalle-ayuda-social">Detalle de la ayuda social:</label>
+                        <input type="text" id="detalle-ayuda-social" name="detalle-ayuda-social">
                     </div>
                 </div>
 
                 <div id="formulario-proteccion-animal" class="formulario-categoria seccion-oculta">
+                    <!-- Campos específicos para Protección Animal -->
                     <div class="form-group">
-                        <label for="tipo-intervencion-animal">Tipo de intervención:</label>
-                        <input type="text" id="tipo-intervencion-animal" name="tipo-intervencion-animal" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="tipo-animal">Tipo de animal:</label>
-                        <input type="text" id="tipo-animal" name="tipo-animal" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="medidas-apoyo-animal">Medidas de apoyo realizadas:</label>
-                        <input type="text" id="medidas-apoyo-animal" name="medidas-apoyo-animal" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="recursos-materiales-animal">Recursos y materiales utilizados:</label>
-                        <input type="text" id="recursos-materiales-animal" name="recursos-materiales-animal">
-                    </div>
-                    <div class="form-group">
-                        <label for="traslado-animal">Traslado:</label>
-                        <input type="text" id="traslado-animal" name="traslado-animal">
+                        <label for="detalle-proteccion-animal">Detalle de la protección animal:</label>
+                        <input type="text" id="detalle-proteccion-animal" name="detalle-proteccion-animal">
                     </div>
                 </div>
 
@@ -195,6 +128,8 @@
                     <label for="cooperacion">Cooperación con otras entidades:</label>
                     <input type="text" id="cooperacion" name="cooperacion">
                 </div>
+
+
 
                 <button type="submit">Generar y Enviar</button>
             </form>

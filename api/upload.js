@@ -65,9 +65,13 @@ export default async (req, res) => {
     upload.fields([
         { name: 'pdf', maxCount: 1 },
         { name: 'titulo', maxCount: 1 },
+        { name: 'fecha-hora', maxCount: 1 },
+        { name: 'hora-fin', maxCount: 1 },
+        { name: 'ubicacion', maxCount: 1 },
         { name: 'voluntario', maxCount: 1 },
         { name: 'vehiculo', maxCount: 1 },
-        { name: 'fecha-hora', maxCount: 1 },
+        { name: 'solicitante', maxCount: 1 },
+        { name: 'cooperacion', maxCount: 1 },
         { name: 'categoria', maxCount: 1 }
     ])(req, res, async (err) => {
         if (err) {

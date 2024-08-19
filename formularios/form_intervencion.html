@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <title>Inicio - Protección Civil</title>
 </head>
+
 <body onload="checkAuth()">
     <header>
         <input type="checkbox" id="menuToggle" class="menu-checkbox">
@@ -22,8 +24,10 @@
         </nav>
         <div class="logout-container">
             <button onclick="logout()" class="logout-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="24"
+                    height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
                     <path d="M9 12h12l-3 -3" />
                     <path d="M18 15l3 -3" />
@@ -122,7 +126,7 @@
         function mostrarFormulario() {
             const categoria = document.getElementById('categoria').value;
             const formularios = document.querySelectorAll('.formulario-categoria');
-            
+
             formularios.forEach(formulario => {
                 formulario.classList.add('seccion-oculta');
             });
@@ -132,7 +136,7 @@
             }
         }
 
-        document.getElementById('informe-form').addEventListener('submit', async function(event) {
+        document.getElementById('informe-form').addEventListener('submit', async function (event) {
             event.preventDefault(); // Evita el envío normal del formulario
 
             const { jsPDF } = window.jspdf;
@@ -141,7 +145,14 @@
             const titulo = document.getElementById('titulo').value;
             const voluntario = document.getElementById('voluntario').value;
             const vehiculo = document.getElementById('vehiculo').value;
-            const fechaHora = document.getElementById('fecha-hora').value;
+            const fechaHora = new Date(document.getElementById('fecha-hora').value).toLocaleString('es-ES', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            });
             const categoria = document.getElementById('categoria').value;
 
             // Aquí generas el contenido del PDF basado en el formulario
@@ -150,13 +161,31 @@
             doc.text(20, 40, `Vehículo Utilizado: ${vehiculo}`);
             doc.text(20, 50, `Fecha y Hora: ${fechaHora}`);
             doc.text(20, 60, `Categoría: ${categoria}`);
-            
+
+            // Añadir campos específicos según la categoría seleccionada
+            if (categoria === 'sanitaria') {
+                const detalleSanitaria = document.getElementById('detalle-sanitaria').value;
+                doc.text(20, 70, `Detalle Sanitaria: ${detalleSanitaria}`);
+            } else if (categoria === 'incendio') {
+                const detalleIncendio = document.getElementById('detalle-incendio').value;
+                doc.text(20, 70, `Detalle Incendio: ${detalleIncendio}`);
+            } else if (categoria === 'trafico') {
+                const detalleTrafico = document.getElementById('detalle-trafico').value;
+                doc.text(20, 70, `Detalle Tráfico: ${detalleTrafico}`);
+            } else if (categoria === 'ayuda_social') {
+                const detalleAyudaSocial = document.getElementById('detalle-ayuda-social').value;
+                doc.text(20, 70, `Detalle Ayuda Social: ${detalleAyudaSocial}`);
+            } else if (categoria === 'proteccion_animal') {
+                const detalleProteccionAnimal = document.getElementById('detalle-proteccion-animal').value;
+                doc.text(20, 70, `Detalle Protección Animal: ${detalleProteccionAnimal}`);
+            }
+
             // Generar el PDF como un blob
             const pdfBlob = doc.output('blob');
 
             // Crear un FormData para enviar el PDF al servidor
             const formData = new FormData();
-            formData.append('titulo', titulo);
+            formData.append('titulo', titulo.replace(/\s+/g, '-')); // Reemplaza los espacios por guiones
             formData.append('voluntario', voluntario);
             formData.append('vehiculo', vehiculo);
             formData.append('fecha-hora', fechaHora);
@@ -184,4 +213,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -60,6 +60,10 @@
                         <label for="detalle-sanitaria">Detalle intervención sanitaria:</label>
                         <input type="text" id="detalle-sanitaria" name="detalle-sanitaria">
                     </div>
+                    <div class="form-group">
+                        <label for="nombre-paciente">Nombre del paciente:</label>
+                        <input type="text" id="nombre-paciente" name="nombre-paciente">
+                    </div>
                 </div>
 
                 <div id="formulario-incendio" class="formulario-categoria seccion-oculta">
@@ -188,6 +192,8 @@
             if (categoria === 'sanitaria') {
                 const detalleSanitaria = document.getElementById('detalle-sanitaria').value;
                 doc.text(20, 100, `Detalle intervención sanitaria: ${detalleSanitaria}`);
+                const nombrePaciente = document.getElementById('nombre-paciente').value;
+                doc.text(20, 100, `Nombre del paciente: ${detalleSanitaria}`);
             } else if (categoria === 'incendio') {
                 const detalleIncendio = document.getElementById('detalle-incendio').value;
                 doc.text(20, 100, `Detalle del incendio: ${detalleIncendio}`);

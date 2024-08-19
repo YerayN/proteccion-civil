@@ -172,7 +172,7 @@
             const ano = fecha.getFullYear();
             const hora = String(fecha.getHours()).padStart(2, '0');
             const minutos = String(fecha.getMinutes()).padStart(2, '0');
-            const fechaHoraFormateada = `${dia}-${mes}-${ano}-${hora}_${minutos}`;
+            const fechaHoraFormateada = `${dia}-${mes}-${ano}_${hora}:${minutos}`;
 
             // Aquí generas el contenido del PDF basado en el formulario
             doc.text(20, 20, `Título: ${titulo}`);

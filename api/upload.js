@@ -16,11 +16,11 @@ const upload = multer();
 
 // IDs de las carpetas
 const folders = {
-    tipo1: '1aQ6AVJHMunfkanSJQcIT2P-Vb5X8ZHha',
-    tipo2: '1siuqXo5BSsXtZH47vUzfoi7lE1AQPzOl',
-    tipo3: '1uNUsBocXisFrQknHW78LR7HM6ldbrEAD',
-    tipo4: '10Qcxt9k6UYSEjng_IqhYJpEkFzYju23w',
-    tipo5: '17CCzE_moVAjFNLUd1y85D21l9dUQdRxo'
+    sanitaria: '1aQ6AVJHMunfkanSJQcIT2P-Vb5X8ZHha',
+    incendio: '1siuqXo5BSsXtZH47vUzfoi7lE1AQPzOl',
+    trafico: '1uNUsBocXisFrQknHW78LR7HM6ldbrEAD',
+    ayuda_social: '10Qcxt9k6UYSEjng_IqhYJpEkFzYju23w',
+    proteccion_animal: '17CCzE_moVAjFNLUd1y85D21l9dUQdRxo'
 };
 
 async function getNextId(folderId) {
@@ -52,12 +52,9 @@ async function generateFileName(req, folderId) {
     const date = now.toLocaleDateString('es-ES', options).replace(/\//g, '-');
     const time = now.toLocaleTimeString('es-ES', options).replace(/:/g, '-');
 
-    const nombre = req.body.nombre ? req.body.nombre.replace(/\s+/g, '') : 'SinNombre';
+    const titulo = req.body.titulo ? req.body.titulo.replace(/\s+/g, '') : 'SinTitulo';
 
-    console.log("Nombre recibido:", nombre);
-    console.log("Campos recibidos en req.body:", req.body);
-
-    return `${nextId.toString().padStart(4, '0')} - ${nombre}_${date}_${time}.pdf`;
+    return `${nextId.toString().padStart(4, '0')} - ${titulo}_${date}_${time}.pdf`;
 }
 
 export default async (req, res) => {
@@ -67,8 +64,11 @@ export default async (req, res) => {
 
     upload.fields([
         { name: 'pdf', maxCount: 1 },
-        { name: 'nombre', maxCount: 1 },
-        { name: 'tipo-informe', maxCount: 1 }
+        { name: 'titulo', maxCount: 1 },
+        { name: 'voluntario', maxCount: 1 },
+        { name: 'vehiculo', maxCount: 1 },
+        { name: 'fecha-hora', maxCount: 1 },
+        { name: 'categoria', maxCount: 1 }
     ])(req, res, async (err) => {
         if (err) {
             return res.status(500).send({ message: 'Error uploading the file', error: err.message });
@@ -79,7 +79,7 @@ export default async (req, res) => {
                 throw new Error("No file received");
             }
 
-            const category = req.body['tipo-informe'];
+            const category = req.body['categoria'];
             const folderId = folders[category] || '1CA8ofJdJJcRkh7GGLcnyULGhS5gsIkWj'; // Carpeta por defecto
 
             const fileName = await generateFileName(req, folderId);

@@ -184,6 +184,24 @@
             doc.text(20, 80, `Cooperación con otras entidades: ${cooperacion}`);
             doc.text(20, 90, `Categoría: ${categoria}`);
 
+            // Añadir preguntas específicas según la categoría seleccionada
+            if (categoria === 'sanitaria') {
+                const detalleSanitaria = document.getElementById('detalle-sanitaria').value;
+                doc.text(20, 100, `Detalle intervención sanitaria: ${detalleSanitaria}`);
+            } else if (categoria === 'incendio') {
+                const detalleIncendio = document.getElementById('detalle-incendio').value;
+                doc.text(20, 100, `Detalle del incendio: ${detalleIncendio}`);
+            } else if (categoria === 'trafico') {
+                const detalleTrafico = document.getElementById('detalle-trafico').value;
+                doc.text(20, 100, `Detalle del incidente de tráfico: ${detalleTrafico}`);
+            } else if (categoria === 'ayuda_social') {
+                const detalleAyudaSocial = document.getElementById('detalle-ayuda-social').value;
+                doc.text(20, 100, `Detalle de la ayuda social: ${detalleAyudaSocial}`);
+            } else if (categoria === 'proteccion_animal') {
+                const detalleProteccionAnimal = document.getElementById('detalle-proteccion-animal').value;
+                doc.text(20, 100, `Detalle de la protección animal: ${detalleProteccionAnimal}`);
+            }
+
             // Generar el PDF como un blob
             const pdfBlob = doc.output('blob');
 

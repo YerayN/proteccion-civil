@@ -89,9 +89,7 @@
                 </div>
 
                 <!-- Separador visual -->
-                <hr style="margin: 20px 0;">
-                <hr style="margin: 20px 0;">
-                <hr style="margin: 20px 0;">
+                <hr style="margin: 20px 0; border-width: 3px;">
 
                 <!-- Formularios específicos por categoría -->
                 <div id="formulario-sanitaria" class="formulario-categoria seccion-oculta">
@@ -103,6 +101,15 @@
                     <div class="form-group">
                         <label for="nombre-paciente">Nombre del paciente:</label>
                         <input type="text" id="nombre-paciente" name="nombre-paciente">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo-sanitaria">Tipo de emergencia sanitaria:</label>
+                        <select id="tipo-sanitaria" name="tipo-sanitaria" required>
+                            <option value="vehiculo1">Domiciliaria</option>
+                            <option value="vehiculo2">Vía pública</option>
+                            <option value="vehiculo3">Tráfico</option>
+                            <option value="vehiculo4">Evento</option>
+                        </select>
                     </div>
                 </div>
 
@@ -197,6 +204,8 @@
                 doc.text(20, 100, `Detalle intervención sanitaria: ${detalleSanitaria}`);
                 const nombrePaciente = document.getElementById('nombre-paciente').value;
                 doc.text(20, 110, `Nombre del paciente: ${nombrePaciente}`);
+                const tipoSanitaria = document.getElementById('tipo-sanitaria').value;
+                doc.text(20, 120, `Tipo de emergencia sanitaria: ${tipoSanitaria}`);
             } else if (categoria === 'incendio') {
                 const detalleIncendio = document.getElementById('detalle-incendio').value;
                 doc.text(20, 100, `Detalle del incendio: ${detalleIncendio}`);

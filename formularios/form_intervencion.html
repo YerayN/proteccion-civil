@@ -159,21 +159,30 @@
             const titulo = document.getElementById('titulo').value;
             const voluntario = document.getElementById('voluntario').value;
             const vehiculo = document.getElementById('vehiculo').value;
-            const fechaHora = document.getElementById('fecha-hora').value;
-            const categoria = document.getElementById('categoria').value;
+            const fechaHoraRaw = document.getElementById('fecha-hora').value;
             const horaFin = document.getElementById('hora-fin').value;
             const solicitante = document.getElementById('solicitante').value;
             const cooperacion = document.getElementById('cooperacion').value;
+            const categoria = document.getElementById('categoria').value;
+
+            // Formatear la fecha y hora
+            const fecha = new Date(fechaHoraRaw);
+            const dia = String(fecha.getDate()).padStart(2, '0');
+            const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
+            const ano = fecha.getFullYear();
+            const hora = String(fecha.getHours()).padStart(2, '0');
+            const minutos = String(fecha.getMinutes()).padStart(2, '0');
+            const fechaHoraFormateada = `${dia}-${mes}-${ano}-${hora}_${minutos}`;
 
             // Aquí generas el contenido del PDF basado en el formulario
             doc.text(20, 20, `Título: ${titulo}`);
             doc.text(20, 30, `Voluntario: ${voluntario}`);
             doc.text(20, 40, `Vehículo Utilizado: ${vehiculo}`);
-            doc.text(20, 50, `Fecha y Hora: ${fechaHora}`);
-            doc.text(20, 60, `Categoría: ${categoria}`);
-            doc.text(20, 70, `Hora de Fin: ${horaFin}`);
-            doc.text(20, 80, `Solicitante: ${solicitante}`);
-            doc.text(20, 90, `Cooperación con otras entidades: ${cooperacion}`);
+            doc.text(20, 50, `Fecha y Hora: ${fechaHoraFormateada}`);
+            doc.text(20, 60, `Hora de Fin: ${horaFin}`);
+            doc.text(20, 70, `Solicitante: ${solicitante}`);
+            doc.text(20, 80, `Cooperación con otras entidades: ${cooperacion}`);
+            doc.text(20, 90, `Categoría: ${categoria}`);
 
             // Generar el PDF como un blob
             const pdfBlob = doc.output('blob');
@@ -183,7 +192,7 @@
             formData.append('titulo', titulo);
             formData.append('voluntario', voluntario);
             formData.append('vehiculo', vehiculo);
-            formData.append('fecha-hora', fechaHora);
+            formData.append('fecha-hora', fechaHoraFormateada);
             formData.append('hora-fin', horaFin);
             formData.append('solicitante', solicitante);
             formData.append('cooperacion', cooperacion);

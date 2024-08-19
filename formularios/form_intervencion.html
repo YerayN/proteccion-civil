@@ -136,61 +136,61 @@
         document.getElementById('informe-form').addEventListener('submit', async function(event) {
             event.preventDefault(); // Evita el envío normal del formulario
 
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            const titulo = document.getElementById('titulo').value;
-            const voluntario = document.getElementById('voluntario').value;
-            const vehiculo = document.getElementById('vehiculo').value;
-            const fechaHora = new Date(document.getElementById('fecha-hora').value).toLocaleString('es-ES', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                hour12: false
-            });
-            const categoria = document.getElementById('categoria').value;
-
-            // Genera el contenido del PDF basado en el formulario
-            doc.text(20, 20, `Título: ${titulo}`);
-            doc.text(20, 30, `Voluntario: ${voluntario}`);
-            doc.text(20, 40, `Vehículo Utilizado: ${vehiculo}`);
-            doc.text(20, 50, `Fecha y Hora: ${fechaHora}`);
-            doc.text(20, 60, `Categoría: ${categoria}`);
-
-            // Añadir campos específicos según la categoría seleccionada
-            if (categoria === 'sanitaria') {
-                const paciente = document.getElementById('nombre-paciente').value;
-                doc.text(20, 70, `Paciente: ${paciente}`);
-            } else if (categoria === 'incendio') {
-                const tipoIncendio = document.getElementById('tipo-incendio').value;
-                doc.text(20, 70, `Tipo de Incendio: ${tipoIncendio}`);
-            } else if (categoria === 'trafico') {
-                const numeroVehiculos = document.getElementById('numero-vehiculos').value;
-                doc.text(20, 70, `Número de vehículos involucrados: ${numeroVehiculos}`);
-            } else if (categoria === 'ayuda_social') {
-                const tipoAyuda = document.getElementById('tipo-ayuda').value;
-                doc.text(20, 70, `Tipo de ayuda proporcionada: ${tipoAyuda}`);
-            } else if (categoria === 'proteccion_animal') {
-                const tipoAnimal = document.getElementById('tipo-animal').value;
-                doc.text(20, 70, `Tipo de animal rescatado: ${tipoAnimal}`);
-            }
-
-            // Generar el PDF como un blob
-            const pdfBlob = doc.output('blob');
-
-            // Crear un FormData para enviar el PDF al servidor
-            const formData = new FormData();
-            formData.append('titulo', titulo.replace(/\s+/g, '-')); // Reemplaza los espacios por guiones
-            formData.append('voluntario', voluntario);
-            formData.append('vehiculo', vehiculo);
-            formData.append('fecha-hora', fechaHora);
-            formData.append('categoria', categoria);
-            formData.append('pdf', pdfBlob, 'informe.pdf');
-
-            // Enviar el PDF generado al backend
             try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                const titulo = document.getElementById('titulo').value;
+                const voluntario = document.getElementById('voluntario').value;
+                const vehiculo = document.getElementById('vehiculo').value;
+                const fechaHora = new Date(document.getElementById('fecha-hora').value).toLocaleString('es-ES', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+                const categoria = document.getElementById('categoria').value;
+
+                // Genera el contenido del PDF basado en el formulario
+                doc.text(20, 20, `Título: ${titulo}`);
+                doc.text(20, 30, `Voluntario: ${voluntario}`);
+                doc.text(20, 40, `Vehículo Utilizado: ${vehiculo}`);
+                doc.text(20, 50, `Fecha y Hora: ${fechaHora}`);
+                doc.text(20, 60, `Categoría: ${categoria}`);
+
+                // Añadir campos específicos según la categoría seleccionada
+                if (categoria === 'sanitaria') {
+                    const paciente = document.getElementById('nombre-paciente').value;
+                    doc.text(20, 70, `Paciente: ${paciente}`);
+                } else if (categoria === 'incendio') {
+                    const tipoIncendio = document.getElementById('tipo-incendio').value;
+                    doc.text(20, 70, `Tipo de Incendio: ${tipoIncendio}`);
+                } else if (categoria === 'trafico') {
+                    const numeroVehiculos = document.getElementById('numero-vehiculos').value;
+                    doc.text(20, 70, `Número de vehículos involucrados: ${numeroVehiculos}`);
+                } else if (categoria === 'ayuda_social') {
+                    const tipoAyuda = document.getElementById('tipo-ayuda').value;
+                    doc.text(20, 70, `Tipo de ayuda proporcionada: ${tipoAyuda}`);
+                } else if (categoria === 'proteccion_animal') {
+                    const tipoAnimal = document.getElementById('tipo-animal').value;
+                    doc.text(20, 70, `Tipo de animal rescatado: ${tipoAnimal}`);
+                }
+
+                // Generar el PDF como un blob
+                const pdfBlob = doc.output('blob');
+
+                // Crear un FormData para enviar el PDF al servidor
+                const formData = new FormData();
+                formData.append('titulo', titulo.replace(/\s+/g, '-')); // Reemplaza los espacios por guiones
+                formData.append('voluntario', voluntario);
+                formData.append('vehiculo', vehiculo);
+                formData.append('fecha-hora', fechaHora);
+                formData.append('categoria', categoria);
+                formData.append('pdf', pdfBlob, 'informe.pdf');
+
+                // Enviar el PDF generado al backend
                 const response = await fetch('/api/upload', {
                     method: 'POST',
                     body: formData
@@ -204,8 +204,8 @@
                     alert('Error al subir el informe');
                 }
             } catch (error) {
-                console.error('Error en la solicitud:', error);
-                alert('Error al subir el informe');
+                console.error('Error al generar o subir el informe:', error);
+                alert('Error al generar o subir el informe');
             }
         });
     </script>

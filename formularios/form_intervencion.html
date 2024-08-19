@@ -120,6 +120,15 @@
                     <label for="hora-fin">Hora de Fin:</label>
                     <input type="time" id="hora-fin" name="hora-fin" required>
                 </div>
+                <div class="form-group">
+                    <label for="solicitante">Solicitante:</label>
+                    <input type="text" id="solicitante" name="solicitante">
+                </div>
+                <div class="form-group">
+                    <label for="cooperacion">Cooperación con otras entidades:</label>
+                    <input type="text" id="cooperacion" name="cooperacion">
+                </div>
+
 
 
                 <button type="submit">Generar y Enviar</button>
@@ -152,6 +161,9 @@
             const vehiculo = document.getElementById('vehiculo').value;
             const fechaHora = document.getElementById('fecha-hora').value;
             const categoria = document.getElementById('categoria').value;
+            const horaFin = document.getElementById('hora-fin').value;
+            const solicitante = document.getElementById('solicitante').value;
+            const cooperacion = document.getElementById('cooperacion').value;
 
             // Aquí generas el contenido del PDF basado en el formulario
             doc.text(20, 20, `Título: ${titulo}`);
@@ -171,6 +183,9 @@
             formData.append('fecha-hora', fechaHora);
             formData.append('categoria', categoria);
             formData.append('pdf', pdfBlob, 'informe.pdf');
+            doc.text(20, 60, `Hora de Fin: ${horaFin}`);
+            doc.text(20, 70, `Solicitante: ${solicitante}`);
+            doc.text(20, 80, `Cooperación con otras entidades: ${cooperacion}`);
 
             // Enviar el PDF generado al backend
             try {

@@ -59,28 +59,28 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     let y = 20;
 
     // Añadiendo texto al PDF con envoltura
-    y = addTextWithWrap(`Motivo intervención: ${motivo}`, margin, y);
-    y = addTextWithWrap(`Voluntario: ${voluntario}`, margin, y);
-    y = addTextWithWrap(`Vehículo Utilizado: ${vehiculo}`, margin, y);
-    y = addTextWithWrap(`Fecha y Hora: ${fechaHoraFormateada}`, margin, y);
-    y = addTextWithWrap(`Hora de Fin: ${horaFin}`, margin, y);
-    y = addTextWithWrap(`Solicitante: ${solicitante}`, margin, y);
-    y = addTextWithWrap(`Cooperación con otras entidades: ${cooperacion}`, margin, y);
+    y = addTextWithWrap(`· Motivo intervención: ${motivo}`, margin, y, 'bold');
+    y = addTextWithWrap(`· Voluntario: ${voluntario}`, margin, y, 'bold');
+    y = addTextWithWrap(`· Vehículo Utilizado: ${vehiculo}`, margin, y, 'bold');
+    y = addTextWithWrap(`· Fecha y Hora: ${fechaHoraFormateada}`, margin, y, 'bold');
+    y = addTextWithWrap(`· Hora de Fin: ${horaFin}`, margin, y, 'bold');
+    y = addTextWithWrap(`· Solicitante: ${solicitante}`, margin, y, 'bold');
+    y = addTextWithWrap(`· Cooperación con otras entidades: ${cooperacion}`, margin, y, 'bold');
     doc.line(margin, y, pageWidth - margin, y); // Dibuja la línea horizontal
     y += 10;
 
     // Añadir preguntas específicas según la categoría seleccionada
     if (categoria === 'sanitaria') {
         const tipoSanitaria = document.getElementById('tipo-sanitaria').value;
-        y = addTextWithWrap(`Tipo de emergencia sanitaria: ${tipoSanitaria}`, margin, y);
+        y = addTextWithWrap(`- Tipo de emergencia sanitaria: ${tipoSanitaria}`, margin, y, 'bold');
         const nombrePaciente = document.getElementById('nombre-paciente').value;
-        y = addTextWithWrap(`Nombre del paciente: ${nombrePaciente}`, margin, y);
+        y = addTextWithWrap(`- Nombre del paciente: ${nombrePaciente}`, margin, y, 'bold');
         const estadoPaciente = document.getElementById('estado-paciente').value;
-        y = addTextWithWrap(`Estado del paciente: ${estadoPaciente}`, margin, y);
+        y = addTextWithWrap(`- Estado del paciente: ${estadoPaciente}`, margin, y, 'bold');
         const primerosAuxilios = document.getElementById('primeros-auxilios').value;
-        y = addTextWithWrap(`Primeros auxilios realizados: ${primerosAuxilios}`, margin, y);
+        y = addTextWithWrap(`- Primeros auxilios realizados: ${primerosAuxilios}`, margin, y, 'bold');
         const traslado = document.getElementById('traslado').value;
-        y = addTextWithWrap(`Traslado: ${traslado}`, margin, y);
+        y = addTextWithWrap(`- Traslado: ${traslado}`, margin, y, 'bold');
     } else if (categoria === 'incendio') {
         const detalleIncendio = document.getElementById('detalle-incendio').value;
         y = addTextWithWrap(`Detalle del incendio: ${detalleIncendio}`, margin, y);

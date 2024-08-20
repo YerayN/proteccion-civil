@@ -23,19 +23,21 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     const maxLineWidth = pageWidth - margin * 2;
 
     // Función para agregar texto con control de línea y salto de página
-    function addTextWithWrap(text, x, y) {
+    function addTextWithWrapAndStyle(text, x, y, style = 'normal') {
         const textLines = doc.splitTextToSize(text, maxLineWidth);
         const lineHeight = 10;
+        doc.setFont('helvetica', style); // Aquí se establece la fuente y el estilo
         for (let i = 0; i < textLines.length; i++) {
-            if (y > doc.internal.pageSize.getHeight() - margin) { // si el texto se sale de la página
+            if (y > doc.internal.pageSize.getHeight() - margin) { // Si el texto se sale de la página
                 doc.addPage();
-                y = margin; // restablece la posición Y
+                y = margin; // Restablece la posición Y
             }
             doc.text(x, y, textLines[i]);
             y += lineHeight;
         }
         return y; // Devuelve la nueva posición Y
     }
+    
 
     const motivo = document.getElementById('motivo').value;
     const voluntario = document.getElementById('voluntario').value;

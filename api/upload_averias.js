@@ -14,10 +14,8 @@ const auth = new google.auth.JWT({
 const drive = google.drive({ version: 'v3', auth });
 const upload = multer();
 
-// IDs de las carpetas
-const folders = {
-    vehiculo_averiado: '1D0QcFCYiEwC8qby65jzkZrO8pYLWUlvK'
-};
+// ID de la carpeta por defecto
+const folderId = '1D0QcFCYiEwC8qby65jzkZrO8pYLWUlvK';
 
 async function getNextId(folderId) {
     try {
@@ -62,8 +60,7 @@ export default async (req, res) => {
         { name: 'pdf', maxCount: 1 },
         { name: 'vehiculo', maxCount: 1 },
         { name: 'averia', maxCount: 1 },
-        { name: 'voluntario', maxCount: 1 },
-        { name: 'categoria', maxCount: 1 }
+        { name: 'voluntario', maxCount: 1 }
     ])(req, res, async (err) => {
         if (err) {
             return res.status(500).send({ message: 'Error uploading the file', error: err.message });
@@ -73,9 +70,6 @@ export default async (req, res) => {
             if (!req.files || !req.files.pdf || req.files.pdf.length === 0) {
                 throw new Error("No file received");
             }
-
-            const category = req.body['categoria'];
-            const folderId = folders[category] || '1D0QcFCYiEwC8qby65jzkZrO8pYLWUlvK'; // Carpeta por defecto
 
             const fileName = await generateFileName(req, folderId);
 
@@ -94,7 +88,7 @@ export default async (req, res) => {
                 }
             });
 
-            console.log(`Archivo subido a Google Drive en la carpeta ${category}:`, response.data.id);
+            console.log(`Archivo subido a Google Drive:`, response.data.id);
             res.status(200).json({ fileId: response.data.id });
         } catch (error) {
             console.error('Error uploading file to Google Drive:', error.message);

@@ -145,16 +145,49 @@
                 <div id="formulario-incendio" class="formulario-categoria seccion-oculta">
                     <!-- Campos específicos para Incendio -->
                     <div class="form-group">
-                        <label for="detalle-incendio">Detalle del incendio:</label>
-                        <input type="text" id="detalle-incendio" name="detalle-incendio">
+                        <label for="tipo-incendio">Tipo de incendio:</label>
+                        <select id="tipo-incendio" name="tipo-incendio" required>
+                            <option value="Forestal">Forestal</option>
+                            <option value="Urbano">Urbano</option>
+                            <option value="Domiciliario">Domiciliario</option>
+                            <option value="Vehículo">Vehículo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tamano-incendio">Tamaño aproximado del incendio:</label>
+                        <select id="tamano-incendio" name="tamano-incendio" required>
+                            <option value="Pequeño">Pequeño (Contenedor)</option>
+                            <option value="Mediano">Mediano (Casa)</option>
+                            <option value="Grande">Grande (Bosque)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="apoyo-incendio">Medidas de apoyo realizadas:</label>
+                        <input type="text" id="apoyo-incendio" name="apoyo-incendio">
+                    </div>
+                    <div class="form-group">
+                        <label for="recursos-incendio">Recursos empleados:</label>
+                        <input type="text" id="recursos-incendio" name="recursos-incendio">
                     </div>
                 </div>
 
                 <div id="formulario-trafico" class="formulario-categoria seccion-oculta">
                     <!-- Campos específicos para Tráfico -->
                     <div class="form-group">
-                        <label for="detalle-trafico">Detalle del incidente de tráfico:</label>
-                        <input type="text" id="detalle-trafico" name="detalle-trafico">
+                        <label for="tipo-trafico">Tipo de intervención:</label>
+                        <select id="tipo-trafico" name="tipo-trafico" required>
+                            <option value="Regulación de tráfico">Regulación de tráfico</option>
+                            <option value="Apoyo en accidente">Apoyo en accidente</option>
+                            <option value="Control de acceso">Control de acceso</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="apoyo-trafico">Medidas de apoyo realizadas:</label>
+                        <input type="text" id="apoyo-trafico" name="apoyo-trafico">
+                    </div>
+                    <div class="form-group">
+                        <label for="recursos-trafico">Recursos empleados:</label>
+                        <input type="text" id="recursos-trafico" name="recursos-trafico">
                     </div>
                 </div>
 

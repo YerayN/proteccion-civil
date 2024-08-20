@@ -101,11 +101,21 @@ document.getElementById('informe-form').addEventListener('submit', async functio
         const traslado = document.getElementById('traslado').value;
         y = addTextWithWrapAndStyle(`- Traslado: `, traslado, margin, y, 'bold');
     } else if (categoria === 'incendio') {
-        const detalleIncendio = document.getElementById('detalle-incendio').value;
-        y = addTextWithWrapAndStyle(`- Detalle del incendio: `, detalleIncendio, margin, y, 'bold');
+        const tipoIncendio = document.getElementById('tipo-incendio').value;
+        y = addTextWithWrapAndStyle(`- Tipo de incendio: `, tipoIncendio, margin, y, 'bold');
+        const tamanoIncendio = document.getElementById('tamano-incendio').value;
+        y = addTextWithWrapAndStyle(`- Tamaño del incendio: `, tamanoIncendio, margin, y, 'bold');
+        const apoyoIncendio = document.getElementById('apoyo-incendio').value;
+        y = addTextWithWrapAndStyle(`- Medidas de apoyo realizadas: `, apoyoIncendio, margin, y, 'bold');
+        const recursosIncendio = document.getElementById('recursos-incendio').value;
+        y = addTextWithWrapAndStyle(`- Recursos empleados: `, recursosIncendio, margin, y, 'bold');
     } else if (categoria === 'trafico') {
-        const detalleTrafico = document.getElementById('detalle-trafico').value;
-        y = addTextWithWrapAndStyle(`- Detalle del incidente de tráfico: `, detalleTrafico, margin, y, 'bold');
+        const tipoTrafico = document.getElementById('tipo-trafico').value;
+        y = addTextWithWrapAndStyle(`- Tipo de intervención: `, tipoTrafico, margin, y, 'bold');
+        const apoyoTrafico = document.getElementById('apoyo-trafico').value;
+        y = addTextWithWrapAndStyle(`- Medidas de apoyo realizadas: `, apoyoTrafico, margin, y, 'bold');
+        const recursosTrafico = document.getElementById('recursos-trafico').value;
+        y = addTextWithWrapAndStyle(`- Recursos empleados: `, recursosTrafico, margin, y, 'bold');
     } else if (categoria === 'ayuda_social') {
         const detalleAyudaSocial = document.getElementById('detalle-ayuda-social').value;
         y = addTextWithWrapAndStyle(`- Detalle de la ayuda social: `, detalleAyudaSocial, margin, y, 'bold');

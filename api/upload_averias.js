@@ -48,7 +48,7 @@ async function generateFileName(req, folderId) {
     const date = now.toLocaleDateString('es-ES', options).replace(/\//g, '-');
     const time = now.toLocaleTimeString('es-ES', options).replace(/:/g, '-');
 
-    const motivo = req.body.vehiculo ? req.body.vehiculo.replace(/\s+/g, '-') : 'SinTitulo';
+    const vehiculo = req.body.vehiculo ? req.body.vehiculo.replace(/\s+/g, '-') : 'SinTitulo';
 
     return `${nextId.toString().padStart(4, '0')} - ${vehiculo}_${date}_${time}.pdf`;
 }
@@ -63,6 +63,7 @@ export default async (req, res) => {
         { name: 'vehiculo', maxCount: 1 },
         { name: 'averia', maxCount: 1 },
         { name: 'voluntario', maxCount: 1 },
+        { name: 'categoria', maxCount: 1 }
     ])(req, res, async (err) => {
         if (err) {
             return res.status(500).send({ message: 'Error uploading the file', error: err.message });

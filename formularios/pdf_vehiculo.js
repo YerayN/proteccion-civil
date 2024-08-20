@@ -1,16 +1,3 @@
-function mostrarFormulario() {
-    const categoria = document.getElementById('categoria').value;
-    const formularios = document.querySelectorAll('.formulario-categoria');
-
-    formularios.forEach(formulario => {
-        formulario.classList.add('seccion-oculta');
-    });
-
-    if (categoria) {
-        document.getElementById(`formulario-${categoria}`).classList.remove('seccion-oculta');
-    }
-}
-
 document.getElementById('informe-form').addEventListener('submit', async function (event) {
     event.preventDefault(); // Evita el envío normal del formulario
 
@@ -58,12 +45,11 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     let y = 20;
 
     // Añadiendo texto al PDF con etiquetas en negrita y valores normales
-    y = addTextWithWrapAndStyle(`- Vehículo: `, motivo, margin, y, 'bold');
-    y = addTextWithWrapAndStyle(`- Avería: `, voluntario, margin, y, 'bold');
-    y = addTextWithWrapAndStyle(`- Voluntario: `, vehiculo, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`- Vehículo: `, vehiculo, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`- Avería: `, averia, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`- Voluntario: `, voluntario, margin, y, 'bold');
     doc.line(margin, y, pageWidth - margin, y); // Dibuja la línea horizontal
     y += 10;
-
 
     // Generar el PDF como un blob
     const pdfBlob = doc.output('blob');

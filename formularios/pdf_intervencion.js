@@ -53,6 +53,7 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     const motivo = document.getElementById('motivo').value;
     const voluntario = document.getElementById('voluntario').value;
     const vehiculo = document.getElementById('vehiculo').value;
+    const ubicacion = document.getElementById('ubicacion').value;
     const fechaHoraRaw = document.getElementById('fecha-hora').value;
     const horaFin = document.getElementById('hora-fin').value;
     const solicitante = document.getElementById('solicitante').value;
@@ -75,6 +76,7 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     y = addTextWithWrapAndStyle(`- Motivo intervención: `, motivo, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Voluntario: `, voluntario, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Vehículo Utilizado: `, vehiculo, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`- Ubicación: `, ubicacion, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Fecha y Hora: `, fechaHoraFormateada, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Hora de Fin: `, horaFin, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Solicitante: `, solicitante, margin, y, 'bold');
@@ -120,6 +122,7 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     formData.append('motivo', motivo);
     formData.append('voluntario', voluntario);
     formData.append('vehiculo', vehiculo);
+    formData.append('ubicacion', ubicacion);
     formData.append('fecha-hora', fechaHoraFormateada);
     formData.append('hora-fin', horaFin);
     formData.append('solicitante', solicitante);

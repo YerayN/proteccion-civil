@@ -50,7 +50,7 @@ async function generateFileName(req, folderId) {
 
     const motivo = req.body.vehiculo ? req.body.vehiculo.replace(/\s+/g, '-') : 'SinTitulo';
 
-    return `${nextId.toString().padStart(4, '0')} - ${motivo}_${date}_${time}.pdf`;
+    return `${nextId.toString().padStart(4, '0')} - ${vehiculo}_${date}_${time}.pdf`;
 }
 
 export default async (req, res) => {

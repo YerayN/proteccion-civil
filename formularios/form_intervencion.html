@@ -95,14 +95,6 @@
                 <div id="formulario-sanitaria" class="formulario-categoria seccion-oculta">
                     <!-- Campos específicos para Sanitaria -->
                     <div class="form-group">
-                        <label for="nombre-paciente">Nombre del paciente:</label>
-                        <input type="text" id="nombre-paciente" name="nombre-paciente">
-                    </div>
-                    <div class="form-group">
-                        <label for="estado-paciente">Estado del paciente:</label>
-                        <input type="text" id="estado-paciente" name="estado-paciente">
-                    </div>
-                    <div class="form-group">
                         <label for="tipo-sanitaria">Tipo de emergencia sanitaria:</label>
                         <select id="tipo-sanitaria" name="tipo-sanitaria" required>
                             <option value="Domiciliaria">Domiciliaria</option>
@@ -111,7 +103,24 @@
                             <option value="Evento">Evento</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="nombre-paciente">Nombre del paciente:</label>
+                        <input type="text" id="nombre-paciente" name="nombre-paciente">
+                    </div>
+                    <div class="form-group">
+                        <label for="estado-paciente">Estado del paciente:</label>
+                        <input type="text" id="estado-paciente" name="estado-paciente">
+                    </div>
+                    <div class="form-group">
+                        <label for="primeros-auxilios">Primeros auxilios realizados:</label>
+                        <input type="text" id="primeros-auxilios" name="primeros-auxilios">
+                    </div>
+                    <div class="form-group">
+                        <label for="traslado">Traslado:</label>
+                        <input type="text" id="traslado" name="traslado">
+                    </div>
                 </div>
+
 
                 <div id="formulario-incendio" class="formulario-categoria seccion-oculta">
                     <!-- Campos específicos para Incendio -->
@@ -196,16 +205,20 @@
             doc.text(20, 60, `Hora de Fin: ${horaFin}`);
             doc.text(20, 70, `Solicitante: ${solicitante}`);
             doc.text(20, 80, `Cooperación con otras entidades: ${cooperacion}`);
-            doc.line(20, 90, 190, 95); // Dibuja una línea horizontal desde (20, 95) hasta (190, 95)
+            doc.line(20, 90, 190, 90); // Dibuja una línea horizontal desde (20, 95) hasta (190, 95)
 
             // Añadir preguntas específicas según la categoría seleccionada
             if (categoria === 'sanitaria') {
+                const tipoSanitaria = document.getElementById('tipo-sanitaria').value;
+                doc.text(20, 100, `Tipo de emergencia sanitaria: ${tipoSanitaria}`);
                 const nombrePaciente = document.getElementById('nombre-paciente').value;
                 doc.text(20, 110, `Nombre del paciente: ${nombrePaciente}`);
                 const estadoPaciente = document.getElementById('estado-paciente').value;
-                doc.text(20, 100, `Estado del paciente: ${estadoPaciente}`);
-                const tipoSanitaria = document.getElementById('tipo-sanitaria').value;
-                doc.text(20, 120, `Tipo de emergencia sanitaria: ${tipoSanitaria}`);
+                doc.text(20, 120, `Estado del paciente: ${estadoPaciente}`);
+                const primerosAuxilios = document.getElementById('primeros-auxilios').value;
+                doc.text(20, 120, `Primeros auxilios realizados: ${primerosAuxilios}`);
+                const traslado = document.getElementById('traslado').value;
+                doc.text(20, 120, `Traslado: ${traslado}`);
             } else if (categoria === 'incendio') {
                 const detalleIncendio = document.getElementById('detalle-incendio').value;
                 doc.text(20, 100, `Detalle del incendio: ${detalleIncendio}`);

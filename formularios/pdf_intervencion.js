@@ -72,15 +72,15 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     // Añadir preguntas específicas según la categoría seleccionada
     if (categoria === 'sanitaria') {
         const tipoSanitaria = document.getElementById('tipo-sanitaria').value;
-        y = addTextWithWrap(`- Tipo de emergencia sanitaria: ${tipoSanitaria}`, margin, y, 'bold');
+        y = addTextWithWrap(`- Tipo de emergencia sanitaria: ${tipoSanitaria}`, margin, y, 'italic');
         const nombrePaciente = document.getElementById('nombre-paciente').value;
-        y = addTextWithWrap(`- Nombre del paciente: ${nombrePaciente}`, margin, y, 'bold');
+        y = addTextWithWrap(`- Nombre del paciente: ${nombrePaciente}`, margin, y, 'italic');
         const estadoPaciente = document.getElementById('estado-paciente').value;
-        y = addTextWithWrap(`- Estado del paciente: ${estadoPaciente}`, margin, y, 'bold');
+        y = addTextWithWrap(`- Estado del paciente: ${estadoPaciente}`, margin, y, 'italic');
         const primerosAuxilios = document.getElementById('primeros-auxilios').value;
-        y = addTextWithWrap(`- Primeros auxilios realizados: ${primerosAuxilios}`, margin, y, 'bold');
+        y = addTextWithWrap(`- Primeros auxilios realizados: ${primerosAuxilios}`, margin, y, 'italic');
         const traslado = document.getElementById('traslado').value;
-        y = addTextWithWrap(`- Traslado: ${traslado}`, margin, y, 'bold');
+        y = addTextWithWrap(`- Traslado: ${traslado}`, margin, y, 'italic');
     } else if (categoria === 'incendio') {
         const detalleIncendio = document.getElementById('detalle-incendio').value;
         y = addTextWithWrap(`Detalle del incendio: ${detalleIncendio}`, margin, y);

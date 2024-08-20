@@ -85,13 +85,13 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     // Añadir preguntas específicas según la categoría seleccionada con guion y estilo
     if (categoria === 'sanitaria') {
         const tipoSanitaria = document.getElementById('tipo-sanitaria').value;
-        y = addTextWithWrapAndStyle(`- Tipo de emergencia sanitaria: `, tipoSanitaria, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Tipo de emergencia sanitaria: `, tipoSanitaria, margin, y, 'bold');
         const nombrePaciente = document.getElementById('nombre-paciente').value;
-        y = addTextWithWrapAndStyle(`- Nombre del paciente: `, nombrePaciente, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Nombre del paciente: `, nombrePaciente, margin, y, 'bold');
         const estadoPaciente = document.getElementById('estado-paciente').value;
-        y = addTextWithWrapAndStyle(`- Estado del paciente: `, estadoPaciente, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Estado del paciente: `, estadoPaciente, margin, y, 'bold');
         const primerosAuxilios = document.getElementById('primeros-auxilios').value;
-        y = addTextWithWrapAndStyle(`- Primeros auxilios realizados: `, primerosAuxilios, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Primeros auxilios realizados: `, primerosAuxilios, margin, y, 'bold');
         const traslado = document.getElementById('traslado').value;
         y = addTextWithWrapAndStyle(`- Traslado: `, traslado, margin, y, 'italic');
     } else if (categoria === 'incendio') {

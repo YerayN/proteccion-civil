@@ -52,7 +52,7 @@ async function generateFileName(req, folderId) {
     const date = now.toLocaleDateString('es-ES', options).replace(/\//g, '-');
     const time = now.toLocaleTimeString('es-ES', options).replace(/:/g, '-');
 
-    const titulo = req.body.titulo ? req.body.titulo.replace(/\s+/g, '-') : 'SinTitulo';
+    const motivo = req.body.motivo ? req.body.motivo.replace(/\s+/g, '-') : 'SinTitulo';
 
     return `${nextId.toString().padStart(4, '0')} - ${titulo}_${date}_${time}.pdf`;
 }
@@ -64,7 +64,7 @@ export default async (req, res) => {
 
     upload.fields([
         { name: 'pdf', maxCount: 1 },
-        { name: 'titulo', maxCount: 1 },
+        { name: 'motivo', maxCount: 1 },
         { name: 'fecha-hora', maxCount: 1 },
         { name: 'hora-fin', maxCount: 1 },
         { name: 'ubicacion', maxCount: 1 },

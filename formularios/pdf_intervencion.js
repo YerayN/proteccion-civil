@@ -88,6 +88,10 @@ document.getElementById('informe-form').addEventListener('submit', async functio
         y = addTextWithWrapAndStyle(`- Tipo de emergencia sanitaria: `, tipoSanitaria, margin, y, 'bold');
         const nombrePaciente = document.getElementById('nombre-paciente').value;
         y = addTextWithWrapAndStyle(`- Nombre del paciente: `, nombrePaciente, margin, y, 'bold');
+        const edadPaciente = document.getElementById('edad-paciente').value;
+        y = addTextWithWrapAndStyle(`- Edad: `, edadPaciente, margin, y, 'bold');
+        const sexoPaciente = document.getElementById('sexo-paciente').value;
+        y = addTextWithWrapAndStyle(`- Sexo: `, sexoPaciente, margin, y, 'bold');
         const estadoPaciente = document.getElementById('estado-paciente').value;
         y = addTextWithWrapAndStyle(`- Estado del paciente: `, estadoPaciente, margin, y, 'bold');
         const primerosAuxilios = document.getElementById('primeros-auxilios').value;

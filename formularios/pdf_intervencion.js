@@ -93,19 +93,19 @@ document.getElementById('informe-form').addEventListener('submit', async functio
         const primerosAuxilios = document.getElementById('primeros-auxilios').value;
         y = addTextWithWrapAndStyle(`- Primeros auxilios realizados: `, primerosAuxilios, margin, y, 'bold');
         const traslado = document.getElementById('traslado').value;
-        y = addTextWithWrapAndStyle(`- Traslado: `, traslado, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Traslado: `, traslado, margin, y, 'bold');
     } else if (categoria === 'incendio') {
         const detalleIncendio = document.getElementById('detalle-incendio').value;
-        y = addTextWithWrapAndStyle(`- Detalle del incendio: `, detalleIncendio, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Detalle del incendio: `, detalleIncendio, margin, y, 'bold');
     } else if (categoria === 'trafico') {
         const detalleTrafico = document.getElementById('detalle-trafico').value;
-        y = addTextWithWrapAndStyle(`- Detalle del incidente de tráfico: `, detalleTrafico, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Detalle del incidente de tráfico: `, detalleTrafico, margin, y, 'bold');
     } else if (categoria === 'ayuda_social') {
         const detalleAyudaSocial = document.getElementById('detalle-ayuda-social').value;
-        y = addTextWithWrapAndStyle(`- Detalle de la ayuda social: `, detalleAyudaSocial, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Detalle de la ayuda social: `, detalleAyudaSocial, margin, y, 'bold');
     } else if (categoria === 'proteccion_animal') {
         const detalleProteccionAnimal = document.getElementById('detalle-proteccion-animal').value;
-        y = addTextWithWrapAndStyle(`- Detalle de la protección animal: `, detalleProteccionAnimal, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Detalle de la protección animal: `, detalleProteccionAnimal, margin, y, 'bold');
     }
 
     // Generar el PDF como un blob

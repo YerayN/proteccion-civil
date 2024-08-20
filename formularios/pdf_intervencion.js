@@ -17,6 +17,26 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
+    // Definimos el ancho máximo del texto
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const margin = 20;
+    const maxLineWidth = pageWidth - margin * 2;
+
+    // Función para agregar texto con control de línea y salto de página
+    function addTextWithWrap(text, x, y) {
+        const textLines = doc.splitTextToSize(text, maxLineWidth);
+        const lineHeight = 10;
+        for (let i = 0; i < textLines.length; i++) {
+            if (y > doc.internal.pageSize.getHeight() - margin) { // si el texto se sale de la página
+                doc.addPage();
+                y = margin; // restablece la posición Y
+            }
+            doc.text(x, y, textLines[i]);
+            y += lineHeight;
+        }
+        return y; // Devuelve la nueva posición Y
+    }
+
     const motivo = document.getElementById('motivo').value;
     const voluntario = document.getElementById('voluntario').value;
     const vehiculo = document.getElementById('vehiculo').value;
@@ -35,40 +55,44 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     const minutos = String(fecha.getMinutes()).padStart(2, '0');
     const fechaHoraFormateada = `${dia}-${mes}-${ano}_${hora}:${minutos}`;
 
-    // Aquí generas el contenido del PDF basado en el formulario
-    doc.text(20, 20, `Motivo intervención: ${motivo}`);
-    doc.text(20, 30, `Voluntario: ${voluntario}`);
-    doc.text(20, 40, `Vehículo Utilizado: ${vehiculo}`);
-    doc.text(20, 50, `Fecha y Hora: ${fechaHoraFormateada}`);
-    doc.text(20, 60, `Hora de Fin: ${horaFin}`);
-    doc.text(20, 70, `Solicitante: ${solicitante}`);
-    doc.text(20, 80, `Cooperación con otras entidades: ${cooperacion}`);
-    doc.line(20, 90, 190, 90); // Dibuja una línea horizontal desde (20, 95) hasta (190, 95)
+    // Posición inicial Y
+    let y = 20;
+
+    // Añadiendo texto al PDF con envoltura
+    y = addTextWithWrap(`Motivo intervención: ${motivo}`, margin, y);
+    y = addTextWithWrap(`Voluntario: ${voluntario}`, margin, y);
+    y = addTextWithWrap(`Vehículo Utilizado: ${vehiculo}`, margin, y);
+    y = addTextWithWrap(`Fecha y Hora: ${fechaHoraFormateada}`, margin, y);
+    y = addTextWithWrap(`Hora de Fin: ${horaFin}`, margin, y);
+    y = addTextWithWrap(`Solicitante: ${solicitante}`, margin, y);
+    y = addTextWithWrap(`Cooperación con otras entidades: ${cooperacion}`, margin, y);
+    doc.line(margin, y, pageWidth - margin, y); // Dibuja la línea horizontal
+    y += 10;
 
     // Añadir preguntas específicas según la categoría seleccionada
     if (categoria === 'sanitaria') {
         const tipoSanitaria = document.getElementById('tipo-sanitaria').value;
-        doc.text(20, 100, `Tipo de emergencia sanitaria: ${tipoSanitaria}`);
+        y = addTextWithWrap(`Tipo de emergencia sanitaria: ${tipoSanitaria}`, margin, y);
         const nombrePaciente = document.getElementById('nombre-paciente').value;
-        doc.text(20, 110, `Nombre del paciente: ${nombrePaciente}`);
+        y = addTextWithWrap(`Nombre del paciente: ${nombrePaciente}`, margin, y);
         const estadoPaciente = document.getElementById('estado-paciente').value;
-        doc.text(20, 120, `Estado del paciente: ${estadoPaciente}`);
+        y = addTextWithWrap(`Estado del paciente: ${estadoPaciente}`, margin, y);
         const primerosAuxilios = document.getElementById('primeros-auxilios').value;
-        doc.text(20, 130, `Primeros auxilios realizados: ${primerosAuxilios}`);
+        y = addTextWithWrap(`Primeros auxilios realizados: ${primerosAuxilios}`, margin, y);
         const traslado = document.getElementById('traslado').value;
-        doc.text(20, 140, `Traslado: ${traslado}`);
+        y = addTextWithWrap(`Traslado: ${traslado}`, margin, y);
     } else if (categoria === 'incendio') {
         const detalleIncendio = document.getElementById('detalle-incendio').value;
-        doc.text(20, 100, `Detalle del incendio: ${detalleIncendio}`);
+        y = addTextWithWrap(`Detalle del incendio: ${detalleIncendio}`, margin, y);
     } else if (categoria === 'trafico') {
         const detalleTrafico = document.getElementById('detalle-trafico').value;
-        doc.text(20, 100, `Detalle del incidente de tráfico: ${detalleTrafico}`);
+        y = addTextWithWrap(`Detalle del incidente de tráfico: ${detalleTrafico}`, margin, y);
     } else if (categoria === 'ayuda_social') {
         const detalleAyudaSocial = document.getElementById('detalle-ayuda-social').value;
-        doc.text(20, 100, `Detalle de la ayuda social: ${detalleAyudaSocial}`);
+        y = addTextWithWrap(`Detalle de la ayuda social: ${detalleAyudaSocial}`, margin, y);
     } else if (categoria === 'proteccion_animal') {
         const detalleProteccionAnimal = document.getElementById('detalle-proteccion-animal').value;
-        doc.text(20, 100, `Detalle de la protección animal: ${detalleProteccionAnimal}`);
+        y = addTextWithWrap(`Detalle de la protección animal: ${detalleProteccionAnimal}`, margin, y);
     }
 
     // Generar el PDF como un blob

@@ -1,6 +1,8 @@
 const USERS = [
-    { username: "voluntario1", password: "password123" },
-    { username: "voluntario2", password: "password456" }
+    { username: "y.navarro", password: "prote123" },
+    { username: "p.marquez", password: "prote123" },
+    { username: "s.lloret", password: "prote123" },
+    { username: "j.molina", password: "prote123" }
 ];
 
 function login(event) {

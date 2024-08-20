@@ -61,40 +61,40 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     let y = 20;
 
     // Añadiendo texto al PDF con envoltura
-    y = addTextWithWrap(`· Motivo intervención: ${motivo}`, margin, y, 'bold');
-    y = addTextWithWrap(`· Voluntario: ${voluntario}`, margin, y, 'bold');
-    y = addTextWithWrap(`· Vehículo Utilizado: ${vehiculo}`, margin, y, 'bold');
-    y = addTextWithWrap(`· Fecha y Hora: ${fechaHoraFormateada}`, margin, y, 'bold');
-    y = addTextWithWrap(`· Hora de Fin: ${horaFin}`, margin, y, 'bold');
-    y = addTextWithWrap(`· Solicitante: ${solicitante}`, margin, y, 'bold');
-    y = addTextWithWrap(`· Cooperación con otras entidades: ${cooperacion}`, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`· Motivo intervención: ${motivo}`, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`· Voluntario: ${voluntario}`, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`· Vehículo Utilizado: ${vehiculo}`, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`· Fecha y Hora: ${fechaHoraFormateada}`, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`· Hora de Fin: ${horaFin}`, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`· Solicitante: ${solicitante}`, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`· Cooperación con otras entidades: ${cooperacion}`, margin, y, 'bold');
     doc.line(margin, y, pageWidth - margin, y); // Dibuja la línea horizontal
     y += 10;
 
     // Añadir preguntas específicas según la categoría seleccionada
     if (categoria === 'sanitaria') {
         const tipoSanitaria = document.getElementById('tipo-sanitaria').value;
-        y = addTextWithWrap(`- Tipo de emergencia sanitaria: ${tipoSanitaria}`, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Tipo de emergencia sanitaria: ${tipoSanitaria}`, margin, y, 'italic');
         const nombrePaciente = document.getElementById('nombre-paciente').value;
-        y = addTextWithWrap(`- Nombre del paciente: ${nombrePaciente}`, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Nombre del paciente: ${nombrePaciente}`, margin, y, 'italic');
         const estadoPaciente = document.getElementById('estado-paciente').value;
-        y = addTextWithWrap(`- Estado del paciente: ${estadoPaciente}`, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Estado del paciente: ${estadoPaciente}`, margin, y, 'italic');
         const primerosAuxilios = document.getElementById('primeros-auxilios').value;
-        y = addTextWithWrap(`- Primeros auxilios realizados: ${primerosAuxilios}`, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Primeros auxilios realizados: ${primerosAuxilios}`, margin, y, 'italic');
         const traslado = document.getElementById('traslado').value;
-        y = addTextWithWrap(`- Traslado: ${traslado}`, margin, y, 'italic');
+        y = addTextWithWrapAndStyle(`- Traslado: ${traslado}`, margin, y, 'italic');
     } else if (categoria === 'incendio') {
         const detalleIncendio = document.getElementById('detalle-incendio').value;
-        y = addTextWithWrap(`Detalle del incendio: ${detalleIncendio}`, margin, y);
+        y = addTextWithWrapAndStyle(`Detalle del incendio: ${detalleIncendio}`, margin, y);
     } else if (categoria === 'trafico') {
         const detalleTrafico = document.getElementById('detalle-trafico').value;
-        y = addTextWithWrap(`Detalle del incidente de tráfico: ${detalleTrafico}`, margin, y);
+        y = addTextWithWrapAndStyle(`Detalle del incidente de tráfico: ${detalleTrafico}`, margin, y);
     } else if (categoria === 'ayuda_social') {
         const detalleAyudaSocial = document.getElementById('detalle-ayuda-social').value;
-        y = addTextWithWrap(`Detalle de la ayuda social: ${detalleAyudaSocial}`, margin, y);
+        y = addTextWithWrapAndStyle(`Detalle de la ayuda social: ${detalleAyudaSocial}`, margin, y);
     } else if (categoria === 'proteccion_animal') {
         const detalleProteccionAnimal = document.getElementById('detalle-proteccion-animal').value;
-        y = addTextWithWrap(`Detalle de la protección animal: ${detalleProteccionAnimal}`, margin, y);
+        y = addTextWithWrapAndStyle(`Detalle de la protección animal: ${detalleProteccionAnimal}`, margin, y);
     }
 
     // Generar el PDF como un blob

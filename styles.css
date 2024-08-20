@@ -302,3 +302,23 @@ form button:hover {
     margin: 0 auto; /* Centra el calendario horizontalmente */
     overflow-y: auto; /* Permite desplazamiento vertical si es necesario */
 }
+
+
+.form-group-row {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    gap: 20px; /* Espacio entre los campos */
+}
+
+.form-group-row .form-group {
+    flex: 1; /* Para que ambos campos ocupen el mismo espacio */
+}
+
+/* Si quieres que los campos ocupen diferentes anchos, puedes ajustar el flex individualmente */
+/* .form-group-row .form-group:first-child {
+    flex: 2;
+}
+
+.form-group-row .form-group:last-child {
+    flex: 1;
+} */

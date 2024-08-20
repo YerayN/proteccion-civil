@@ -71,13 +71,15 @@
                         <option value="vehiculo4">Vehículo 4</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="fecha-hora">Fecha y Hora:</label>
-                    <input type="datetime-local" id="fecha-hora" name="fecha-hora">
-                </div>
-                <div class="form-group">
-                    <label for="hora-fin">Hora de Fin:</label>
-                    <input type="time" id="hora-fin" name="hora-fin">
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="fecha-hora">Fecha y Hora:</label>
+                        <input type="datetime-local" id="fecha-hora" name="fecha-hora">
+                    </div>
+                    <div class="form-group">
+                        <label for="hora-fin">Hora de Fin:</label>
+                        <input type="time" id="hora-fin" name="hora-fin">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="solicitante">Solicitante:</label>
@@ -107,17 +109,19 @@
                         <label for="nombre-paciente">Nombre del paciente:</label>
                         <input type="text" id="nombre-paciente" name="nombre-paciente">
                     </div>
-                    <div class="form-group">
-                        <label for="edad-paciente">Edad:</label>
-                        <input type="number" id="edad-paciente" name="edad-paciente">
-                    </div>
-                    <div class="form-group">
-                        <label for="sexo-paciente">Sexo:</label>
-                        <select id="sexo-paciente" name="sexo-paciente" required>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                            <option value="Otro">Otro</option>
-                        </select>
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="edad-paciente">Edad:</label>
+                            <input type="number" id="edad-paciente" name="edad-paciente">
+                        </div>
+                        <div class="form-group">
+                            <label for="sexo-paciente">Sexo:</label>
+                            <select id="sexo-paciente" name="sexo-paciente" required>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="estado-paciente">Estado del paciente:</label>

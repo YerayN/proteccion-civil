@@ -92,27 +92,35 @@ main {
 }
 
 /* Ajustes específicos para cada página */
-.main-documentos, .main-formacion, .main-contacto, .main-index {
-    margin-top: 100px; /* Margen superior específico para estas páginas */
+.main-documentos,
+.main-formacion,
+.main-contacto,
+.main-index {
+    margin-top: 100px;
+    /* Margen superior específico para estas páginas */
 }
 
 /* Ajuste específico del margen superior para el formulario */
 .formulario-main {
-    margin-top: 50px; /* Reducido para evitar desplazamientos excesivos */
+    margin-top: 50px;
+    /* Reducido para evitar desplazamientos excesivos */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
     width: 100%;
     max-width: 800px;
-    min-height: 80vh; /* Asegura que el formulario ocupe al menos el 80% de la altura de la pantalla */
+    min-height: 80vh;
+    /* Asegura que el formulario ocupe al menos el 80% de la altura de la pantalla */
 }
 
 @media (max-width: 768px) {
     .formulario-main {
         padding: 10px;
-        margin-top: 20px; /* Ajusta solo el margen superior en móviles */
-        min-height: 100vh; /* Asegura que el formulario ocupe toda la altura de la pantalla en móviles */
+        margin-top: 20px;
+        /* Ajusta solo el margen superior en móviles */
+        min-height: 100vh;
+        /* Asegura que el formulario ocupe toda la altura de la pantalla en móviles */
     }
 }
 
@@ -124,7 +132,8 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 100%;
-    max-width: 100%; /* Asegura que el panel no se desborde */
+    max-width: 80%;
+    /* Asegura que el panel no se desborde */
 }
 
 .panel h1 {
@@ -180,7 +189,8 @@ form button:hover {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
-    margin-top: 50px; /* Ajustado para evitar que los paneles se queden detrás del menú */
+    margin-top: 50px;
+    /* Ajustado para evitar que los paneles se queden detrás del menú */
     align-content: center;
 }
 
@@ -192,7 +202,8 @@ form button:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 120px; /* Altura fija para las tarjetas */
+    height: 120px;
+    /* Altura fija para las tarjetas */
 }
 
 .card:hover {
@@ -205,8 +216,10 @@ form button:hover {
     display: block;
     padding: 20px;
     border-radius: 10px;
-    text-align: center; /* Alinear el texto al centro */
-    height: 100%; /* Asegurar que el contenido se extienda a lo largo de toda la tarjeta */
+    text-align: center;
+    /* Alinear el texto al centro */
+    height: 100%;
+    /* Asegurar que el contenido se extienda a lo largo de toda la tarjeta */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -238,7 +251,7 @@ form button:hover {
         width: 100%;
     }
 
-    .menu-checkbox:checked + .menu-icon + .navbar ul {
+    .menu-checkbox:checked+.menu-icon+.navbar ul {
         display: flex;
     }
 
@@ -248,18 +261,23 @@ form button:hover {
     }
 
     .grid-container {
-        margin-top: -20px; /* Margen superior específico para móviles */
+        margin-top: -20px;
+        /* Margen superior específico para móviles */
     }
 
     .formulario-main {
         padding: 10px;
-        margin-top: 75px; /* Ajusta solo el margen superior en móviles */
-        min-height: 100vh; /* Asegura que el formulario ocupe toda la altura de la pantalla en móviles */
+        margin-top: 75px;
+        /* Ajusta solo el margen superior en móviles */
+        min-height: 100vh;
+        /* Asegura que el formulario ocupe toda la altura de la pantalla en móviles */
     }
 
     .elfsight-app-83cef3a2-1617-4ddf-8fd6-00c26948e958 {
-        height: 75vh; /* Ajusta la altura para pantallas móviles */
-        max-height: none; /* Permite que ocupe más espacio en pantallas pequeñas si es necesario */
+        height: 75vh;
+        /* Ajusta la altura para pantallas móviles */
+        max-height: none;
+        /* Permite que ocupe más espacio en pantallas pequeñas si es necesario */
     }
 }
 
@@ -286,7 +304,8 @@ form button:hover {
 }
 
 .logout-button svg {
-    margin-right: 8px; /* Espacio entre el icono y el texto */
+    margin-right: 8px;
+    /* Espacio entre el icono y el texto */
 }
 
 .logout-button:hover {
@@ -295,23 +314,32 @@ form button:hover {
 }
 
 .elfsight-app-83cef3a2-1617-4ddf-8fd6-00c26948e958 {
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 1600px; /* Aumenta el ancho máximo para pantallas grandes */
-    height: 90vh; /* Mantiene el 90% del alto de la ventana visible */
-    max-height: 1000px; /* Aumenta la altura máxima para pantallas grandes */
-    margin: 0 auto; /* Centra el calendario horizontalmente */
-    overflow-y: auto; /* Permite desplazamiento vertical si es necesario */
+    width: 100%;
+    /* Ocupa todo el ancho disponible */
+    max-width: 1600px;
+    /* Aumenta el ancho máximo para pantallas grandes */
+    height: 90vh;
+    /* Mantiene el 90% del alto de la ventana visible */
+    max-height: 1000px;
+    /* Aumenta la altura máxima para pantallas grandes */
+    margin: 0 auto;
+    /* Centra el calendario horizontalmente */
+    overflow-y: auto;
+    /* Permite desplazamiento vertical si es necesario */
 }
 
 
 .form-group-row {
     display: flex;
-    justify-content: space-between; /* Espacio entre los elementos */
-    gap: 20px; /* Espacio entre los campos */
+    justify-content: space-between;
+    /* Espacio entre los elementos */
+    gap: 20px;
+    /* Espacio entre los campos */
 }
 
 .form-group-row .form-group {
-    flex: 1; /* Para que ambos campos ocupen el mismo espacio */
+    flex: 1;
+    /* Para que ambos campos ocupen el mismo espacio */
 }
 
 /* Si quieres que los campos ocupen diferentes anchos, puedes ajustar el flex individualmente */

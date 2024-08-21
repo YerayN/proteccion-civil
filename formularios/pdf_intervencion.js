@@ -58,7 +58,7 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     const vehiculo = document.getElementById('vehiculo').value;
     const ubicacion = document.getElementById('ubicacion').value;
     const fechaHoraRaw = document.getElementById('fecha-hora').value;
-    const horaFin = document.getElementById('hora-fin').value;
+    const duracion = document.getElementById('duracion').value;
     const solicitante = document.getElementById('solicitante').value;
     const cooperacion = document.getElementById('cooperacion').value;
     const categoria = document.getElementById('categoria').value;
@@ -81,7 +81,7 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     y = addTextWithWrapAndStyle(`- Vehículo Utilizado: `, vehiculo, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Ubicación: `, ubicacion, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Fecha y Hora: `, fechaHoraFormateada, margin, y, 'bold');
-    y = addTextWithWrapAndStyle(`- Hora de Fin: `, horaFin, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`- Duración (Horas): `, duracion, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Solicitante: `, solicitante, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Cooperación con otras entidades: `, cooperacion, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Usuario: `, username, margin, y, 'bold');
@@ -138,7 +138,7 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     formData.append('vehiculo', vehiculo);
     formData.append('ubicacion', ubicacion);
     formData.append('fecha-hora', fechaHoraFormateada);
-    formData.append('hora-fin', horaFin);
+    formData.append('duracion', duracion);
     formData.append('solicitante', solicitante);
     formData.append('cooperacion', cooperacion);
     formData.append('categoria', categoria);

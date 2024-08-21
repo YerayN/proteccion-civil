@@ -66,7 +66,7 @@ export default async (req, res) => {
         { name: 'pdf', maxCount: 1 },
         { name: 'motivo', maxCount: 1 },
         { name: 'fecha-hora', maxCount: 1 },
-        { name: 'hora-fin', maxCount: 1 },
+        { name: 'duracion', maxCount: 1 },
         { name: 'ubicacion', maxCount: 1 },
         { name: 'voluntario', maxCount: 1 },
         { name: 'vehiculo', maxCount: 1 },

@@ -15,11 +15,13 @@ function login(event) {
 
     if (user) {
         localStorage.setItem("authToken", "loggedIn");
+        localStorage.setItem("loggedUser", username); // Guardar el nombre de usuario
         window.location.href = "index.html";
     } else {
         document.getElementById("error-message").textContent = "Usuario o contraseña incorrectos.";
     }
 }
+
 
 function checkAuth() {
     const authToken = localStorage.getItem("authToken");

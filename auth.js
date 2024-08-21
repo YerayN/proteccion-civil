@@ -1,6 +1,6 @@
 const USERS = [
     { username: "y.navarro", password: "prote123" },
-    { username: "p.marquez", password: "prote123" },
+    { username: "p.marquez", password: "J100" },
     { username: "s.lloret", password: "PCvillajoyosa22" },
     { username: "j.molina", password: "prote123" },
     { username: "p.lopez", password: "pedropclavila" },

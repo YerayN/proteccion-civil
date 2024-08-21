@@ -4,6 +4,9 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
+    // Obtener el nombre de usuario desde localStorage
+    const username = localStorage.getItem('loggedUser');
+
     // Definimos el ancho máximo del texto
     const pageWidth = doc.internal.pageSize.getWidth();
     const margin = 20;
@@ -46,6 +49,7 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     // Añadiendo texto al PDF con etiquetas en negrita y valores normales
     y = addTextWithWrapAndStyle(`- Voluntario: `, voluntario, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Uniformidad que solicita: `, uniforme, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`- Usuario: `, username, margin, y, 'bold');
     doc.line(margin, y, pageWidth - margin, y); // Dibuja la línea horizontal
     y += 10;
 
@@ -56,6 +60,7 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     const formData = new FormData();
     formData.append('voluntario', voluntario);
     formData.append('uniforme', uniforme);
+    formData.append('username', username);
     formData.append('pdf', pdfBlob, 'informe.pdf');
 
     // Enviar el PDF generado al backend

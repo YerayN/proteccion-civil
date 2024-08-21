@@ -16,6 +16,7 @@ function login(event) {
     if (user) {
         localStorage.setItem("authToken", "loggedIn");
         localStorage.setItem("loggedUser", username); // Guardar el nombre de usuario
+        console.log("Usuario logueado:", username); // Verificar que el usuario se guarda
         window.location.href = "index.html";
     } else {
         document.getElementById("error-message").textContent = "Usuario o contraseña incorrectos.";

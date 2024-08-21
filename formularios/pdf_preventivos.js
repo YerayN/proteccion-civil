@@ -42,11 +42,20 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     // Recopilación de los datos del formulario
     const servicio = document.getElementById('servicio').value;
     const ubicacion = document.getElementById('ubicacion').value;
-    const fechaHora = document.getElementById('fecha-hora').value;
+    const fechaHoraRaw = document.getElementById('fecha-hora').value;
     const duracion = document.getElementById('duracion').value;
     const voluntarios = document.getElementById('voluntarios').value;
     const solicitante = document.getElementById('solicitante').value;
     const descripcion = document.getElementById('descripcion').value;
+
+    // Formatear la fecha y hora
+    const fecha = new Date(fechaHoraRaw);
+    const dia = String(fecha.getDate()).padStart(2, '0');
+    const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
+    const ano = fecha.getFullYear();
+    const hora = String(fecha.getHours()).padStart(2, '0');
+    const minutos = String(fecha.getMinutes()).padStart(2, '0');
+    const fechaHoraFormateada = `${dia}-${mes}-${ano}_${hora}:${minutos}`;
 
     // Posición inicial Y
     let y = 20;
@@ -54,7 +63,7 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     // Añadiendo texto al PDF con etiquetas en negrita y valores normales
     y = addTextWithWrapAndStyle(`- Servicio: `, servicio, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Ubicación: `, ubicacion, margin, y, 'bold');
-    y = addTextWithWrapAndStyle(`- Fecha y hora: `, fechaHora, margin, y, 'bold');
+    y = addTextWithWrapAndStyle(`- Fecha y hora: `, fechaHoraFormateada, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Duración (Horas): `, duracion, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Voluntarios: `, voluntarios, margin, y, 'bold');
     y = addTextWithWrapAndStyle(`- Solicitante: `, solicitante, margin, y, 'bold');
@@ -71,7 +80,7 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     const formData = new FormData();
     formData.append('servicio', servicio);
     formData.append('ubicacion', ubicacion);
-    formData.append('fecha-hora', fechaHora);
+    formData.append('fecha-hora', fechaHoraFormateada);
     formData.append('duracion', duracion);
     formData.append('voluntarios', voluntarios);
     formData.append('solicitante', solicitante);

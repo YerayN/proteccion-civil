@@ -6,10 +6,14 @@ function mostrarFormulario() {
         formulario.classList.add('seccion-oculta');
     });
 
-    if (categoria) {
-        document.getElementById(`formulario-${categoria}`).classList.remove('seccion-oculta');
+    const formularioSeleccionado = document.getElementById(`formulario-${categoria}`);
+    if (formularioSeleccionado) {
+        formularioSeleccionado.classList.remove('seccion-oculta');
+    } else {
+        console.error(`No se encontró el formulario para la categoría: ${categoria}`);
     }
 }
+
 
 document.getElementById('informe-form').addEventListener('submit', async function (event) {
     event.preventDefault(); // Evita el envío normal del formulario

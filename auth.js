@@ -6,7 +6,8 @@ const USERS = [
     { username: "p.lopez", password: "pedropclavila" },
     { username: "n.martinez", password: "proteccioncivil1990" },
     { username: "v.moya", password: "PCLVJ2024_" },
-    { username: "j.climent", password: "atletismo123" }
+    { username: "j.climent", password: "atletismo123" },
+    { username: "p.peinado", password: "Almarcha34" }
 ];
 
 function login(event) {

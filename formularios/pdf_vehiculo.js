@@ -63,7 +63,7 @@ document.getElementById('informe-form').addEventListener('submit', async functio
 
     // Enviar el PDF generado al backend
     try {
-        const response = await fetch('/api/upload_averias', {
+        const response = await fetch('/api/upload_vehiculo', {
             method: 'POST',
             body: formData
         });

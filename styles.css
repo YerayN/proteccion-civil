@@ -132,7 +132,7 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 100%;
-    max-width: 80%;
+    max-width: 100%;
     /* Asegura que el panel no se desborde */
 }
 

@@ -4,7 +4,9 @@ const USERS = [
     { username: "s.lloret", password: "prote123" },
     { username: "j.molina", password: "prote123" },
     { username: "p.lopez", password: "pedropclavila" },
-    { username: "n.martinez", password: "proteccioncivil1990" }
+    { username: "n.martinez", password: "proteccioncivil1990" },
+    { username: "v.moya", password: "PCLVJ2024_" },
+    { username: "j.climent", password: "atletismo123" }
 ];
 
 function login(event) {

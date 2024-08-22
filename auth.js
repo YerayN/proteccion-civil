@@ -65,3 +65,33 @@ document.addEventListener('DOMContentLoaded', function () {
         checkAuth();
     }
 });
+
+
+let voluntariosApuntados = {
+    evento1: 0,
+    evento2: 0,
+    // Añadir más eventos aquí si es necesario
+};
+
+function apuntarVoluntario(eventoId) {
+    const maxVoluntarios = 2;
+
+    // Verificar si el usuario está autenticado
+    const authToken = localStorage.getItem("authToken");
+
+    if (!authToken) {
+        alert("Por favor, inicie sesión para apuntarse al evento.");
+        window.location.href = "login.html";
+        return;
+    }
+
+    // Continuar con el proceso de inscripción si está autenticado
+    if (voluntariosApuntados[eventoId] < maxVoluntarios) {
+        voluntariosApuntados[eventoId]++;
+        document.getElementById(`${eventoId}-voluntarios`).textContent = `Voluntarios apuntados: ${voluntariosApuntados[eventoId]}/2`;
+
+        if (voluntariosApuntados[eventoId] >= maxVoluntarios) {
+            document.querySelector(`#${eventoId} button`).disabled = true;
+        }
+    }
+}

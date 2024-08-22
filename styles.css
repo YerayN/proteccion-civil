@@ -368,7 +368,7 @@ form button:hover {
     margin: 15px auto;
     padding: 20px;
     background: linear-gradient(45deg, #ffc66b, #f0e265);
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     border-radius: 8px;
     text-align: center;

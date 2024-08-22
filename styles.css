@@ -367,8 +367,8 @@ form button:hover {
     max-width: 300px;
     margin: 15px auto;
     padding: 20px;
-    background-color: #007BFF;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     border-radius: 10px;
     text-align: center;
@@ -381,11 +381,11 @@ form button:hover {
 }
 
 .phone-button:hover {
-    background-color: #0056b3;
+    background-color: #9d0500;
     transform: scale(1.05);
 }
 
 .phone-button:active {
-    background-color: #004494;
+    background-color: #e70000;
     /* Cambia el color al hacer clic */
 }

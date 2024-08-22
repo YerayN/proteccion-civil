@@ -381,12 +381,12 @@ form button:hover {
 }
 
 .phone-button:hover {
-    background-color: #ffaf71;
+    background-color: #b3b3b3;
     transform: scale(1.05);
 }
 
 .phone-button:active {
-    background-color: #ae7100;
+    background-color: #e0e0e0;
     /* Cambia el color al hacer clic */
 }
 

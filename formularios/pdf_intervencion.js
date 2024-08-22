@@ -3,15 +3,20 @@ function mostrarFormulario() {
     const formularios = document.querySelectorAll('.formulario-categoria');
 
     formularios.forEach(formulario => {
-        formulario.classList.add('seccion-oculta');
+        if (formulario.id === `formulario-${categoria}`) {
+            formulario.classList.remove('seccion-oculta');
+            // Activar required en los campos visibles
+            formulario.querySelectorAll('[required]').forEach(element => {
+                element.setAttribute('required', 'required');
+            });
+        } else {
+            formulario.classList.add('seccion-oculta');
+            // Desactivar required en los campos ocultos
+            formulario.querySelectorAll('[required]').forEach(element => {
+                element.removeAttribute('required');
+            });
+        }
     });
-
-    const formularioSeleccionado = document.getElementById(`formulario-${categoria}`);
-    if (formularioSeleccionado) {
-        formularioSeleccionado.classList.remove('seccion-oculta');
-    } else {
-        console.error(`No se encontró el formulario para la categoría: ${categoria}`);
-    }
 }
 
 

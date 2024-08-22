@@ -47,7 +47,7 @@ function checkAuth(requiredRole) {
     const user = USERS.find(u => u.username === loggedUser);
 
     if (!user || (requiredRole && user.role !== requiredRole)) {
-        window.location.href = "login.html";
+        window.location.href = "../index.html";
     }
 }
 

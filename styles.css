@@ -245,6 +245,10 @@ form button:hover {
     color: #777;
 }
 
+.card-admin {
+    background-color: #fc7777;
+}
+
 /* Estilos responsive */
 @media (max-width: 768px) {
     .menu-icon {
@@ -360,3 +364,29 @@ form button:hover {
 .form-group-row .form-group:last-child {
     flex: 1;
 } */
+
+.phone-button {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 15px auto;
+    padding: 20px;
+    background: linear-gradient(45deg, #ffc66b, #f0e265);
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.phone-button:active {
+    background: linear-gradient(45deg, #f06565, #ff6b6b);
+}
+
+.h2-ciudades {
+    text-align: center;
+    color: #ffffff;
+}

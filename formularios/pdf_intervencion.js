@@ -125,11 +125,23 @@ document.getElementById('informe-form').addEventListener('submit', async functio
         const recursosTrafico = document.getElementById('recursos-trafico').value;
         y = addTextWithWrapAndStyle(`- Recursos empleados: `, recursosTrafico, margin, y, 'bold');
     } else if (categoria === 'ayuda_social') {
-        const detalleAyudaSocial = document.getElementById('detalle-ayuda-social').value;
-        y = addTextWithWrapAndStyle(`- Detalle de la ayuda social: `, detalleAyudaSocial, margin, y, 'bold');
+        const beneficiarioSocial = document.getElementById('beneficiario-social').value;
+        y = addTextWithWrapAndStyle(`- Beneficiario de la ayuda social: `, beneficiarioSocial, margin, y, 'bold');
+        const apoyoSocial = document.getElementById('apoyo-social').value;
+        y = addTextWithWrapAndStyle(`- Medidas de apoyo realizadas: `, apoyoSocial, margin, y, 'bold');
+        const recursosSocial = document.getElementById('recursos-social').value;
+        y = addTextWithWrapAndStyle(`- Recursos empleados: `, recursosSocial, margin, y, 'bold');
     } else if (categoria === 'proteccion_animal') {
-        const detalleProteccionAnimal = document.getElementById('detalle-proteccion-animal').value;
-        y = addTextWithWrapAndStyle(`- Detalle de la protección animal: `, detalleProteccionAnimal, margin, y, 'bold');
+        const tipoAnimal = document.getElementById('tipo-animal').value;
+        y = addTextWithWrapAndStyle(`- Tipo de animal: `, tipoAnimal, margin, y, 'bold');
+        const chip = document.getElementById('chip').value;
+        y = addTextWithWrapAndStyle(`- Tiene chip: `, chip, margin, y, 'bold');
+        const apoyoAnimal = document.getElementById('apoyo-animal').value;
+        y = addTextWithWrapAndStyle(`- Medidas de apoyo realizadas: `, apoyoAnimal, margin, y, 'bold');
+        const recursosAnimal = document.getElementById('recursos-animal').value;
+        y = addTextWithWrapAndStyle(`- Recursos empleados: `, recursosAnimal, margin, y, 'bold');
+        const trasladoAnimal = document.getElementById('traslado-animal').value;
+        y = addTextWithWrapAndStyle(`- Traslado: `, trasladoAnimal, margin, y, 'bold');
     }
 
     // Generar el PDF como un blob

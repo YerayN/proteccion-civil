@@ -245,6 +245,10 @@ form button:hover {
     color: #777;
 }
 
+.card-admin {
+    background-color: #fcabab;
+}
+
 /* Estilos responsive */
 @media (max-width: 768px) {
     .menu-icon {

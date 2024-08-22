@@ -40,7 +40,7 @@ function checkAuth(requiredRole) {
     const loggedUser = localStorage.getItem("loggedUser");
 
     if (!authToken || !loggedUser) {
-        window.location.href = "login.html";
+        window.location.href = "../login.html";
         return;
     }
 

@@ -35,7 +35,7 @@
             </button>
         </div>
     </header>
-    <div class="evento" id="evento1">
+    <div class="evento" id="evento1" data-max-voluntarios="2">
         <h3>Evento 1</h3>
         <p>Descripción del evento 1.</p>
         <button onclick="apuntarVoluntario('evento1')">Apuntarse</button>
@@ -43,11 +43,11 @@
         <div id="evento1-lista"></div> <!-- Aquí aparecerán los nombres -->
     </div>
 
-    <div class="evento" id="evento2">
+    <div class="evento" id="evento2" data-max-voluntarios="3">
         <h3>Evento 2</h3>
         <p>Descripción del evento 2.</p>
         <button onclick="apuntarVoluntario('evento2')">Apuntarse</button>
-        <p id="evento2-voluntarios">Voluntarios apuntados: 0/2</p>
+        <p id="evento2-voluntarios">Voluntarios apuntados: 0/3</p>
         <div id="evento2-lista"></div> <!-- Aquí aparecerán los nombres -->
     </div>
 
@@ -56,10 +56,6 @@
         // Cargar el estado inicial de los eventos al cargar la página
         document.addEventListener('DOMContentLoaded', cargarEstadoEventos);
     </script>
-
-
-
-
 </body>
 
 </html>

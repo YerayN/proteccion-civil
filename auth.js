@@ -77,11 +77,14 @@ function cargarEstadoEventos() {
     const loggedUser = localStorage.getItem("loggedUser");
 
     for (let eventoId in voluntariosApuntados) {
+        const eventoElement = document.getElementById(eventoId);
+        const maxVoluntarios = parseInt(eventoElement.getAttribute('data-max-voluntarios'), 10);
+
         // Cargar el número de voluntarios apuntados
         const voluntarios = localStorage.getItem(`${eventoId}-voluntarios`);
         if (voluntarios) {
             voluntariosApuntados[eventoId] = parseInt(voluntarios, 10);
-            document.getElementById(`${eventoId}-voluntarios`).textContent = `Voluntarios apuntados: ${voluntariosApuntados[eventoId]}/2`;
+            document.getElementById(`${eventoId}-voluntarios`).textContent = `Voluntarios apuntados: ${voluntariosApuntados[eventoId]}/${maxVoluntarios}`;
         }
 
         // Mostrar los nombres de los voluntarios
@@ -89,15 +92,16 @@ function cargarEstadoEventos() {
         document.getElementById(`${eventoId}-lista`).innerHTML = inscritos.map(nombre => `<p>${nombre}</p>`).join("");
 
         // Deshabilitar el botón si ya están completos o el usuario ya está inscrito
-        if (voluntariosApuntados[eventoId] >= 2 || inscritos.includes(loggedUser)) {
+        if (voluntariosApuntados[eventoId] >= maxVoluntarios || inscritos.includes(loggedUser)) {
             document.querySelector(`#${eventoId} button`).disabled = true;
         }
     }
 }
 
 function apuntarVoluntario(eventoId) {
-    const maxVoluntarios = 2;
     const loggedUser = localStorage.getItem("loggedUser");
+    const eventoElement = document.getElementById(eventoId);
+    const maxVoluntarios = parseInt(eventoElement.getAttribute('data-max-voluntarios'), 10);
 
     // Verificar si el usuario está autenticado
     const authToken = localStorage.getItem("authToken");
@@ -125,7 +129,7 @@ function apuntarVoluntario(eventoId) {
         localStorage.setItem(`${eventoId}-inscritos`, JSON.stringify(inscritos));
 
         // Actualizar la visualización del número de voluntarios
-        document.getElementById(`${eventoId}-voluntarios`).textContent = `Voluntarios apuntados: ${voluntariosApuntados[eventoId]}/2`;
+        document.getElementById(`${eventoId}-voluntarios`).textContent = `Voluntarios apuntados: ${voluntariosApuntados[eventoId]}/${maxVoluntarios}`;
 
         // Mostrar el nombre del usuario apuntado
         document.getElementById(`${eventoId}-lista`).innerHTML += `<p>${loggedUser}</p>`;
@@ -135,4 +139,3 @@ function apuntarVoluntario(eventoId) {
         }
     }
 }
-

@@ -367,7 +367,7 @@ form button:hover {
     max-width: 300px;
     margin: 15px auto;
     padding: 20px;
-    background-color: #FF6F00;
+    background-color: #007BFF;
     color: white;
     text-decoration: none;
     border-radius: 10px;
@@ -376,9 +376,16 @@ form button:hover {
     font-weight: bold;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, transform 0.2s;
+    -webkit-tap-highlight-color: transparent;
+    /* Evita que el botón quede marcado */
 }
 
 .phone-button:hover {
-    background-color: #FFA000;
+    background-color: #0056b3;
     transform: scale(1.05);
+}
+
+.phone-button:active {
+    background-color: #004494;
+    /* Cambia el color al hacer clic */
 }

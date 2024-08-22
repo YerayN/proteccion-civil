@@ -84,14 +84,12 @@ function cargarEstadoEventos() {
             document.getElementById(`${eventoId}-voluntarios`).textContent = `Voluntarios apuntados: ${voluntariosApuntados[eventoId]}/2`;
         }
 
-        // Deshabilitar el botón si ya están completos
-        if (voluntariosApuntados[eventoId] >= 2) {
-            document.querySelector(`#${eventoId} button`).disabled = true;
-        }
-
-        // Deshabilitar el botón si el usuario ya está apuntado
+        // Mostrar los nombres de los voluntarios
         const inscritos = JSON.parse(localStorage.getItem(`${eventoId}-inscritos`) || "[]");
-        if (inscritos.includes(loggedUser)) {
+        document.getElementById(`${eventoId}-lista`).innerHTML = inscritos.map(nombre => `<p>${nombre}</p>`).join("");
+
+        // Deshabilitar el botón si ya están completos o el usuario ya está inscrito
+        if (voluntariosApuntados[eventoId] >= 2 || inscritos.includes(loggedUser)) {
             document.querySelector(`#${eventoId} button`).disabled = true;
         }
     }
@@ -126,11 +124,15 @@ function apuntarVoluntario(eventoId) {
         localStorage.setItem(`${eventoId}-voluntarios`, voluntariosApuntados[eventoId]);
         localStorage.setItem(`${eventoId}-inscritos`, JSON.stringify(inscritos));
 
-        // Actualizar la visualización
+        // Actualizar la visualización del número de voluntarios
         document.getElementById(`${eventoId}-voluntarios`).textContent = `Voluntarios apuntados: ${voluntariosApuntados[eventoId]}/2`;
+
+        // Mostrar el nombre del usuario apuntado
+        document.getElementById(`${eventoId}-lista`).innerHTML += `<p>${loggedUser}</p>`;
 
         if (voluntariosApuntados[eventoId] >= maxVoluntarios) {
             document.querySelector(`#${eventoId} button`).disabled = true;
         }
     }
 }
+

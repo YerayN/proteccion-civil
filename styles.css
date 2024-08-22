@@ -381,11 +381,15 @@ form button:hover {
 }
 
 .phone-button:hover {
-    background-color: #9d0500;
+    background-color: #ffaf71;
     transform: scale(1.05);
 }
 
 .phone-button:active {
-    background-color: #e70000;
+    background-color: #ae7100;
     /* Cambia el color al hacer clic */
+}
+
+.h2-ciudades {
+    text-align: center;
 }

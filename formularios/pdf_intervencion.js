@@ -128,8 +128,12 @@ document.getElementById('informe-form').addEventListener('submit', async functio
         const detalleAyudaSocial = document.getElementById('detalle-ayuda-social').value;
         y = addTextWithWrapAndStyle(`- Detalle de la ayuda social: `, detalleAyudaSocial, margin, y, 'bold');
     } else if (categoria === 'proteccion_animal') {
-        const detalleProteccionAnimal = document.getElementById('detalle-proteccion-animal').value;
-        y = addTextWithWrapAndStyle(`- Detalle de la protección animal: `, detalleProteccionAnimal, margin, y, 'bold');
+        const tipoAnimal = document.getElementById('tipo-animal').value;
+        y = addTextWithWrapAndStyle(`- Tipo de animal: `, tipoAnimal, margin, y, 'bold');
+        const chip = document.getElementById('chip').value;
+        y = addTextWithWrapAndStyle(`- Tiene chip: `, chip, margin, y, 'bold');
+        const trasladoAnimal = document.getElementById('traslado-animal').value;
+        y = addTextWithWrapAndStyle(`- Traslado: `, trasladoAnimal, margin, y, 'bold');
     }
 
     // Generar el PDF como un blob

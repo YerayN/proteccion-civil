@@ -378,10 +378,6 @@ form button:hover {
     transition: background-color 0.3s, transform 0.2s;
 }
 
-.phone-button:hover {
-    transform: scale(1.05);
-}
-
 .phone-button:active {
     background: linear-gradient(45deg, #f06565, #ff6b6b);
 }

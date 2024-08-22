@@ -74,24 +74,23 @@ let voluntariosApuntados = {
 };
 
 function cargarEstadoEventos() {
-    const loggedUser = localStorage.getItem("loggedUser");
-
     for (let eventoId in voluntariosApuntados) {
         const eventoElement = document.getElementById(eventoId);
         const maxVoluntarios = parseInt(eventoElement.getAttribute('data-max-voluntarios'), 10);
 
-        // Cargar el número de voluntarios apuntados
+        // Cargar el número de voluntarios apuntados y la lista global de inscritos
         const voluntarios = localStorage.getItem(`${eventoId}-voluntarios`);
         if (voluntarios) {
             voluntariosApuntados[eventoId] = parseInt(voluntarios, 10);
             document.getElementById(`${eventoId}-voluntarios`).textContent = `Voluntarios apuntados: ${voluntariosApuntados[eventoId]}/${maxVoluntarios}`;
         }
 
-        // Mostrar los nombres de los voluntarios
-        const inscritos = JSON.parse(localStorage.getItem(`${eventoId}-inscritos`) || "[]");
+        // Mostrar los nombres de los voluntarios globalmente
+        const inscritos = JSON.parse(localStorage.getItem(`${eventoId}-inscritos-global`) || "[]");
         document.getElementById(`${eventoId}-lista`).innerHTML = inscritos.map(nombre => `<p>${nombre}</p>`).join("");
 
         // Deshabilitar el botón si ya están completos o el usuario ya está inscrito
+        const loggedUser = localStorage.getItem("loggedUser");
         if (voluntariosApuntados[eventoId] >= maxVoluntarios || inscritos.includes(loggedUser)) {
             document.querySelector(`#${eventoId} button`).disabled = true;
         }
@@ -99,9 +98,9 @@ function cargarEstadoEventos() {
 }
 
 function apuntarVoluntario(eventoId) {
-    const loggedUser = localStorage.getItem("loggedUser");
     const eventoElement = document.getElementById(eventoId);
     const maxVoluntarios = parseInt(eventoElement.getAttribute('data-max-voluntarios'), 10);
+    const loggedUser = localStorage.getItem("loggedUser");
 
     // Verificar si el usuario está autenticado
     const authToken = localStorage.getItem("authToken");
@@ -112,8 +111,8 @@ function apuntarVoluntario(eventoId) {
         return;
     }
 
-    // Verificar si el usuario ya está apuntado a este evento
-    let inscritos = JSON.parse(localStorage.getItem(`${eventoId}-inscritos`) || "[]");
+    // Cargar la lista global de inscritos
+    let inscritos = JSON.parse(localStorage.getItem(`${eventoId}-inscritos-global`) || "[]");
     if (inscritos.includes(loggedUser)) {
         alert("Ya estás apuntado en este evento.");
         return;
@@ -124,9 +123,9 @@ function apuntarVoluntario(eventoId) {
         voluntariosApuntados[eventoId]++;
         inscritos.push(loggedUser);
 
-        // Guardar el estado actualizado en localStorage
+        // Guardar el estado actualizado en localStorage de manera global
         localStorage.setItem(`${eventoId}-voluntarios`, voluntariosApuntados[eventoId]);
-        localStorage.setItem(`${eventoId}-inscritos`, JSON.stringify(inscritos));
+        localStorage.setItem(`${eventoId}-inscritos-global`, JSON.stringify(inscritos));
 
         // Actualizar la visualización del número de voluntarios
         document.getElementById(`${eventoId}-voluntarios`).textContent = `Voluntarios apuntados: ${voluntariosApuntados[eventoId]}/${maxVoluntarios}`;

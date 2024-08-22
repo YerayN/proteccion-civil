@@ -367,27 +367,23 @@ form button:hover {
     max-width: 300px;
     margin: 15px auto;
     padding: 20px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    background: linear-gradient(45deg, #ffc66b, #f0e265);
+    color: white;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 8px;
     text-align: center;
     font-size: 18px;
     font-weight: bold;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, transform 0.2s;
-    -webkit-tap-highlight-color: transparent;
-    /* Evita que el botón quede marcado */
 }
 
 .phone-button:hover {
-    background-color: #b3b3b3;
     transform: scale(1.05);
 }
 
 .phone-button:active {
-    background-color: #e0e0e0;
-    /* Cambia el color al hacer clic */
+    background: linear-gradient(45deg, #f06565, #ff6b6b);
 }
 
 .h2-ciudades {

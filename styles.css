@@ -360,3 +360,25 @@ form button:hover {
 .form-group-row .form-group:last-child {
     flex: 1;
 } */
+
+.phone-button {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 15px auto;
+    padding: 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.phone-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}

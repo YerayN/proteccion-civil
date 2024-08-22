@@ -390,29 +390,3 @@ form button:hover {
     text-align: center;
     color: #ffffff;
 }
-
-.evento {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 5px;
-    max-width: 300px;
-}
-
-.evento h3 {
-    margin-top: 0;
-}
-
-.evento button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.evento button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}

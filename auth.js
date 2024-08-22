@@ -70,11 +70,36 @@ document.addEventListener('DOMContentLoaded', function () {
 let voluntariosApuntados = {
     evento1: 0,
     evento2: 0,
-    // Añadir más eventos aquí si es necesario
+    // Agrega más eventos aquí si es necesario
 };
+
+function cargarEstadoEventos() {
+    const loggedUser = localStorage.getItem("loggedUser");
+
+    for (let eventoId in voluntariosApuntados) {
+        // Cargar el número de voluntarios apuntados
+        const voluntarios = localStorage.getItem(`${eventoId}-voluntarios`);
+        if (voluntarios) {
+            voluntariosApuntados[eventoId] = parseInt(voluntarios, 10);
+            document.getElementById(`${eventoId}-voluntarios`).textContent = `Voluntarios apuntados: ${voluntariosApuntados[eventoId]}/2`;
+        }
+
+        // Deshabilitar el botón si ya están completos
+        if (voluntariosApuntados[eventoId] >= 2) {
+            document.querySelector(`#${eventoId} button`).disabled = true;
+        }
+
+        // Deshabilitar el botón si el usuario ya está apuntado
+        const inscritos = JSON.parse(localStorage.getItem(`${eventoId}-inscritos`) || "[]");
+        if (inscritos.includes(loggedUser)) {
+            document.querySelector(`#${eventoId} button`).disabled = true;
+        }
+    }
+}
 
 function apuntarVoluntario(eventoId) {
     const maxVoluntarios = 2;
+    const loggedUser = localStorage.getItem("loggedUser");
 
     // Verificar si el usuario está autenticado
     const authToken = localStorage.getItem("authToken");
@@ -85,9 +110,23 @@ function apuntarVoluntario(eventoId) {
         return;
     }
 
-    // Continuar con el proceso de inscripción si está autenticado
+    // Verificar si el usuario ya está apuntado a este evento
+    let inscritos = JSON.parse(localStorage.getItem(`${eventoId}-inscritos`) || "[]");
+    if (inscritos.includes(loggedUser)) {
+        alert("Ya estás apuntado en este evento.");
+        return;
+    }
+
+    // Continuar con el proceso de inscripción si está autenticado y no está apuntado
     if (voluntariosApuntados[eventoId] < maxVoluntarios) {
         voluntariosApuntados[eventoId]++;
+        inscritos.push(loggedUser);
+
+        // Guardar el estado actualizado en localStorage
+        localStorage.setItem(`${eventoId}-voluntarios`, voluntariosApuntados[eventoId]);
+        localStorage.setItem(`${eventoId}-inscritos`, JSON.stringify(inscritos));
+
+        // Actualizar la visualización
         document.getElementById(`${eventoId}-voluntarios`).textContent = `Voluntarios apuntados: ${voluntariosApuntados[eventoId]}/2`;
 
         if (voluntariosApuntados[eventoId] >= maxVoluntarios) {

@@ -17,7 +17,7 @@ const USERS = [
 
 
 
-function login(event) {
+function login(event) { //Controla el inicio de sesión y entrega un token
     event.preventDefault();
 
     const username = document.getElementById("username").value;
@@ -35,7 +35,7 @@ function login(event) {
 }
 
 
-function checkAuth(requiredRole) {
+function checkAuth(requiredRole) {//Verifica el token y el rol de cada usuario
     const authToken = localStorage.getItem("authToken");
     const loggedUser = localStorage.getItem("loggedUser");
 
@@ -52,7 +52,7 @@ function checkAuth(requiredRole) {
 }
 
 
-function logout() {
+function logout() {//Controla el cierre de sesión
     localStorage.removeItem("authToken");
     window.location.href = "/login.html";
 }

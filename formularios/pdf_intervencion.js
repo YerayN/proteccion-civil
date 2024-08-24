@@ -1,4 +1,4 @@
-function mostrarFormulario() {
+function mostrarFormulario() {// Muestra el formulario según categoría seleccionada
     const categoria = document.getElementById('categoria').value;
     const formularios = document.querySelectorAll('.formulario-categoria');
 
@@ -29,7 +29,7 @@ document.getElementById('informe-form').addEventListener('submit', async functio
     // Obtener el nombre de usuario desde localStorage
     const username = localStorage.getItem('loggedUser');
 
-    // Definimos el ancho máximo del texto
+    // Definir el ancho máximo del texto
     const pageWidth = doc.internal.pageSize.getWidth();
     const margin = 20;
     const maxLineWidth = pageWidth - margin * 2;

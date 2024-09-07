@@ -52,9 +52,9 @@ async function generateFileName(req, folderId) {
     const date = now.toLocaleDateString('es-ES', options).replace(/\//g, '-');
     const time = now.toLocaleTimeString('es-ES', options).replace(/:/g, '-');
 
-    const motivo = req.body.motivo ? req.body.motivo.replace(/\s+/g, '-') : 'SinTitulo';
+    const categoria = req.body.categoria ? req.body.categoria.replace(/\s+/g, '-') : 'SinTitulo';
 
-    return `${nextId.toString().padStart(4, '0')} - ${motivo}_${date}_${time}.pdf`;
+    return `${nextId.toString().padStart(4, '0')} - ${categoria}_${date}_${time}.pdf`;
 }
 
 export default async (req, res) => {

@@ -9,7 +9,10 @@
     <title>Inicio - Protección Civil</title>
 
     <!-- FullCalendar CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/main.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.5/index.global.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.5/index.global.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/list@6.1.5/index.global.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@6.1.5/index.global.min.css" rel="stylesheet" />
 </head>
 
 <body onload="checkAuth()">
@@ -43,7 +46,11 @@
         <div id="calendar"></div>
 
         <!-- FullCalendar JS - Asegúrate de que todos los scripts están cargados correctamente -->
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/main.global.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.5/index.global.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.5/index.global.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/list@6.1.5/index.global.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@6.1.5/index.global.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.5/index.global.min.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -56,6 +63,7 @@
                         center: 'title',
                         right: 'listMonth,dayGridMonth,timeGridWeek' // Añadir las vistas de lista
                     },
+                    plugins: [ 'dayGrid', 'timeGrid', 'list', 'googleCalendar' ], // Activa los plugins necesarios
                     googleCalendarApiKey: 'AIzaSyB_s4xfeAC-D1CefrLLMD2T_rLDEmZx7qU', // API Key de Google Calendar
                     events: {
                         googleCalendarId: 'pcvillajoyosa@gmail.com' // ID de tu calendario de Google

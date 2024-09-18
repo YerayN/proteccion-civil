@@ -67,11 +67,17 @@
                     firstDay: 1, // Hacer que la semana empiece en lunes
                     nextDayThreshold: '06:00:00', // Establecer el umbral a las 6 AM para considerar el día siguiente
 
-                    // Personalizar el contenido de los eventos para ocultar la hora de fin
                     eventContent: function(info) {
-                        var timeText = info.timeText.split(' - ')[0]; // Obtener solo la hora de inicio
+                        // Mostrar solo la hora de inicio personalizada
+                        var startTime = FullCalendar.formatDate(info.event.start, {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: false
+                        });
+
+                        // Retornar el HTML personalizado
                         return {
-                            html: '<div class="fc-list-event-time">' + timeText + '</div>' +
+                            html: '<div class="fc-list-event-time">' + startTime + '</div>' +
                                   '<div class="fc-list-event-title">' + info.event.title + '</div>'
                         };
                     },

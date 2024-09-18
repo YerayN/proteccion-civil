@@ -391,25 +391,14 @@ form button:hover {
     color: #ffffff;
 }
 
-.calendar-container {
-    position: relative;
-    padding-bottom: 75%; /* La altura es un porcentaje del ancho */
-    height: 0;
-    overflow: hidden;
+#calendar {
     max-width: 100%;
-    background: #fff;
-}
-
-.calendar-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-@media (max-width: 768px) {
-    .calendar-container {
-        padding-bottom: 100%; /* Aumentar el espacio para pantallas más pequeñas */
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    #calendar {
+      padding: 5px;
     }
-}
+  }

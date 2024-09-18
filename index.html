@@ -9,7 +9,7 @@
     <title>Inicio - Protección Civil</title>
 
     <!-- FullCalendar CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.5/index.global.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/main.min.css" rel="stylesheet" />
 </head>
 
 <body onload="checkAuth()">
@@ -42,15 +42,11 @@
     <main class="main-index">
         <div id="calendar"></div>
 
-        <!-- FullCalendar JS - Incluir todos los scripts necesarios -->
-        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.5/index.global.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.5/index.global.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@6.1.5/index.global.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/list@6.1.5/index.global.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.5/index.global.min.js"></script>
+        <!-- FullCalendar JS - Asegúrate de que todos los scripts están cargados correctamente -->
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/main.global.min.js"></script>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('DOMContentLoaded', function() {
                 var calendarEl = document.getElementById('calendar');
 
                 var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -60,7 +56,6 @@
                         center: 'title',
                         right: 'listMonth,dayGridMonth,timeGridWeek' // Añadir las vistas de lista
                     },
-                    plugins: [ FullCalendar.dayGridPlugin, FullCalendar.timeGridPlugin, FullCalendar.listPlugin, FullCalendar.googleCalendarPlugin ], // Activa los plugins correctamente
                     googleCalendarApiKey: 'AIzaSyB_s4xfeAC-D1CefrLLMD2T_rLDEmZx7qU', // API Key de Google Calendar
                     events: {
                         googleCalendarId: 'pcvillajoyosa@gmail.com' // ID de tu calendario de Google
@@ -68,7 +63,7 @@
                     locale: 'es', // Idioma español
                     firstDay: 1, // Hacer que la semana empiece en lunes
                     editable: false, // No permitir la edición de eventos
-                    eventDidMount: function (info) {
+                    eventDidMount: function(info) {
                         // Personaliza la apariencia de los eventos, agregando descripciones o más detalles
                         if (info.event.extendedProps.description) {
                             info.el.querySelector('.fc-list-event-title').innerHTML +=

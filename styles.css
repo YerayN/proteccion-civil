@@ -454,15 +454,3 @@ form button:hover {
 .fc-list-item {
     margin-bottom: 15px;
 }
-
-
-/* Ocultar la hora de fin en la columna izquierda */
-.fc-list-event-time {
-    white-space: nowrap;
-}
-
-/* Ocultar la parte de la hora de fin */
-.fc-list-event-time:after {
-    content: '';
-    display: none;
-}

@@ -405,7 +405,7 @@ form button:hover {
 
   .fc-event {
     background-color: #fcfcfc !important; /* Cambia el fondo del evento */
-    color: rgb(197, 2, 2) !important; /* Cambia el color del texto del evento */
+    color: rgb(250, 0, 0) !important; /* Cambia el color del texto del evento */
     border: none !important; /* Quita el borde del evento */
 }
 
@@ -418,3 +418,15 @@ form button:hover {
     font-size: 10px; /* Tamaño del texto del evento */
     font-weight: bold; /* Negrita para los títulos */
 }
+
+.fc-timegrid-event {
+    background-color: #ffffff !important; /* Color de fondo de los eventos */
+    color: rgb(255, 0, 0) !important; /* Color del texto de los eventos */
+    border-radius: 5px; /* Bordes redondeados */
+    border: none !important; /* Sin bordes */
+}
+
+.fc-timegrid-event .fc-event-title {
+    font-size: 12px; /* Ajustar el tamaño del texto en los eventos */
+}
+

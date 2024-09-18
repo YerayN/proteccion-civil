@@ -419,14 +419,21 @@ form button:hover {
     font-weight: bold; /* Negrita para los títulos */
 }
 
-.fc-timegrid-event {
-    background-color: #ffffff !important; /* Color de fondo de los eventos */
-    color: rgb(255, 0, 0) !important; /* Color del texto de los eventos */
+/* Corregir visualización de eventos en la vista semanal (timeGrid) */
+.fc-timegrid-event-harness .fc-timegrid-event {
+    background-color: #3498db !important; /* Color de fondo de los eventos */
+    color: white !important; /* Color del texto de los eventos */
     border-radius: 5px; /* Bordes redondeados */
     border: none !important; /* Sin bordes */
 }
 
-.fc-timegrid-event .fc-event-title {
-    font-size: 12px; /* Ajustar el tamaño del texto en los eventos */
+/* Ajustar el tamaño del texto de los eventos */
+.fc-timegrid-event .fc-event-title, .fc-daygrid-event .fc-event-title {
+    font-size: 12px !important; /* Ajustar el tamaño del texto en los eventos */
+    color: white !important; /* Asegurar el color del texto en blanco */
 }
 
+/* Ajustar la vista de día y semana */
+.fc-timegrid-slot {
+    background-color: #f0f0f0 !important; /* Fondo para las celdas de la vista semanal */
+}

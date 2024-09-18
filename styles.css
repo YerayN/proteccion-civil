@@ -402,3 +402,19 @@ form button:hover {
       padding: 5px;
     }
   }
+
+  .fc-event {
+    background-color: #fcfcfc !important; /* Cambia el fondo del evento */
+    color: rgb(197, 2, 2) !important; /* Cambia el color del texto del evento */
+    border: none !important; /* Quita el borde del evento */
+}
+
+.fc-daygrid-day-number {
+    font-size: 14px; /* Tamaño del número del día */
+    color: #333; /* Color del número */
+}
+
+.fc-event-title {
+    font-size: 10px; /* Tamaño del texto del evento */
+    font-weight: bold; /* Negrita para los títulos */
+}

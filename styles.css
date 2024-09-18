@@ -437,3 +437,20 @@ form button:hover {
 .fc-timegrid-slot {
     background-color: #f0f0f0 !important; /* Fondo para las celdas de la vista semanal */
 }
+
+
+/* Aumentar el tamaño del texto en los eventos de la vista de lista */
+.fc-list-event-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.fc-list-event-time {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Añadir más espacio entre los eventos */
+.fc-list-item {
+    margin-bottom: 15px;
+}

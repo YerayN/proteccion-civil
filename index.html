@@ -45,7 +45,7 @@
     <main class="main-index">
         <div id="calendar"></div>
 
-        <!-- FullCalendar JS - Asegúrate de que todos los scripts están cargados correctamente -->
+        <!-- FullCalendar JS -->
         <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.5/index.global.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.5/index.global.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/list@6.1.5/index.global.min.js"></script>
@@ -63,7 +63,6 @@
                         center: 'title',
                         right: 'listMonth,dayGridMonth,timeGridWeek' // Añadir las vistas de lista
                     },
-                    plugins: [ 'dayGrid', 'timeGrid', 'list', 'googleCalendar' ], // Activa los plugins necesarios
                     googleCalendarApiKey: 'AIzaSyB_s4xfeAC-D1CefrLLMD2T_rLDEmZx7qU', // API Key de Google Calendar
                     events: {
                         googleCalendarId: 'pcvillajoyosa@gmail.com' // ID de tu calendario de Google

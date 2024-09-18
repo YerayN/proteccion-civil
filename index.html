@@ -42,37 +42,34 @@
 
         <!-- FullCalendar JS -->
         <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.5/index.global.min.js'></script>
+        <!-- Plugin de Google Calendar -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.5/plugin-google-calendar.global.min.js"></script>
 
         <!-- Tu script personalizado para inicializar el calendario -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+                var calendarEl = document.getElementById('calendar');
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth', // Vista inicial: mensual
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        },
-        googleCalendarApiKey: 'AIzaSyB_s4xfeAC-D1CefrLLMD2T_rLDEmZx7qU', // Aquí va tu API Key de Google
-        events: {
-            googleCalendarId: 'pcvillajoyosa@gmail.com', // Aquí va el ID de tu calendario de Google
-            className: 'gcal-event' // Clase opcional para personalización CSS
-        },
-        locale: 'es', // Idioma español
-        editable: false, // No permitir la edición de eventos
-        eventClick: function(info) {
-            info.jsEvent.preventDefault(); // Evita que el enlace se abra
+                // Inicializar FullCalendar con el plugin de Google Calendar
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    plugins: [ 'googleCalendar' ], // Añadir el plugin de Google Calendar
+                    initialView: 'dayGridMonth', // Vista inicial: mensual
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    },
+                    googleCalendarApiKey: 'AIzaSyB_s4xfeAC-D1CefrLLMD2T_rLDEmZx7qU', // Aquí va tu API Key de Google
+                    events: {
+                        googleCalendarId: 'pcvillajoyosa@gmail.com' // Aquí va el ID de tu calendario de Google
+                    },
+                    locale: 'es', // Idioma español
+                    editable: false // No permitir la edición de eventos
+                });
 
-            if (info.event.url) {
-                window.open(info.event.url); // Si hay una URL, la abre en otra ventana
-            }
-        }
-    });
-
-    calendar.render();
-});
+                // Renderizar el calendario
+                calendar.render();
+            });
         </script>
     </main>
 </body>

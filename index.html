@@ -10,9 +10,7 @@
 
     <!-- FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.5/index.global.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.5/index.global.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/list@6.1.5/index.global.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@6.1.5/index.global.min.css" rel="stylesheet" />
 </head>
 
 <body onload="checkAuth()">
@@ -47,9 +45,7 @@
 
         <!-- FullCalendar JS -->
         <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.5/index.global.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.5/index.global.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/list@6.1.5/index.global.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@6.1.5/index.global.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.5/index.global.min.js"></script>
 
         <script>
@@ -59,9 +55,9 @@
                 var calendar = new FullCalendar.Calendar(calendarEl, {
                     initialView: 'listMonth', // Vista inicial: lista mensual
                     headerToolbar: {
-                        left: 'prev,next today',
+                        left: 'prev,next', // Solo deja los botones de "prev" y "next"
                         center: 'title',
-                        right: 'listMonth,dayGridMonth,timeGridWeek' // Añadir las vistas de lista
+                        right: '' // Elimina todos los botones de vista
                     },
                     googleCalendarApiKey: 'AIzaSyB_s4xfeAC-D1CefrLLMD2T_rLDEmZx7qU', // API Key de Google Calendar
                     events: {

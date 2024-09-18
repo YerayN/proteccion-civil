@@ -66,6 +66,7 @@
                     locale: 'es', // Idioma español
                     firstDay: 1, // Hacer que la semana empiece en lunes
 
+                    displayEventEnd: true, // Mostrar la hora de fin
                     eventTimeFormat: { // Mostrar tanto la hora de inicio como la de fin
                         hour: '2-digit',
                         minute: '2-digit',
@@ -75,7 +76,6 @@
                     editable: false, // No permitir la edición de eventos
 
                     eventDidMount: function(info) {
-                        // Personalizar la visualización de eventos que cruzan días
                         var startTime = info.event.start;
                         var endTime = info.event.end;
 
@@ -83,12 +83,12 @@
                             var startDay = startTime.getDate();
                             var endDay = endTime.getDate();
 
-                            // Solo mostrar la hora del fin correctamente si cambia el día
+                            // Si el evento cruza a otro día, no mostrar el duplicado en el segundo día
                             if (startDay !== endDay) {
-                                info.el.querySelector('.fc-list-event-time').innerHTML =
-                                    startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) +
-                                    ' - ' +
-                                    endTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+                                var startDateTime = startTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+                                var endDateTime = endTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+
+                                info.el.querySelector('.fc-list-event-time').innerHTML = startDateTime + ' - ' + endDateTime;
                             }
                         }
                     }

@@ -9,8 +9,6 @@
     <title>Inicio - Protección Civil</title>
     <!-- FullCalendar CSS -->
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/main.min.css' rel='stylesheet' />
-    <!-- FullCalendar JS -->
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/main.min.js'></script>
 </head>
 
 <body onload="checkAuth()">
@@ -31,7 +29,7 @@
                     height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                    <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 -2v-2" />
                     <path d="M9 12h12l-3 -3" />
                     <path d="M18 15l3 -3" />
                 </svg>
@@ -42,28 +40,32 @@
     <main class="main-index">
         <div id="calendar"></div>
 
+        <!-- FullCalendar JS - Coloca este script antes de tu script personalizado -->
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/main.min.js'></script>
+
+        <!-- Tu script personalizado para inicializar el calendario -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
+                var calendarEl = document.getElementById('calendar');
 
-            // Inicializar FullCalendar
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth', // Vista inicial: mensual
-                headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                },
-                googleCalendarApiKey: 'AIzaSyB_s4xfeAC-D1CefrLLMD2T_rLDEmZx7qU', // Aquí va la API Key de Google
-                events: {
-                googleCalendarId: 'pcvillajoyosa@gmail.com' // Aquí va el ID de tu calendario de Google
-                },
-                locale: 'es', // Idioma español
-                editable: false // No permitir la edición de eventos
-            });
+                // Inicializar FullCalendar
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth', // Vista inicial: mensual
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    },
+                    googleCalendarApiKey: 'AIzaSyB_s4xfeAC-D1CefrLLMD2T_rLDEmZx7qU', // Aquí va la API Key de Google
+                    events: {
+                        googleCalendarId: 'pcvillajoyosa@gmail.com' // Aquí va el ID de tu calendario de Google
+                    },
+                    locale: 'es', // Idioma español
+                    editable: false // No permitir la edición de eventos
+                });
 
-            // Renderizar el calendario
-            calendar.render();
+                // Renderizar el calendario
+                calendar.render();
             });
         </script>
     </main>

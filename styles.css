@@ -404,10 +404,12 @@ form button:hover {
   }
 
   .fc-event {
-    background-color: #fcfcfc !important; /* Cambia el fondo del evento */
-    color: rgb(250, 0, 0) !important; /* Cambia el color del texto del evento */
-    border: none !important; /* Quita el borde del evento */
+    background-color: #fcfcfc; /* Cambia el fondo del evento */
+    /* Eliminar o ajustar el color del texto */
+    /* color: rgb(250, 0, 0); */
+    border: none; /* Quita el borde del evento */
 }
+
 
 .fc-daygrid-day-number {
     font-size: 14px; /* Tamaño del número del día */

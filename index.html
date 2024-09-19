@@ -51,7 +51,7 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var calendarEl = document.getElementById('calendar');
-
+        
                 var calendar = new FullCalendar.Calendar(calendarEl, {
                     initialView: 'listMonth', // Vista inicial: lista mensual
                     headerToolbar: {
@@ -59,21 +59,35 @@
                         center: 'title',
                         right: '' // Elimina todos los botones de vista
                     },
-                    googleCalendarApiKey: 'AIzaSyB_s4xfeAC-D1CefrLLMD2T_rLDEmZx7qU', // API Key de Google Calendar
+                    googleCalendarApiKey: 'API_KEY_AQUI', // API Key de Google Calendar
                     events: {
-                        googleCalendarId: 'pcvillajoyosa@gmail.com' // ID de tu calendario de Google
+                        googleCalendarId: 'ID_CALENDARIO_AQUI' // ID de tu calendario de Google
                     },
                     locale: 'es', // Idioma español
                     firstDay: 1, // Hacer que la semana empiece en lunes
                     editable: false, // No permitir la edición de eventos
-
+        
                     eventTimeFormat: { // Mostrar solo la hora de inicio
                         hour: '2-digit',
                         minute: '2-digit',
                         hour12: false // Formato de 24 horas
                     },
-
+        
                     eventDidMount: function(info) {
+                        // Evitar que los eventos que cruzan la medianoche se dupliquen
+                        var eventStart = info.event.start;
+                        var eventEnd = info.event.end;
+        
+                        if (eventEnd && eventEnd.getDate() !== eventStart.getDate()) {
+                            // Ajusta la visualización del evento para evitar la duplicación
+                            var duration = (eventEnd - eventStart) / (1000 * 60 * 60); // Duración en horas
+                            if (duration < 24) {
+                                // Cambia la fecha de finalización al día de inicio
+                                info.el.querySelector('.fc-list-event-time').innerHTML += ` (Hasta las ${eventEnd.getHours()}:${('0'+eventEnd.getMinutes()).slice(-2)})`;
+                                info.el.querySelector('.fc-list-event-title').innerHTML = info.event.title + ' (Continúa)';
+                            }
+                        }
+        
                         // Personaliza la apariencia de los eventos, agregando descripciones o más detalles
                         if (info.event.extendedProps.description) {
                             info.el.querySelector('.fc-list-event-title').innerHTML +=
@@ -81,11 +95,12 @@
                         }
                     }
                 });
-
+        
                 // Renderizar el calendario
                 calendar.render();
             });
         </script>
+        
     </main>
 </body>
 

@@ -82,6 +82,11 @@
                             timeElement.textContent = startTime; // Mostrar solo la hora de inicio
                         }
         
+                        // Cambiar el color del texto según el color del evento en Google Calendar
+                        if (info.event.backgroundColor) {
+                            info.el.style.color = info.event.backgroundColor;
+                        }
+        
                         // Personaliza la apariencia de los eventos, agregando descripciones o más detalles
                         if (info.event.extendedProps.description) {
                             info.el.querySelector('.fc-list-event-title').innerHTML +=
@@ -94,6 +99,7 @@
                 calendar.render();
             });
         </script>
+        
         
         
         

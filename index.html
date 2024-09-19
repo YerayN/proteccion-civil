@@ -74,17 +74,21 @@
                     },
         
                     eventDidMount: function(info) {
-                        // Evitar que los eventos que cruzan la medianoche se dupliquen
                         var eventStart = info.event.start;
                         var eventEnd = info.event.end;
         
+                        // Si el evento cruza la medianoche, se ajusta para mostrarlo solo el día de inicio
                         if (eventEnd && eventEnd.getDate() !== eventStart.getDate()) {
-                            // Ajusta la visualización del evento para evitar la duplicación
-                            var duration = (eventEnd - eventStart) / (1000 * 60 * 60); // Duración en horas
-                            if (duration < 24) {
-                                // Cambia la fecha de finalización al día de inicio
-                                info.el.querySelector('.fc-list-event-time').innerHTML += ` (Hasta las ${eventEnd.getHours()}:${('0'+eventEnd.getMinutes()).slice(-2)})`;
-                                info.el.querySelector('.fc-list-event-title').innerHTML = info.event.title + ' (Continúa)';
+                            // Ajustar el título del evento para indicar que continúa sin mostrar la hora de fin
+                            info.el.querySelector('.fc-list-event-title').innerHTML = info.event.title + ' (Continúa)';
+                            // Evitar que el evento se muestre al día siguiente
+                            var nextDay = new Date(eventStart);
+                            nextDay.setDate(nextDay.getDate() + 1);
+                            var sameDayEvent = info.el.parentElement.querySelector(
+                                '[data-date="' + nextDay.toISOString().split('T')[0] + '"] .fc-list-event-title'
+                            );
+                            if (sameDayEvent) {
+                                sameDayEvent.parentElement.style.display = 'none';
                             }
                         }
         
@@ -100,6 +104,7 @@
                 calendar.render();
             });
         </script>
+        
         
     </main>
 </body>

@@ -82,22 +82,20 @@
                         }
 
                         // Obtener el color del evento desde Google Calendar
-                        var googleEventColor = info.event.extendedProps.backgroundColor || info.event.backgroundColor;
+                        var googleEventColor = info.event.backgroundColor || info.event.extendedProps.backgroundColor;
+
                         if (googleEventColor) {
                             // Aplicar el color al fondo del evento
                             info.el.style.backgroundColor = googleEventColor;
-                            // Aplicar el color a la bolita
-                            var dot = info.el.querySelector('.fc-event-dot'); // Selecciona la bolita
-                            if (dot) {
-                                dot.style.backgroundColor = googleEventColor; // Aplica el color de fondo
-                            }
-                        }
 
-                        // Ajustar el color del texto
-                        if (info.event.textColor) {
-                            info.el.style.color = info.event.textColor;
-                        } else {
-                            info.el.style.color = '#000'; // Color por defecto si no hay color de texto definido
+                            // Aplicar el color a la bolita (dot)
+                            var dot = info.el.querySelector('.fc-event-dot');
+                            if (dot) {
+                                dot.style.backgroundColor = googleEventColor;
+                            }
+
+                            // Aplicar el color al texto del evento
+                            info.el.style.color = info.event.textColor || '#FFFFFF'; // Color blanco como fallback
                         }
 
                         // Añadir descripción si existe
@@ -106,6 +104,7 @@
                                 '<br><small>' + info.event.extendedProps.description + '</small>';
                         }
                     }
+
 
 
                 });

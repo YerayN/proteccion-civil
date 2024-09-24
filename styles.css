@@ -477,5 +477,14 @@ body, html {
         color: #FF6F00 !important; /* Aplica el color naranja */
         text-align: center !important; /* Asegura que el texto esté centrado */
     }
+
+    .fc .fc-toolbar-title {
+        text-transform: uppercase !important; 
+        font-weight: bold !important; 
+        font-size: 1.5em !important; 
+        color: #FF6F00 !important; 
+        text-align: center !important; 
+    }
+    
     
 }

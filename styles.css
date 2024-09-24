@@ -20,12 +20,11 @@ body {
 main {
     flex: 1; /* Asegura que el main ocupe el espacio restante del body */
     width: 100%;
-    max-width: 100%;
-    margin: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
 }
+
 
 
 
@@ -127,12 +126,17 @@ nav ul li a.active {
 @media (max-width: 768px) {
     .formulario-main {
         padding: 10px;
-        margin-top: 20px;
-        /* Ajusta solo el margen superior en móviles */
-        min-height: 100vh;
-        /* Asegura que el formulario ocupe toda la altura de la pantalla en móviles */
+        margin-top: 20px; /* Ajusta el margen superior en móviles */
+        min-height: auto; /* Permite que el contenido determine la altura */
+    }
+
+    .panel {
+        width: 100%;
+        max-width: 90%; /* Asegura que el panel no ocupe más del 90% del ancho de la pantalla */
+        padding: 20px; /* Reduce el padding para que se ajuste mejor en pantallas pequeñas */
     }
 }
+
 
 /* Estilo del panel general */
 .panel {
@@ -143,6 +147,7 @@ nav ul li a.active {
     text-align: center;
     width: 100%;
     max-width: 100%;
+    margin: 0 auto; /* Asegura el centrado horizontal */
     /* Asegura que el panel no se desborde */
 }
 

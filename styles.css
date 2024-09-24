@@ -395,67 +395,56 @@ form button:hover {
     max-width: 100%;
     margin: 0 auto;
     padding: 10px;
-    border: 2px solid #FFA000; /* Añade un borde alrededor del calendario */
-    border-radius: 8px; /* Bordes redondeados */
-    background-color: #fff; /* Fondo blanco */
+    border: 2px solid #FFA000;
+    border-radius: 8px;
+    background-color: #fff;
 }
-  
+
 @media (max-width: 768px) {
     #calendar {
         padding: 5px;
-        border-width: 1px; /* Bordes más delgados en móviles */
+        border-width: 1px;
     }
 }
 
 .fc-event {
-    background-color: #fcfcfc; /* Cambia el fondo del evento */
-    border-radius: 5px; /* Bordes redondeados para los eventos */
-    border: none; /* Quita el borde del evento */
+    border-radius: 5px;
+    border: none;
+    background-color: inherit !important; /* Aplicar color de fondo heredado */
+    color: inherit !important; /* Aplicar color de texto heredado */
 }
-
 
 .fc-daygrid-day-number {
-    font-size: 14px; /* Tamaño del número del día */
-    color: #333; /* Color del número */
-}
-
-.fc-event-title {
-    font-size: 10px; /* Tamaño del texto del evento */
-    font-weight: bold; /* Negrita para los títulos */
-}
-
-/* Corregir visualización de eventos en la vista semanal (timeGrid) */
-.fc-timegrid-event-harness .fc-timegrid-event {
-    background-color: #3498db !important; /* Color de fondo de los eventos */
-    color: white !important; /* Color del texto de los eventos */
-    border-radius: 5px; /* Bordes redondeados */
-    border: none !important; /* Sin bordes */
-}
-
-/* Ajustar el tamaño del texto de los eventos */
-.fc-timegrid-event .fc-event-title, .fc-daygrid-event .fc-event-title {
-    font-size: 12px !important; /* Ajustar el tamaño del texto en los eventos */
-    color: white !important; /* Asegurar el color del texto en blanco */
-}
-
-/* Ajustar la vista de día y semana */
-.fc-timegrid-slot {
-    background-color: #f0f0f0 !important; /* Fondo para las celdas de la vista semanal */
-}
-
-
-/* Aumentar el tamaño del texto en los eventos de la vista de lista */
-.fc-list-event-title {
-    font-size: 14px; /* Ajusta el tamaño del texto */
-    font-weight: bold; /* Negrita para los títulos */
-}
-
-.fc-list-event-time {
     font-size: 14px;
     color: #333;
 }
 
-/* Añadir más espacio entre los eventos */
+.fc-event-title {
+    font-size: 12px; /* Tamaño unificado para el texto del evento */
+    font-weight: bold;
+}
+
+.fc-timegrid-event-harness .fc-timegrid-event {
+    border-radius: 5px;
+    background-color: inherit !important; /* Aplicar color de fondo heredado */
+    color: inherit !important; /* Aplicar color de texto heredado */
+}
+
+.fc-timegrid-slot {
+    background-color: #f0f0f0;
+}
+
+.fc-list-event-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: inherit !important; /* Aplicar color de texto heredado */
+}
+
+.fc-list-event-time {
+    font-size: 14px;
+    color: inherit !important; /* Aplicar color de texto heredado */
+}
+
 .fc-list-item {
-    margin-bottom: 20px; /* Añadir más espacio entre los eventos */
+    margin-bottom: 20px;
 }

@@ -91,7 +91,11 @@
                             "correfocs": "#FFFF00" // Amarillo
                         };
 
-                        var eventColor = Object.keys(colorMap).find(key => title.includes(key)) ? colorMap[title.split(" ")[0]] : "#FFA000"; // Naranja por defecto
+                        // Aquí puedes definir el color por defecto que quieras usar
+                        var defaultColor = "#E3E3E3"; // Cambia este color según prefieras
+
+                        // Buscar si el título coincide con alguna clave del colorMap
+                        var eventColor = Object.keys(colorMap).find(key => title.includes(key)) ? colorMap[title.split(" ")[0]] : defaultColor;
 
                         console.log('Color asignado:', eventColor); // Verificar el color asignado
 
@@ -121,6 +125,7 @@
                                 '<br><small>' + info.event.extendedProps.description + '</small>';
                         }
                     }
+
                 });
         
                 // Renderizar el calendario

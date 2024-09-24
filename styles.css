@@ -395,18 +395,21 @@ form button:hover {
     max-width: 100%;
     margin: 0 auto;
     padding: 10px;
-  }
+    border: 2px solid #FFA000; /* Añade un borde alrededor del calendario */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco */
+}
   
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     #calendar {
-      padding: 5px;
+        padding: 5px;
+        border-width: 1px; /* Bordes más delgados en móviles */
     }
-  }
+}
 
-  .fc-event {
+.fc-event {
     background-color: #fcfcfc; /* Cambia el fondo del evento */
-    /* Eliminar o ajustar el color del texto */
-    /* color: rgb(250, 0, 0); */
+    border-radius: 5px; /* Bordes redondeados para los eventos */
     border: none; /* Quita el borde del evento */
 }
 
@@ -443,8 +446,8 @@ form button:hover {
 
 /* Aumentar el tamaño del texto en los eventos de la vista de lista */
 .fc-list-event-title {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    font-weight: bold; /* Negrita para los títulos */
 }
 
 .fc-list-event-time {
@@ -454,5 +457,5 @@ form button:hover {
 
 /* Añadir más espacio entre los eventos */
 .fc-list-item {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Añadir más espacio entre los eventos */
 }

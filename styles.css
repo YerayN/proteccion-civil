@@ -410,9 +410,6 @@ body, html {
         padding: 5px; /* Mantén un padding más pequeño en móviles */
         border-width: 1px; /* Reduce el grosor del borde */
     }
-}
-
-@media (max-width: 768px) {
     .fc-toolbar-title {
         font-size: 1em; /* Ajusta el tamaño para que se vea bien en pantallas pequeñas */
     }

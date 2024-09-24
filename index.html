@@ -74,33 +74,30 @@
                     },
         
                     eventDidMount: function(info) {
-                        console.log('Evento:', info.event); // Verifica en la consola si los colores están llegando
+                        var title = info.event.title.toLowerCase();
 
-                        var timeElement = info.el.querySelector('.fc-list-event-time');
-                        if (timeElement) {
-                            var timeText = timeElement.textContent;
-                            var startTime = timeText.split(' - ')[0];
-                            timeElement.textContent = startTime;
-                        }
+                        // Asignar colores según palabras clave en el título
+                        var colorMap = {
+                            "villajoyosa": "#FF0000",  // Rojo
+                            "finestrat": "#00FF00", // Verde
+                            "orxeta": "#0000FF",   // Azul
+                            "benidorm": "#FFFF00" // Amarillo
+                        };
 
-                        // Verificar si el evento tiene un color definido
-                        var googleEventColor = info.event.backgroundColor || info.event.extendedProps.backgroundColor;
+                        // Buscar el color correspondiente al título, o asignar un color por defecto
+                        var eventColor = Object.keys(colorMap).find(key => title.includes(key)) ? colorMap[title.split(" ")[0]] : "#FFA000"; // Naranja por defecto
 
-                        console.log('Color de fondo:', googleEventColor); // Verificar si el color está definido
+                        // Aplicar el color al fondo del evento
+                        info.el.style.backgroundColor = eventColor;
 
-                        if (googleEventColor) {
-                            // Aplicar el color al fondo del evento
-                            info.el.style.backgroundColor = googleEventColor;
-
-                            // Aplicar el color a la bolita
-                            var dot = info.el.querySelector('.fc-event-dot');
-                            if (dot) {
-                                dot.style.backgroundColor = googleEventColor;
-                            }
+                        // Aplicar el color a la bolita (dot)
+                        var dot = info.el.querySelector('.fc-event-dot');
+                        if (dot) {
+                            dot.style.backgroundColor = eventColor;
                         }
 
                         // Aplicar color de texto
-                        info.el.style.color = info.event.textColor || '#000000';
+                        info.el.style.color = info.event.textColor || '#FFFFFF'; // Blanco por defecto
 
                         // Añadir descripción si existe
                         if (info.event.extendedProps.description) {
@@ -108,6 +105,7 @@
                                 '<br><small>' + info.event.extendedProps.description + '</small>';
                         }
                     }
+
 
 
 

@@ -337,21 +337,6 @@ form button:hover {
     color: #fff;
 }
 
-.elfsight-app-83cef3a2-1617-4ddf-8fd6-00c26948e958 {
-    width: 100%;
-    /* Ocupa todo el ancho disponible */
-    max-width: 1600px;
-    /* Aumenta el ancho máximo para pantallas grandes */
-    height: 90vh;
-    /* Mantiene el 90% del alto de la ventana visible */
-    max-height: 1000px;
-    /* Aumenta la altura máxima para pantallas grandes */
-    margin: 0 auto;
-    /* Centra el calendario horizontalmente */
-    overflow-y: auto;
-    /* Permite desplazamiento vertical si es necesario */
-}
-
 
 .form-group-row {
     display: flex;
@@ -426,6 +411,13 @@ body, html {
         border-width: 1px; /* Reduce el grosor del borde */
     }
 
+@media (max-width: 768px) {
+    .fc-toolbar-title {
+        font-size: 1.2em; /* Ajusta el tamaño para que se vea bien en pantallas pequeñas */
+    }
+}
+    
+
     .fc-list-event-title {
         font-size: 12px; /* Reducir el tamaño del texto para ajustarlo mejor */
         font-weight: bold;
@@ -480,5 +472,10 @@ body, html {
 
     .fc-toolbar-title {
         margin: 0 auto; /* Centra el título del mes */
+        text-transform: uppercase; /* Convierte el texto a mayúsculas */
+        font-weight: bold; /* Puedes hacerlo más grueso para un mejor contraste */
+        font-size: 1.5em; /* Ajusta el tamaño de la fuente si lo consideras necesario */
+        color: #FF6F00; /* Ajusta el color del texto si quieres que resalte más */
+        text-align: center; /* Centra el texto si no lo está ya */
     }
 }

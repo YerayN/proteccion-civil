@@ -6,15 +6,15 @@
 }
 
 /* Configuración básica del cuerpo */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
+body, html {
+    height: 100%;
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Asegura que todos los elementos respeten el box-sizing */
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    background: linear-gradient(to right, #FF6F00, #FFA000);
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
 }
 
 main {
@@ -23,7 +23,10 @@ main {
     display: flex;
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
+    padding: 0; /* Elimina cualquier padding adicional */
+    margin: 0; /* Asegúrate de que no haya margen que afecte */
 }
+
 
 
 
@@ -146,10 +149,11 @@ nav ul li a.active {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 100%;
-    max-width: 100%;
-    margin: 0 auto; /* Asegura el centrado horizontal */
-    /* Asegura que el panel no se desborde */
+    max-width: 600px; /* Limita el ancho máximo del panel */
+    margin: 0 auto; /* Centra horizontalmente */
+    box-sizing: border-box; /* Asegura que padding y border no afecten el tamaño */
 }
+
 
 .panel-login {
     background-color: #fff;

@@ -95,21 +95,24 @@
 
                         console.log('Color asignado:', eventColor); // Verificar el color asignado
 
-                        // Aplicar el color al fondo del evento
-                        info.el.style.backgroundColor = eventColor;
+                        // Forzar el color al fondo del evento
+                        info.el.style.setProperty('background-color', eventColor, 'important');
 
-                        // Aplicar el color a la bolita (dot)
+                        // Forzar el color a la bolita (dot)
                         var dot = info.el.querySelector('.fc-event-dot');
                         if (dot) {
                             dot.style.backgroundColor = eventColor;
                         }
 
-                        // Aplicar color de texto
-                        info.el.style.color = '#FFFFFF'; // Blanco por defecto para mayor contraste
+                        // Forzar color de texto a blanco
+                        info.el.style.setProperty('color', '#FFFFFF', 'important');
                         console.log('Color de texto aplicado: #FFFFFF');
 
-                        // Asegurarse de que el texto sea visible
-                        info.el.querySelector('.fc-list-event-title').style.color = '#FFFFFF'; // Blanco por defecto
+                        // Forzar color del título a blanco
+                        var titleElement = info.el.querySelector('.fc-list-event-title');
+                        if (titleElement) {
+                            titleElement.style.setProperty('color', '#FFFFFF', 'important');
+                        }
                         console.log('Color de título aplicado: #FFFFFF');
 
                         // Añadir descripción si existe
@@ -118,9 +121,6 @@
                                 '<br><small>' + info.event.extendedProps.description + '</small>';
                         }
                     }
-
-
-
                 });
         
                 // Renderizar el calendario

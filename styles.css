@@ -410,8 +410,8 @@ form button:hover {
 .fc-event {
     border-radius: 5px;
     border: none;
-    background-color: inherit !important; /* Asegura que se herede el color de fondo */
-    color: #FFFFFF !important; /* Forzar color blanco para el texto */
+    background-color: transparent !important; /* Evitar conflicto en herencia de fondo */
+    color: inherit !important; /* Asegurar que el color de texto sea heredado correctamente */
 }
 
 .fc-daygrid-day-number {
@@ -422,13 +422,13 @@ form button:hover {
 .fc-event-title {
     font-size: 12px;
     font-weight: bold;
-    color: #FFFFFF !important; /* Forzar color blanco para el título */
+    color: inherit !important; /* Asegurar que el color de texto sea heredado correctamente */
 }
 
 .fc-timegrid-event-harness .fc-timegrid-event {
     border-radius: 5px;
-    background-color: inherit !important;
-    color: #FFFFFF !important; /* Forzar color blanco para el texto */
+    background-color: transparent !important;
+    color: inherit !important; /* Asegurar que el color de texto sea heredado correctamente */
 }
 
 .fc-timegrid-slot {
@@ -438,15 +438,16 @@ form button:hover {
 .fc-list-event-title {
     font-size: 14px;
     font-weight: bold;
-    color: #FFFFFF !important; /* Forzar color blanco para el texto */
+    color: inherit !important; /* Asegurar que el color de texto sea heredado correctamente */
 }
 
 .fc-list-event-time {
     font-size: 14px;
-    color: #FFFFFF !important; /* Forzar color blanco para el tiempo */
+    color: inherit !important; /* Asegurar que el color de texto sea heredado correctamente */
 }
 
 .fc-list-item {
     margin-bottom: 20px;
 }
+
 

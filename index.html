@@ -74,29 +74,33 @@
                     },
         
                     eventDidMount: function(info) {
+                        console.log('Evento:', info.event); // Verifica en la consola si los colores están llegando
+
                         var timeElement = info.el.querySelector('.fc-list-event-time');
                         if (timeElement) {
                             var timeText = timeElement.textContent;
-                            var startTime = timeText.split(' - ')[0]; // Extraer solo la hora de inicio
-                            timeElement.textContent = startTime; // Mostrar solo la hora de inicio
+                            var startTime = timeText.split(' - ')[0];
+                            timeElement.textContent = startTime;
                         }
 
-                        // Obtener el color del evento desde Google Calendar
+                        // Verificar si el evento tiene un color definido
                         var googleEventColor = info.event.backgroundColor || info.event.extendedProps.backgroundColor;
+
+                        console.log('Color de fondo:', googleEventColor); // Verificar si el color está definido
 
                         if (googleEventColor) {
                             // Aplicar el color al fondo del evento
                             info.el.style.backgroundColor = googleEventColor;
 
-                            // Aplicar el color a la bolita (dot)
+                            // Aplicar el color a la bolita
                             var dot = info.el.querySelector('.fc-event-dot');
                             if (dot) {
                                 dot.style.backgroundColor = googleEventColor;
                             }
-
-                            // Aplicar el color al texto del evento
-                            info.el.style.color = info.event.textColor || '#FFFFFF'; // Color blanco como fallback
                         }
+
+                        // Aplicar color de texto
+                        info.el.style.color = info.event.textColor || '#000000';
 
                         // Añadir descripción si existe
                         if (info.event.extendedProps.description) {
@@ -104,6 +108,7 @@
                                 '<br><small>' + info.event.extendedProps.description + '</small>';
                         }
                     }
+
 
 
 

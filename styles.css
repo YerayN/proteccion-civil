@@ -391,52 +391,60 @@ form button:hover {
     color: #ffffff;
 }
 
+/* Asegura que el cuerpo y el contenedor principal ocupen toda la altura de la pantalla */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 #calendar {
-    max-width: 100%;
+    width: 100%;
+    height: calc(100vh - 60px); /* Resta el tamaño del header (60px) */
     margin: 0 auto;
     padding: 10px;
     border: 2px solid #FFA000;
     border-radius: 8px;
     background-color: #fff;
+    box-sizing: border-box; /* Incluye el padding y border en el tamaño total */
 }
 
 @media (max-width: 768px) {
     #calendar {
         padding: 5px;
         border-width: 1px;
-        max-width: 100%; /* Asegura que el calendario ocupe el ancho completo */
+        height: calc(100vh - 60px); /* Resta el tamaño del header en móviles */
+        overflow-y: auto; /* Permite scroll si hay muchos eventos */
     }
 
     .fc-list-event-title {
-        font-size: 12px; /* Reducir el tamaño del texto para ajustarlo mejor */
+        font-size: 12px;
         font-weight: bold;
         color: inherit !important;
     }
 
     .fc-list-event-time {
-        font-size: 12px; /* Reducir el tamaño de la hora */
+        font-size: 12px;
         color: inherit !important;
     }
 
     .fc-list-item {
-        margin-bottom: 10px; /* Reducir el espacio entre eventos */
+        margin-bottom: 10px;
     }
 
     .fc-event {
-        padding: 5px; /* Añadir algo de padding para mejorar la legibilidad */
+        padding: 5px;
         border-radius: 5px;
     }
 
     .fc-daygrid-day-number {
-        font-size: 12px; /* Reducir el tamaño del número del día */
+        font-size: 12px;
         color: #333;
     }
 
     .fc-event-title {
-        font-size: 12px; /* Reducir el tamaño del título del evento */
+        font-size: 12px;
         font-weight: bold;
         color: inherit !important;
     }
 }
-
-

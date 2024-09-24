@@ -411,7 +411,7 @@ form button:hover {
     border-radius: 5px;
     border: none;
     background-color: inherit !important; /* Asegura que se herede el color de fondo */
-    color: inherit !important; /* Asegura que se herede el color de texto */
+    color: #FFFFFF !important; /* Forzar color blanco para el texto */
 }
 
 .fc-daygrid-day-number {
@@ -422,13 +422,13 @@ form button:hover {
 .fc-event-title {
     font-size: 12px;
     font-weight: bold;
-    color: inherit !important; /* Asegura que el color de texto se herede */
+    color: #FFFFFF !important; /* Forzar color blanco para el título */
 }
 
 .fc-timegrid-event-harness .fc-timegrid-event {
     border-radius: 5px;
     background-color: inherit !important;
-    color: inherit !important;
+    color: #FFFFFF !important; /* Forzar color blanco para el texto */
 }
 
 .fc-timegrid-slot {
@@ -438,14 +438,15 @@ form button:hover {
 .fc-list-event-title {
     font-size: 14px;
     font-weight: bold;
-    color: inherit !important;
+    color: #FFFFFF !important; /* Forzar color blanco para el texto */
 }
 
 .fc-list-event-time {
     font-size: 14px;
-    color: inherit !important;
+    color: #FFFFFF !important; /* Forzar color blanco para el tiempo */
 }
 
 .fc-list-item {
     margin-bottom: 20px;
 }
+

@@ -73,11 +73,13 @@
                     },
         
                     eventDidMount: function(info) {
+                        console.log('Evento:', info.event); // Verificar toda la información del evento
+
                         var timeElement = info.el.querySelector('.fc-list-event-time');
                         if (timeElement) {
                             var timeText = timeElement.textContent;
-                            var startTime = timeText.split(' - ')[0]; // Extraer solo la hora de inicio
-                            timeElement.textContent = startTime; // Mostrar solo la hora de inicio
+                            var startTime = timeText.split(' - ')[0];
+                            timeElement.textContent = startTime;
                         }
 
                         // Asignar colores según palabras clave en el título
@@ -91,20 +93,24 @@
 
                         var eventColor = Object.keys(colorMap).find(key => title.includes(key)) ? colorMap[title.split(" ")[0]] : "#FFA000"; // Naranja por defecto
 
+                        console.log('Color asignado:', eventColor); // Verificar el color asignado
+
                         // Aplicar el color al fondo del evento
                         info.el.style.backgroundColor = eventColor;
 
-                        // Forzar el color a la bolita (dot)
+                        // Aplicar el color a la bolita (dot)
                         var dot = info.el.querySelector('.fc-event-dot');
                         if (dot) {
                             dot.style.backgroundColor = eventColor;
                         }
 
-                        // Forzar color de texto
+                        // Aplicar color de texto
                         info.el.style.color = '#FFFFFF'; // Blanco por defecto para mayor contraste
+                        console.log('Color de texto aplicado: #FFFFFF');
 
                         // Asegurarse de que el texto sea visible
                         info.el.querySelector('.fc-list-event-title').style.color = '#FFFFFF'; // Blanco por defecto
+                        console.log('Color de título aplicado: #FFFFFF');
 
                         // Añadir descripción si existe
                         if (info.event.extendedProps.description) {
@@ -112,6 +118,7 @@
                                 '<br><small>' + info.event.extendedProps.description + '</small>';
                         }
                     }
+
 
 
                 });

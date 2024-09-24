@@ -464,6 +464,7 @@ body, html {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-bottom: 5px; /* Añadir un poco de espacio debajo del título */
     }
 
     .fc-toolbar-title {

@@ -105,15 +105,15 @@
                         }
 
                         // Forzar color de texto a blanco
-                        info.el.style.setProperty('color', '#FFFFFF', 'important');
-                        console.log('Color de texto aplicado: #FFFFFF');
+                        info.el.style.setProperty('color', '#000000', 'important');
+                        console.log('Color de texto aplicado: #000000');
 
                         // Forzar color del título a blanco
                         var titleElement = info.el.querySelector('.fc-list-event-title');
                         if (titleElement) {
-                            titleElement.style.setProperty('color', '#FFFFFF', 'important');
+                            titleElement.style.setProperty('color', '#000000', 'important');
                         }
-                        console.log('Color de título aplicado: #FFFFFF');
+                        console.log('Color de título aplicado: #000000');
 
                         // Añadir descripción si existe
                         if (info.event.extendedProps.description) {

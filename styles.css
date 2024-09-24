@@ -410,6 +410,7 @@ body, html {
         padding: 5px; /* Mantén un padding más pequeño en móviles */
         border-width: 1px; /* Reduce el grosor del borde */
     }
+}
 
 @media (max-width: 768px) {
     .fc-toolbar-title {
@@ -477,14 +478,3 @@ body, html {
         color: #FF6F00 !important; /* Aplica el color naranja */
         text-align: center !important; /* Asegura que el texto esté centrado */
     }
-
-    .fc .fc-toolbar-title {
-        text-transform: uppercase !important; 
-        font-weight: bold !important; 
-        font-size: 1.5em !important; 
-        color: #FF6F00 !important; 
-        text-align: center !important; 
-    }
-    
-    
-}

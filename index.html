@@ -89,14 +89,20 @@
                             "orxeta": "#FF0000",  // Rojo
                             "finestrat": "#00FF00", // Verde
                             "relleu": "#0000FF",   // Azul
-                            "benidorm": "#FFFF00" // Amarillo
+                            "benidorm": "#FFFF00"  // Amarillo
                         };
 
                         // Aquí puedes definir el color por defecto que quieras usar
-                        var defaultColor = "#E3E3E3"; // Cambia este color según prefieras
+                        var defaultColor = "#E3E3E3"; // Gris claro por defecto
 
                         // Buscar si el título coincide con alguna clave del colorMap
-                        var eventColor = Object.keys(colorMap).find(key => title.includes(key)) ? colorMap[title.split(" ")[0]] : defaultColor;
+                        var eventColor = defaultColor;
+                        for (var key in colorMap) {
+                            if (title.includes(key)) {
+                                eventColor = colorMap[key];
+                                break;
+                            }
+                        }
 
                         console.log('Color asignado:', eventColor); // Verificar el color asignado
 
@@ -109,11 +115,11 @@
                             dot.style.backgroundColor = eventColor;
                         }
 
-                        // Forzar color de texto a blanco
+                        // Forzar color de texto a negro para mejor legibilidad
                         info.el.style.setProperty('color', '#000000', 'important');
                         console.log('Color de texto aplicado: #000000');
 
-                        // Forzar color del título a blanco
+                        // Forzar color del título a negro
                         var titleElement = info.el.querySelector('.fc-list-event-title');
                         if (titleElement) {
                             titleElement.style.setProperty('color', '#000000', 'important');
@@ -126,6 +132,7 @@
                                 '<br><small>' + info.event.extendedProps.description + '</small>';
                         }
                     }
+
 
                 });
         

@@ -112,22 +112,22 @@ nav ul li a.active {
 /* Ajuste específico del margen superior para el formulario */
 .formulario-main {
     margin-top: 50px;
-    /* Reducido para evitar desplazamientos excesivos */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
     width: 100%;
     max-width: 800px;
-    min-height: 80vh;
-    /* Asegura que el formulario ocupe al menos el 80% de la altura de la pantalla */
+    min-height: 100vh; /* Asegura que el formulario ocupe toda la altura de la pantalla */
+    box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
     .formulario-main {
         padding: 10px;
         margin-top: 20px; /* Ajusta el margen superior en móviles */
-        min-height: auto; /* Permite que el contenido determine la altura */
+        min-height: 100vh; /* Asegura que el formulario ocupe toda la altura de la pantalla */
+        overflow-y: auto; /* Permite desplazamiento vertical si el contenido es demasiado alto */
     }
 
     .panel {
@@ -302,12 +302,6 @@ form button:hover {
         /* Asegura que el formulario ocupe toda la altura de la pantalla en móviles */
     }
 
-    .elfsight-app-83cef3a2-1617-4ddf-8fd6-00c26948e958 {
-        height: 75vh;
-        /* Ajusta la altura para pantallas móviles */
-        max-height: none;
-        /* Permite que ocupe más espacio en pantallas pequeñas si es necesario */
-    }
 }
 
 /* Clases para manejar la visibilidad de las secciones */

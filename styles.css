@@ -444,30 +444,4 @@ body, html {
         font-weight: bold;
         color: inherit !important;
     }
-
-    .fc-toolbar-title {
-        font-size: 18px; /* Ajusta el tamaño del título del mes */
-        font-weight: bold;
-        text-align: center;
-    }
-
-    .fc-button-group .fc-prev-button, 
-    .fc-button-group .fc-next-button {
-        font-size: 16px; /* Reduce el tamaño de las flechas */
-        padding: 5px 10px; /* Ajusta el padding para que se vean más proporcionales */
-        background-color: #333; /* Color de fondo de las flechas */
-        border-radius: 5px; /* Bordes redondeados para las flechas */
-        color: #fff; /* Color del texto de las flechas */
-    }
-
-    .fc-toolbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 5px; /* Añadir un poco de espacio debajo del título */
-    }
-
-    .fc-toolbar-title {
-        margin: 0 auto; /* Centra el título del mes */
-    }
 }

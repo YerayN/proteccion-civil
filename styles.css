@@ -414,6 +414,37 @@ body, html {
         max-width: 100%; /* Asegura que el calendario ocupe el ancho completo */
     }
 
+    .fc-list-event-title {
+        font-size: 12px; /* Reducir el tamaño del texto para ajustarlo mejor */
+        font-weight: bold;
+        color: inherit !important;
+    }
+
+    .fc-list-event-time {
+        font-size: 12px; /* Reducir el tamaño de la hora */
+        color: inherit !important;
+    }
+
+    .fc-list-item {
+        margin-bottom: 10px; /* Reducir el espacio entre eventos */
+    }
+
+    .fc-event {
+        padding: 5px; /* Añadir algo de padding para mejorar la legibilidad */
+        border-radius: 5px;
+    }
+
+    .fc-daygrid-day-number {
+        font-size: 12px; /* Reducir el tamaño del número del día */
+        color: #333;
+    }
+
+    .fc-event-title {
+        font-size: 12px; /* Reducir el tamaño del título del evento */
+        font-weight: bold;
+        color: inherit !important;
+    }
+
     .fc-toolbar-title {
         font-size: 18px; /* Ajusta el tamaño del título del mes */
         font-weight: bold;

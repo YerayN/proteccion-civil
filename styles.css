@@ -399,52 +399,43 @@ body, html {
 }
 
 #calendar {
-    width: 100%;
-    height: calc(100vh - 60px); /* Resta el tamaño del header (60px) */
+    max-width: 100%;
     margin: 0 auto;
     padding: 10px;
     border: 2px solid #FFA000;
     border-radius: 8px;
     background-color: #fff;
-    box-sizing: border-box; /* Incluye el padding y border en el tamaño total */
 }
 
 @media (max-width: 768px) {
     #calendar {
         padding: 5px;
         border-width: 1px;
-        height: calc(100vh - 60px); /* Resta el tamaño del header en móviles */
-        overflow-y: auto; /* Permite scroll si hay muchos eventos */
+        max-width: 100%; /* Asegura que el calendario ocupe el ancho completo */
     }
 
-    .fc-list-event-title {
-        font-size: 12px;
+    .fc-toolbar-title {
+        font-size: 18px; /* Ajusta el tamaño del título del mes */
         font-weight: bold;
-        color: inherit !important;
+        text-align: center;
     }
 
-    .fc-list-event-time {
-        font-size: 12px;
-        color: inherit !important;
+    .fc-button-group .fc-prev-button, 
+    .fc-button-group .fc-next-button {
+        font-size: 16px; /* Reduce el tamaño de las flechas */
+        padding: 5px 10px; /* Ajusta el padding para que se vean más proporcionales */
+        background-color: #333; /* Color de fondo de las flechas */
+        border-radius: 5px; /* Bordes redondeados para las flechas */
+        color: #fff; /* Color del texto de las flechas */
     }
 
-    .fc-list-item {
-        margin-bottom: 10px;
+    .fc-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .fc-event {
-        padding: 5px;
-        border-radius: 5px;
-    }
-
-    .fc-daygrid-day-number {
-        font-size: 12px;
-        color: #333;
-    }
-
-    .fc-event-title {
-        font-size: 12px;
-        font-weight: bold;
-        color: inherit !important;
+    .fc-toolbar-title {
+        margin: 0 auto; /* Centra el título del mes */
     }
 }

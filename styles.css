@@ -404,50 +404,39 @@ form button:hover {
     #calendar {
         padding: 5px;
         border-width: 1px;
+        max-width: 100%; /* Asegura que el calendario ocupe el ancho completo */
     }
-}
 
-.fc-event {
-    border-radius: 5px;
-    border: none;
-    background-color: transparent !important; /* Evitar conflicto en herencia de fondo */
-    color: inherit !important; /* Asegurar que el color de texto sea heredado correctamente */
-}
+    .fc-list-event-title {
+        font-size: 12px; /* Reducir el tamaño del texto para ajustarlo mejor */
+        font-weight: bold;
+        color: inherit !important;
+    }
 
-.fc-daygrid-day-number {
-    font-size: 14px;
-    color: #333;
-}
+    .fc-list-event-time {
+        font-size: 12px; /* Reducir el tamaño de la hora */
+        color: inherit !important;
+    }
 
-.fc-event-title {
-    font-size: 12px;
-    font-weight: bold;
-    color: inherit !important; /* Asegurar que el color de texto sea heredado correctamente */
-}
+    .fc-list-item {
+        margin-bottom: 10px; /* Reducir el espacio entre eventos */
+    }
 
-.fc-timegrid-event-harness .fc-timegrid-event {
-    border-radius: 5px;
-    background-color: transparent !important;
-    color: inherit !important; /* Asegurar que el color de texto sea heredado correctamente */
-}
+    .fc-event {
+        padding: 5px; /* Añadir algo de padding para mejorar la legibilidad */
+        border-radius: 5px;
+    }
 
-.fc-timegrid-slot {
-    background-color: #f0f0f0;
-}
+    .fc-daygrid-day-number {
+        font-size: 12px; /* Reducir el tamaño del número del día */
+        color: #333;
+    }
 
-.fc-list-event-title {
-    font-size: 14px;
-    font-weight: bold;
-    color: inherit !important; /* Asegurar que el color de texto sea heredado correctamente */
-}
-
-.fc-list-event-time {
-    font-size: 14px;
-    color: inherit !important; /* Asegurar que el color de texto sea heredado correctamente */
-}
-
-.fc-list-item {
-    margin-bottom: 20px;
+    .fc-event-title {
+        font-size: 12px; /* Reducir el tamaño del título del evento */
+        font-weight: bold;
+        color: inherit !important;
+    }
 }
 
 

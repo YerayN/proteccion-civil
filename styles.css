@@ -396,20 +396,21 @@ body, html {
 
 
 #calendar {
-    width: 100%;
-    height: calc(100vh - 120px); /* Ajusta la altura del calendario, restando el tamaño del header */
-    margin: 20px auto;
-    padding: 10px;
-    border: 2px solid #FFA000;
-    border-radius: 8px;
-    background-color: #fff;
-    box-sizing: border-box;
+    width: 100%; /* Asegura que el calendario ocupe todo el ancho disponible */
+    height: calc(100vh - 120px); /* Ajusta la altura del calendario, restando el tamaño del header y el margen */
+    margin: 20px auto; /* Aplica un margen automático para centrarlo horizontalmente */
+    padding: 10px; /* Mantén el padding */
+    border: 2px solid #FFA000; /* Mantén el borde */
+    border-radius: 8px; /* Mantén los bordes redondeados */
+    background-color: #fff; /* Mantén el fondo blanco */
+    box-sizing: border-box; /* Asegura que padding y border no afecten al tamaño */
 }
 
 @media (max-width: 768px) {
     #calendar {
         height: calc(100vh - 140px); /* Ajusta la altura para dispositivos móviles */
-        padding: 5px;
+        padding: 5px; /* Mantén un padding más pequeño en móviles */
+        border-width: 1px; /* Reduce el grosor del borde */
     }
     .fc-toolbar-title {
         font-size: 1em; /* Ajusta el tamaño para que se vea bien en pantallas pequeñas */

@@ -476,3 +476,24 @@ body, html {
         color: #FF6F00 !important; /* Aplica el color naranja */
         text-align: center !important; /* Asegura que el texto esté centrado */
     }
+
+    .panel-form {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 100%;
+        max-width: 600px; /* Limita el ancho máximo del panel */
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+    @media (max-width: 768px) {
+        .panel-form {
+            width: 100%;
+            max-width: 90%;
+            padding: 20px;
+        }
+    }
+    

@@ -305,6 +305,13 @@ form button:hover {
         min-height: 100vh;
         /* Asegura que el formulario ocupe toda la altura de la pantalla en móviles */
     }
+
+    .elfsight-app-83cef3a2-1617-4ddf-8fd6-00c26948e958 {
+        height: 75vh;
+        /* Ajusta la altura para pantallas móviles */
+        max-height: none;
+        /* Permite que ocupe más espacio en pantallas pequeñas si es necesario */
+    }
 }
 
 /* Clases para manejar la visibilidad de las secciones */

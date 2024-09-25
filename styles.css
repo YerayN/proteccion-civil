@@ -129,27 +129,27 @@ nav ul li a.active {
         min-height: 100vh; /* Asegura que el formulario ocupe toda la altura de la pantalla */
         overflow-y: auto; /* Permite desplazamiento vertical si el contenido es demasiado alto */
     }
-}
+
     .panel {
-        background-color: #fff;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
         width: 100%;
-        max-width: 600px; /* Limita el ancho máximo del panel */
-        margin: 0 auto;
-        box-sizing: border-box;
+        max-width: 90%; /* Asegura que el panel no ocupe más del 90% del ancho de la pantalla */
+        padding: 20px; /* Reduce el padding para que se ajuste mejor en pantallas pequeñas */
     }
-    
-    @media (max-width: 768px) {
-        .panel {
-            width: 100%;
-            max-width: 90%;
-            padding: 20px;
-        }
-    }
-    
+}
+
+
+/* Estilo del panel general */
+.panel {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto; /* Asegura el centrado horizontal */
+    /* Asegura que el panel no se desborde */
+}
 
 .panel-login {
     background-color: #fff;

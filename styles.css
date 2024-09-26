@@ -146,6 +146,12 @@ nav ul li a.active {
     text-align: center;
     width: 100%;
     max-width: 90%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
 }
 
 .panel-intervencion {

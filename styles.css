@@ -312,6 +312,10 @@ form button:hover {
         margin-top: 20px;
         /* Ajusta solo el margen superior en móviles */
     }
+
+    .panel-intervencion {
+        margin-top: 200px;
+    }
 }
 
 /* Clases para manejar la visibilidad de las secciones */

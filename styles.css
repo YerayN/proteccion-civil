@@ -140,6 +140,7 @@ nav ul li a.active {
     position: relative;
 }
 
+/* Para asegurarte de que el iframe no afecte el comportamiento del margen */
 .panel iframe {
     width: 100%;
     height: auto;
@@ -147,30 +148,32 @@ nav ul li a.active {
     border: none;
 }
 
-/* Responsivo para móviles */
+/* Responsivo para tablets */
 @media (max-width: 768px) {
     .panel {
         padding: 20px;
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-top: 70px; /* Ajusta la separación superior para tabletas */
+        margin-bottom: 70px; /* Ajusta la separación inferior para tabletas */
     }
     
     .panel iframe {
-        min-height: 500px; /* Ajusta según el contenido */
+        min-height: 550px; /* Ajusta según el contenido */
     }
 }
 
+/* Responsivo para móviles */
 @media (max-width: 480px) {
     .panel {
         padding: 15px;
-        margin-top: 30px;
-        margin-bottom: 30px;
+        margin-top: 80px; /* Más espacio superior en móviles */
+        margin-bottom: 80px; /* Más espacio inferior en móviles */
     }
     
     .panel iframe {
-        min-height: 400px; /* Ajusta para pantallas más pequeñas */
+        min-height: 700px; /* Aumenta la altura del iframe para ocupar más espacio */
     }
 }
+
 
 .panel-login {
     background-color: #ffffff;

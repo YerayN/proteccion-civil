@@ -126,7 +126,7 @@ nav ul li a.active {
 
 /* Estilo del panel general */
 .panel {
-    background-color: #fff;
+    background-color: #c0c0c0;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -139,7 +139,7 @@ nav ul li a.active {
 }
 
 .panel-login {
-    background-color: #fff;
+    background-color: #cacaca;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -152,6 +152,7 @@ nav ul li a.active {
     left: 50%;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
+    margin-top: 10%;
 }
 
 .panel-intervencion {

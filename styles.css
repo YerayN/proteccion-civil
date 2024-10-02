@@ -134,7 +134,7 @@ nav ul li a.active {
     width: 100%;
     max-width: 100%; /* Asegura que el panel no se desborde */
     box-sizing: border-box; /* Asegura que padding y border no afecten el tamaño */
-    max-width: 600px; /* Ajusta según el diseño */
+    max-width: 800px; /* Ajusta según el diseño */
     margin: 0 auto; /* Centra el panel */
 }
 

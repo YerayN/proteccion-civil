@@ -455,10 +455,10 @@ body, html {
 
 /*PANELES MENÚS*/
 .boton-paneles {
-    min-width: 130px;
-    height: auto; /* Cambiado para adaptarse al contenido */
+    width: 200px; /* Ancho fijo para todos los botones */
+    height: auto; /* Deja que la altura se ajuste al contenido */
     color: #fff;
-    padding: 10px 20px; /* Ajustado para mejor alineación con el contenido */
+    padding: 20px; /* Ajusta según tu diseño */
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -470,6 +470,7 @@ body, html {
     border-radius: 5px;
     border: 2px solid #495057;
     background: #495057;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
 }
 
 .boton-paneles:hover {
@@ -478,6 +479,14 @@ body, html {
 }
 
 .boton-paneles h2, .boton-paneles p {
-    margin: 0; /* Elimina los márgenes en los elementos internos */
+    margin: 0;
     padding: 0;
 }
+
+/* Opcional: centrar los botones en un contenedor */
+.boton-panel {
+    display: flex;
+    justify-content: center; /* Centra el botón dentro del div */
+    margin-bottom: 20px; /* Espaciado entre botones si tienes varios */
+}
+

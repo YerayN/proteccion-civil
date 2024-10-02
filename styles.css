@@ -132,13 +132,44 @@ nav ul li a.active {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 100%;
-    max-width: 100%; /* Asegura que el panel no se desborde */
-    box-sizing: border-box; /* Asegura que padding y border no afecten el tamaño */
     max-width: 700px; /* Ajusta según el diseño */
-    margin: 0 auto; /* Centra el panel */
+    box-sizing: border-box;
+    margin: 0 auto;
     margin-top: 100px;
-    margin-bottom: 100px;
-    position: relative; /* Centra el panel */
+    margin-bottom: 100px; /* Asegura que el margen inferior se respete */
+    position: relative;
+}
+
+.panel iframe {
+    width: 100%;
+    height: auto;
+    min-height: 600px; /* Ajusta según la longitud esperada del formulario */
+    border: none;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .panel {
+        padding: 20px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    .panel iframe {
+        min-height: 500px; /* Ajusta según el contenido */
+    }
+}
+
+@media (max-width: 480px) {
+    .panel {
+        padding: 15px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .panel iframe {
+        min-height: 400px; /* Ajusta para pantallas más pequeñas */
+    }
 }
 
 .panel-login {

@@ -454,22 +454,30 @@ body, html {
     }
 
 /*PANELES MENÚS*/
-    .boton-paneles {
-        min-width: 130px;
-        height: 40px;
-        color: #fff;
-        padding: 5px 10px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        position: relative;
-        display: inline-block;
-        outline: none;
-        border-radius: 5px;
-        border: 2px solid #495057;
-        background: #495057;
-      }
-      .boton-paneles:hover {
-        background: #fff;
-        color: #495057
-      }
+.boton-paneles {
+    min-width: 130px;
+    height: auto; /* Cambiado para adaptarse al contenido */
+    color: #fff;
+    padding: 10px 20px; /* Ajustado para mejor alineación con el contenido */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid #495057;
+    background: #495057;
+}
+
+.boton-paneles:hover {
+    background: #fff;
+    color: #495057;
+}
+
+.boton-paneles h2, .boton-paneles p {
+    margin: 0; /* Elimina los márgenes en los elementos internos */
+    padding: 0;
+}

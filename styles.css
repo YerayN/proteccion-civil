@@ -136,7 +136,8 @@ nav ul li a.active {
     box-sizing: border-box; /* Asegura que padding y border no afecten el tamaño */
     max-width: 700px; /* Ajusta según el diseño */
     margin: 0 auto; /* Centra el panel */
-    margin-top: 400px;
+    margin-top: 100px;
+    margin-bottom: 100px;
     position: relative; /* Centra el panel */
 }
 

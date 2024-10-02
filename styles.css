@@ -455,7 +455,7 @@ body, html {
 
 /*PANELES MENÚS*/
 .boton-paneles {
-    width: 200px; /* Ancho fijo para todos los botones */
+    width: 400px; /* Ancho fijo para todos los botones */
     height: auto; /* Deja que la altura se ajuste al contenido */
     color: #fff;
     padding: 20px; /* Ajusta según tu diseño */

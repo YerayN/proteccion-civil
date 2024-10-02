@@ -453,4 +453,23 @@ body, html {
         text-align: center !important; /* Asegura que el texto esté centrado */
     }
 
-    /*separar paneles de distintos formularios. en estilos responsive, añadir un .panel-loquesea y darles x margin-top hasta centrar cada uno */
+/*PANELES MENÚS*/
+    .boton-paneles {
+        min-width: 130px;
+        height: 40px;
+        color: #fff;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        border-radius: 5px;
+        border: 2px solid #495057;
+        background: #495057;
+      }
+      .css-button-rounded--grey:hover {
+        background: #fff;
+        color: #495057
+      }

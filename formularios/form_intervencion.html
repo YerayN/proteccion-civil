@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
-    <script src="../auth.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <title>Intervención - Protección Civil</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="auth.js" defer></script>
+    <title>Documentos - Protección Civil</title>
 </head>
 
 <body onload="checkAuth()">
@@ -16,10 +15,10 @@
         <label for="menuToggle" class="menu-icon">&#9776; Menú</label>
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../documentos.html">Documentos</a></li>
-                <li><a href="../formacion.html">Formación</a></li>
-                <li><a href="../contacto.html">Contacto</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="documentos.html" class="active">Documentos</a></li>
+                <li><a href="formacion.html">Formación</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
         <div class="logout-container">
@@ -36,233 +35,37 @@
             </button>
         </div>
     </header>
-
-    <main class="formulario-main">
-        <div class="panel-intervencion">
-            <h2>Informe de intervención</h2>
-            <form id="informe-form">
-                <div class="form-group">
-                    <label for="categoria">Categoría:</label>
-                    <select id="categoria" name="categoria" required onchange="mostrarFormulario()">
-                        <option value="">(Seleccione una)</option>
-                        <option value="sanitaria">Sanitaria</option>
-                        <option value="incendio">Incendio</option>
-                        <option value="trafico">Tráfico</option>
-                        <option value="ayuda_social">Ayuda Social</option>
-                        <option value="proteccion_animal">Protección Animal</option>
-                    </select>
-                </div>
-
-                <!-- Campos comunes -->
-                <div class="form-group">
-                    <label for="motivo">Motivo de intervención:</label>
-                    <input type="text" id="motivo" name="motivo" required>
-                </div>
-                <div class="form-group">
-                    <label for="voluntario">Voluntario:</label>
-                    <input type="text" id="voluntario" name="voluntario" required>
-                </div>
-                <div class="form-group">
-                    <label for="vehiculo">Vehículo Utilizado:</label>
-                    <select id="vehiculo" name="vehiculo">
-                        <option value="">(Seleccione uno)</option>
-                        <option value="M-1">M-1</option>
-                        <option value="M-2">M-2</option>
-                        <option value="M-3">M-3</option>
-                        <option value="T-1">T-1</option>
-                        <option value="T-2">T-2</option>
-                        <option value="T-3">T-3</option>
-                        <option value="T-4">T-4</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="ubicacion">Ubicación:</label>
-                    <input type="text" id="ubicacion" name="ubicacion" required>
-                </div>
-                <div class="form-group-row">
-                    <div class="form-group">
-                        <label for="fecha-hora">Fecha y Hora:</label>
-                        <input type="datetime-local" id="fecha-hora" name="fecha-hora">
-                    </div>
-                    <div class="form-group">
-                        <label for="duracion">Tiempo empleado (horas):</label>
-                        <input type="number" id="duracion" name="duracion" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="solicitante">Solicitante:</label>
-                    <select id="solicitante" name="solicitante" required>
-                        <option value="">(Seleccione uno)</option>
-                        <option value="Policía local">Policía local</option>
-                        <option value="Guardia civil">Guardia civil</option>
-                        <option value="Ayuntamiento">Ayuntamiento</option>
-                        <option value="Particular">Particular</option>
-                        <option value="Evento">Evento</option>
-                        <option value="Otro">Otro</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="cooperacion">Cooperación con otras entidades:</label>
-                    <input type="text" id="cooperacion" name="cooperacion" required>
-                </div>
-
-
-                <!-- Separador visual -->
-                <hr style="margin: 20px 0; border-width: 3px;">
-
-                <!-- Formularios específicos por categoría -->
-                <div id="formulario-sanitaria" class="formulario-categoria seccion-oculta">
-                    <!-- Campos específicos para Sanitaria -->
-                    <div class="form-group">
-                        <label for="tipo-sanitaria">Tipo de emergencia sanitaria:</label>
-                        <select id="tipo-sanitaria" name="tipo-sanitaria" required>
-                            <option value="Domiciliaria">Domiciliaria</option>
-                            <option value="Vía pública">Vía pública</option>
-                            <option value="Tráfico">Tráfico</option>
-                            <option value="Evento">Evento</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="nombre-paciente">Nombre del paciente:</label>
-                        <input type="text" id="nombre-paciente" name="nombre-paciente">
-                    </div>
-                    <div class="form-group-row">
-                        <div class="form-group">
-                            <label for="edad-paciente">Edad:</label>
-                            <input type="number" id="edad-paciente" name="edad-paciente">
-                        </div>
-                        <div class="form-group">
-                            <label for="sexo-paciente">Sexo:</label>
-                            <select id="sexo-paciente" name="sexo-paciente" required>
-                                <option value="Masculino">Masculino</option>
-                                <option value="Femenino">Femenino</option>
-                                <option value="Otro">Otro</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="estado-paciente">Estado del paciente:</label>
-                        <input type="text" id="estado-paciente" name="estado-paciente">
-                    </div>
-                    <div class="form-group">
-                        <label for="primeros-auxilios">Primeros auxilios realizados:</label>
-                        <input type="text" id="primeros-auxilios" name="primeros-auxilios">
-                    </div>
-                    <div class="form-group">
-                        <label for="traslado">Traslado:</label>
-                        <input type="text" id="traslado" name="traslado">
-                    </div>
-                </div>
-
-
-                <div id="formulario-incendio" class="formulario-categoria seccion-oculta">
-                    <!-- Campos específicos para Incendio -->
-                    <div class="form-group">
-                        <label for="tipo-incendio">Tipo de incendio:</label>
-                        <select id="tipo-incendio" name="tipo-incendio" required>
-                            <option value="Forestal">Forestal</option>
-                            <option value="Urbano">Urbano</option>
-                            <option value="Domiciliario">Domiciliario</option>
-                            <option value="Vehículo">Vehículo</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="tamano-incendio">Tamaño aproximado del incendio:</label>
-                        <select id="tamano-incendio" name="tamano-incendio" required>
-                            <option value="Pequeño">Pequeño (Contenedor)</option>
-                            <option value="Mediano">Mediano (Casa)</option>
-                            <option value="Grande">Grande (Bosque)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="apoyo-incendio">Medidas de apoyo realizadas:</label>
-                        <input type="text" id="apoyo-incendio" name="apoyo-incendio">
-                    </div>
-                    <div class="form-group">
-                        <label for="recursos-incendio">Recursos empleados:</label>
-                        <input type="text" id="recursos-incendio" name="recursos-incendio">
-                    </div>
-                </div>
-
-                <div id="formulario-trafico" class="formulario-categoria seccion-oculta">
-                    <!-- Campos específicos para Tráfico -->
-                    <div class="form-group">
-                        <label for="tipo-trafico">Tipo de intervención:</label>
-                        <select id="tipo-trafico" name="tipo-trafico" required>
-                            <option value="Regulación de tráfico">Regulación de tráfico</option>
-                            <option value="Apoyo en accidente">Apoyo en accidente</option>
-                            <option value="Control de acceso">Control de acceso</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="apoyo-trafico">Medidas de apoyo realizadas:</label>
-                        <input type="text" id="apoyo-trafico" name="apoyo-trafico">
-                    </div>
-                    <div class="form-group">
-                        <label for="recursos-trafico">Recursos empleados:</label>
-                        <input type="text" id="recursos-trafico" name="recursos-trafico">
-                    </div>
-                </div>
-
-                <div id="formulario-ayuda_social" class="formulario-categoria seccion-oculta">
-                    <!-- Campos específicos para Ayuda Social -->
-                    <div class="form-group">
-                        <label for="beneficiario-social">Beneficiario/s:</label>
-                        <input type="text" id="beneficiario-social" name="beneficiario-social">
-                    </div>
-                    <div class="form-group">
-                        <label for="apoyo-social">Medidas de apoyo realizadas:</label>
-                        <input type="text" id="apoyo-social" name="apoyo-social">
-                    </div>
-                    <div class="form-group">
-                        <label for="recursos-social">Recursos empleados:</label>
-                        <input type="text" id="recursos-social" name="recursos-social">
-                    </div>
-                </div>
-
-                <div id="formulario-proteccion_animal" class="formulario-categoria seccion-oculta">
-                    <!-- Campos específicos para Protección Animal -->
-                    <div class="form-group-row">
-                        <div class="form-group">
-                            <label for="tipo-animal">Tipo de animal:</label>
-                            <select id="tipo-animal" name="tipo-animal" required>
-                                <option value="">(Seleccione una opción)</option>
-                                <option value="Perro">Perro</option>
-                                <option value="Gato">Gato</option>
-                                <option value="Otros">Otros</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="chip">¿Tiene chip?</label>
-                            <select id="chip" name="chip" required>
-                                <option value="">(Seleccione una opción)</option>
-                                <option value="Si">Si</option>
-                                <option value="No">No</option>
-                                <option value="Se desconoce">Desconocido</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="apoyo-animal">Medidas de apoyo realizadas:</label>
-                        <input type="text" id="apoyo-animal" name="apoyo-animal">
-                    </div>
-                    <div class="form-group">
-                        <label for="recursos-animal">Recursos empleados:</label>
-                        <input type="text" id="recursos-animal" name="recursos-animal">
-                    </div>
-                    <div class="form-group">
-                        <label for="traslado-animal">Traslado:</label>
-                        <input type="text" id="traslado-animal" name="traslado-animal">
-                    </div>
-                </div>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
+    <main class="main-documentos">
+        <section class="grid-container">
+            <div class="boton-panel">
+                <a href="formularios/form_intervencion.html" class="boton-paneles">
+                    <h2>Sanitaria</h2>
+                </a>
+            </div>
+            
+            <div class="boton-panel">
+                <a href="formularios/form_repostaje.html" class="boton-paneles">
+                    <h2>Incendio</h2>
+                </a>
+            </div>
+            <div class="boton-panel">
+                <a href="formularios/form_vehiculo.html" class="boton-paneles">
+                    <h2>Tráfico</h2>
+                </a>
+            </div>
+            <div class="boton-panel">
+                <a href="formularios/form_uniforme.html" class="boton-paneles">
+                    <h2>Ayuda social</h2>
+                </a>
+            </div>
+            <div class="boton-panel">
+                <a href="formularios/form_sugerencias.html" class="boton-paneles">
+                    <h2>Protección animal</h2>
+                    <p>Espacio para enviar ideas y comentarios.</p>
+                </a>
+            </div>
+        </section>
     </main>
-
-    <script src="pdf_intervencion.js"></script>
 </body>
 
 </html>

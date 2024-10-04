@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../styles.css">
     <script src="../auth.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <title>Uniforme - Protección Civil</title>
+    <title>Sanitaria - Protección Civil</title>
 </head>
 
 <body onload="checkAuth()">
@@ -17,7 +17,7 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../documentos.html">Documentos</a></li>
+                <li><a href="../documentos.html" class="active">Documentos</a></li>
                 <li><a href="../formacion.html">Formación</a></li>
                 <li><a href="../contacto.html">Contacto</a></li>
             </ul>
@@ -37,26 +37,9 @@
         </div>
     </header>
 
-    <main class="formulario-main">
-        <div class="panel">
-            <h2>Solicitud de uniforme</h2>
-            <form id="informe-form">
-
-                <div class="form-group">
-                    <label for="voluntario">Voluntario:</label>
-                    <input type="text" id="voluntario" name="voluntario" required>
-                </div>
-                <div class="form-group">
-                    <label for="uniforme">Uniformidad que se solicita:</label>
-                    <input type="text" id="uniforme" name="uniforme" required>
-                </div>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-    </main>
-
-    <script src="pdf_uniforme.js"></script>
+    <div class="panel">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScZMjplYRIgNeJLxxMkybWjfsgol-HfAc6UulvUxLUNL86mRQ/viewform?embedded=true" width="640" height="1325" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+    </div>
 </body>
 
 </html>
